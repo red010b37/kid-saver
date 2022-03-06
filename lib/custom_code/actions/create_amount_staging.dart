@@ -17,11 +17,12 @@ Future<DocumentReference> createAmountStaging(
 
   // createt the stading record we need
   final stgRcrdData = createStagingAmountRecordData(
-    amount: 0.0,
-    state: 'pending',
-    type: type,
-    userAccountRef: userAccountRef,
-  );
+      amount: 0.0,
+      state: 'pending',
+      type: type,
+      userAccountRef: userAccountRef,
+      createdAt: getCurrentTimestamp,
+      updatedAt: getCurrentTimestamp);
 
   // write all the buckets so we can look it up on the page
   final stagingAmountRecordReference =

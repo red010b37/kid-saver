@@ -9,6 +9,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../custom_code/actions/index.dart' as actions;
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -413,16 +414,9 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                                                           child: Text(
                                                             valueOrDefault<
                                                                 String>(
-                                                              formatNumber(
-                                                                columnUserAccountRecord
-                                                                    .totalCents,
-                                                                formatType:
-                                                                    FormatType
-                                                                        .custom,
-                                                                currency: '',
-                                                                format: '',
-                                                                locale: '',
-                                                              ),
+                                                              functions.formatCents(
+                                                                  columnUserAccountRecord
+                                                                      .totalCents),
                                                               '0',
                                                             ),
                                                             textAlign:
