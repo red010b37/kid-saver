@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 Future<DocumentReference> createAmountStaging(
   String type,
   DocumentReference userAccountRef,
+  DocumentReference guardianAccountRef,
 ) async {
   // get all the buckets for the user
   var buckets = await queryBucketsRecordOnce(

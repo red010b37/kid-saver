@@ -33,6 +33,10 @@ abstract class StagingAmountRecord
   DateTime get updatedAt;
 
   @nullable
+  @BuiltValueField(wireName: 'created_by_user_account_ref')
+  DocumentReference get createdByUserAccountRef;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -70,6 +74,7 @@ Map<String, dynamic> createStagingAmountRecordData({
   double amount,
   DateTime createdAt,
   DateTime updatedAt,
+  DocumentReference createdByUserAccountRef,
 }) =>
     serializers.toFirestore(
         StagingAmountRecord.serializer,
@@ -79,4 +84,5 @@ Map<String, dynamic> createStagingAmountRecordData({
           ..userAccountRef = userAccountRef
           ..amount = amount
           ..createdAt = createdAt
-          ..updatedAt = updatedAt));
+          ..updatedAt = updatedAt
+          ..createdByUserAccountRef = createdByUserAccountRef));
