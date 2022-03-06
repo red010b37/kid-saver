@@ -1,2 +1,2 @@
 export 'create_amount_staging.dart' show createAmountStaging;
-export 'calculat_amounts.dart' show calculatAmounts;
+export 'calculate_amounts.dart' show calculateAmounts;
