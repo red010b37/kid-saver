@@ -10,7 +10,7 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
   // Add your function code here!
 
   var stagingAmountRecord =
-      await StagingAmountRecord.getDocumentOnce(stagingAmount);
+      await StagingAmountRecord.getDocumentOnce(stagingAmountRef);
   var userAccountRecord = await UserAccountRecord.getDocumentOnce(
       stagingAmountRecord.userAccountRef);
 
