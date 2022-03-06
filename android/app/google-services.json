@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "950864632113",
+    "project_id": "kids-saver",
+    "storage_bucket": "kids-saver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950864632113:android:a2a189777d852df80b3810",
+        "android_client_info": {
+          "package_name": "com.flutterflow.kidssaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950864632113-6e2ev7u79ep4bt4jbm7v3boi71e705vo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.kidssaver",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "950864632113-1kjjtlu2tgb5r7c7k357ftgfg5i8adk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Y_3PWV9PW_Ny3tRDsdaOpSBqUCmPbfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950864632113-1kjjtlu2tgb5r7c7k357ftgfg5i8adk8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "950864632113-c5g694nd66hmi5rrd4u0411p79gkhmkp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "nz.kidsaver.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950864632113:android:d4826b74ab6682340b3810",
+        "android_client_info": {
+          "package_name": "nz.kidsaver.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950864632113-19e7tg0b565ledmbm5iplmvfhktuh9qm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nz.kidsaver.app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "950864632113-1kjjtlu2tgb5r7c7k357ftgfg5i8adk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Y_3PWV9PW_Ny3tRDsdaOpSBqUCmPbfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950864632113-1kjjtlu2tgb5r7c7k357ftgfg5i8adk8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "950864632113-c5g694nd66hmi5rrd4u0411p79gkhmkp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "nz.kidsaver.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

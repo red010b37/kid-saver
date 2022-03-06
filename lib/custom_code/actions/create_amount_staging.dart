@@ -1,0 +1,44 @@
+// Automatic FlutterFlow imports
+import '../../backend/backend.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+
+// Begin custom action code
+Future<DocumentReference> createAmountStaging(
+  String type,
+  DocumentReference userAccountRef,
+) async {
+  // get all the buckets for the user
+  var buckets = await queryBucketsRecordOnce(
+      queryBuilder: (bucketsRecord) =>
+          bucketsRecord.where('user_account_ref', isEqualTo: userAccountRef));
+
+  // createt the stading record we need
+  final stgRcrdData = createStagingAmountRecordData(
+    amount: 0.0,
+    state: 'pending',
+    type: 'add',
+    userAccountRef: userAccountRef,
+  );
+
+  // write all the buckets so we can look it up on the page
+  final stagingAmountRecordReference =
+      await StagingAmountRecord.collection.add(stgRcrdData);
+  List<Future<DocumentReference<Object>>> stagingAmountBucketWrites = [];
+
+  buckets.forEach((bucketRecord) {
+    final stg = createStagingAmountBucketsRecordData(
+      isSelected: false,
+      bucketRef: bucketRecord.reference,
+      stagingAmountRef: stagingAmountRecordReference,
+    );
+
+    stagingAmountBucketWrites
+        .add(StagingAmountBucketsRecord.collection.add(stg));
+  });
+
+  await Future.wait(stagingAmountBucketWrites);
+
+  return stagingAmountRecordReference;
+}
