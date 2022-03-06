@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_toggle_icon.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,12 +24,14 @@ class AddAmountComponentWidget extends StatefulWidget {
 }
 
 class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
-  TextEditingController textController;
+  TextEditingController textController1;
+  TextEditingController textController2;
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
   }
 
   @override
@@ -92,7 +95,7 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(0, 0),
                               child: TextFormField(
-                                controller: textController,
+                                controller: textController1,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '0.00',
@@ -150,6 +153,47 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                     fontSize: 12,
                                     fontWeight: FontWeight.w100,
                                   ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 20),
+                            child: TextFormField(
+                              controller: textController2,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                hintText: 'Description (optional)',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
+                              keyboardType: TextInputType.multiline,
                             ),
                           ),
                           Expanded(
@@ -331,10 +375,13 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                               final stagingAmountUpdateData =
                                   createStagingAmountRecordData(
                                 state: 'complete',
-                                amount: double.parse(textController.text),
+                                amount: double.parse(textController1.text),
                               );
                               await stackStagingAmountRecord.reference
                                   .update(stagingAmountUpdateData);
+                              await actions.calculateAmounts(
+                                widget.stagingAmountRed,
+                              );
                               Navigator.pop(context);
                             },
                             text: 'Add',
