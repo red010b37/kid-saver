@@ -19,7 +19,7 @@ Future<DocumentReference> createAmountStaging(
   final stgRcrdData = createStagingAmountRecordData(
     amount: 0.0,
     state: 'pending',
-    type: 'add',
+    type: type,
     userAccountRef: userAccountRef,
   );
 

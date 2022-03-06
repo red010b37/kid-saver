@@ -3,8 +3,8 @@ import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-// Begin custom action code
 
+// Begin custom action code
 // Begin custom action code
 Future calculateAmounts(DocumentReference stagingAmountRef) async {
   // Add your function code here!
@@ -18,13 +18,14 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
       queryBuilder: (bucketsRecord) => bucketsRecord.where('staging_amount_ref',
           isEqualTo: stagingAmountRecord.reference));
   var type = stagingAmountRecord.type;
-  var stagingAmountInCents = (stagingAmountRecord.amount * 100).toInt();
+  var stagingAmountInCents = (stagingAmountRecord.amount * 100).toInt() ?? 0;
 
-  var userAccountTotalCents = userAccountRecord.totalCents;
+  var userAccountTotalCents = userAccountRecord.totalCents ?? 0;
 
-  // create all the transactions
-  List<Future<DocumentReference<Object>>> transactionWrites = [];
-  stagingBuckets.forEach((stagingBucket) async {
+  var test = 0;
+
+  await Future.forEach<StagingAmountBucketsRecord>(stagingBuckets,
+      (stagingBucket) async {
     if (stagingBucket.isSelected) {
       // create the transactions
       var tsData = createTransactionRecordData(
@@ -37,12 +38,12 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
         updatedAt: getCurrentTimestamp,
         createdAt: getCurrentTimestamp,
       );
-      transactionWrites.add(TransactionRecord.collection.add(tsData));
+      await TransactionRecord.collection.add(tsData);
 
       // add up the and update bucket
       var bucketRecord =
           await BucketsRecord.getDocumentOnce(stagingBucket.bucketRef);
-      var bucketRecordCents = bucketRecord.totalCents;
+      var bucketRecordCents = bucketRecord.totalCents ?? 0;
 
       switch (type) {
         case 'add':
@@ -56,11 +57,10 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
         default:
         // do nothing;
       }
-      bucketRecordCents += stagingAmountInCents;
 
       var updateBucketData = createBucketsRecordData(
           totalCents: bucketRecordCents, updatedAt: getCurrentTimestamp);
-      transactionWrites.add(bucketRecord.reference.update(updateBucketData));
+      await bucketRecord.reference.update(updateBucketData);
 
       //add the user account to the total cents
 
@@ -69,7 +69,5 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
 
   var userAccUpdateData = createUserAccountRecordData(
       totalCents: userAccountTotalCents, updatedAt: getCurrentTimestamp);
-
-  transactionWrites.add(userAccountRecord.reference.update(userAccUpdateData));
-  await Future.wait(transactionWrites);
+  await stagingAmountRecord.userAccountRef.update(userAccUpdateData);
 }

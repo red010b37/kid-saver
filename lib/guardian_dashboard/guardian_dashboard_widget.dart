@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../components/add_amount_component_widget.dart';
+import '../components/remove_amount_component_widget.dart';
 import '../create_child/create_child_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -27,6 +28,7 @@ class GuardianDashboardWidget extends StatefulWidget {
 
 class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
     with TickerProviderStateMixin {
+  DocumentReference removeStagingAmountRef;
   DocumentReference stagingAmountRef;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   UserAccountRecord createdUserAccount;
@@ -512,8 +514,42 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                                             ),
                                           ),
                                           FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              removeStagingAmountRef =
+                                                  await actions
+                                                      .createAmountStaging(
+                                                'remove',
+                                                columnUserAccountRecord
+                                                    .reference,
+                                                widget.userAccountRref,
+                                              );
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                context: context,
+                                                builder: (context) {
+                                                  return Padding(
+                                                    padding:
+                                                        MediaQuery.of(context)
+                                                            .viewInsets,
+                                                    child: Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.8,
+                                                      child:
+                                                          RemoveAmountComponentWidget(
+                                                        stagingAmountRed:
+                                                            removeStagingAmountRef,
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+
+                                              setState(() {});
                                             },
                                             text: '-',
                                             options: FFButtonOptions(

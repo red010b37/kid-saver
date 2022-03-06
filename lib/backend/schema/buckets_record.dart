@@ -48,6 +48,10 @@ abstract class BucketsRecord
   int get totalCents;
 
   @nullable
+  @BuiltValueField(wireName: 'is_spendable')
+  bool get isSpendable;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -57,7 +61,8 @@ abstract class BucketsRecord
     ..canUserDelete = false
     ..description = ''
     ..lastSeenTotalCents = 0
-    ..totalCents = 0;
+    ..totalCents = 0
+    ..isSpendable = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('buckets');
@@ -91,6 +96,7 @@ Map<String, dynamic> createBucketsRecordData({
   DocumentReference accountRef,
   int lastSeenTotalCents,
   int totalCents,
+  bool isSpendable,
 }) =>
     serializers.toFirestore(
         BucketsRecord.serializer,
@@ -104,4 +110,5 @@ Map<String, dynamic> createBucketsRecordData({
           ..description = description
           ..accountRef = accountRef
           ..lastSeenTotalCents = lastSeenTotalCents
-          ..totalCents = totalCents));
+          ..totalCents = totalCents
+          ..isSpendable = isSpendable));
