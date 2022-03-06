@@ -37,13 +37,17 @@ abstract class StagingAmountRecord
   DocumentReference get createdByUserAccountRef;
 
   @nullable
+  String get description;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(StagingAmountRecordBuilder builder) => builder
     ..state = ''
     ..type = ''
-    ..amount = 0.0;
+    ..amount = 0.0
+    ..description = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('stagingAmount');
@@ -75,6 +79,7 @@ Map<String, dynamic> createStagingAmountRecordData({
   DateTime createdAt,
   DateTime updatedAt,
   DocumentReference createdByUserAccountRef,
+  String description,
 }) =>
     serializers.toFirestore(
         StagingAmountRecord.serializer,
@@ -85,4 +90,5 @@ Map<String, dynamic> createStagingAmountRecordData({
           ..amount = amount
           ..createdAt = createdAt
           ..updatedAt = updatedAt
-          ..createdByUserAccountRef = createdByUserAccountRef));
+          ..createdByUserAccountRef = createdByUserAccountRef
+          ..description = description));
