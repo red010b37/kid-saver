@@ -295,7 +295,7 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                               setState(() => datePicked = date);
                                             },
                                             currentTime: getCurrentTimestamp,
-                                            minTime: getCurrentTimestamp,
+                                            minTime: DateTime(0, 0, 0),
                                           );
                                         },
                                         child: Container(
