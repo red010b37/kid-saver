@@ -122,7 +122,7 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                               createdAt: getCurrentTimestamp,
                               updatedAt: getCurrentTimestamp,
                             );
-                            final onboardingRecordReference =
+                            var onboardingRecordReference =
                                 OnboardingRecord.collection.doc();
                             await onboardingRecordReference
                                 .set(onboardingCreateData);

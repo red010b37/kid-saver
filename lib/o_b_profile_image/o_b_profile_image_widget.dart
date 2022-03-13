@@ -275,6 +275,7 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                     if (user == null) {
                                       return;
                                     }
+
                                     final accountCreateData =
                                         createAccountRecordData(
                                       ownerRef: currentUserReference,
@@ -282,7 +283,7 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                       createdAt: getCurrentTimestamp,
                                       updatedAt: getCurrentTimestamp,
                                     );
-                                    final accountRecordReference =
+                                    var accountRecordReference =
                                         AccountRecord.collection.doc();
                                     await accountRecordReference
                                         .set(accountCreateData);

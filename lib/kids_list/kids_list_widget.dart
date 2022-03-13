@@ -70,78 +70,97 @@ class _KidsListWidgetState extends State<KidsListWidget> {
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: BoxDecoration(),
-                  child: StreamBuilder<List<UserAccountRecord>>(
-                    stream: queryUserAccountRecord(
-                      queryBuilder: (userAccountRecord) => userAccountRecord
-                          .where('account_ref',
-                              isEqualTo:
-                                  kidsListUsersRecord.lastActiveAccountRef)
-                          .where('state', isEqualTo: 'active'),
+              child: Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 1,
+                    constraints: BoxConstraints(
+                      maxWidth: 500,
                     ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                    decoration: BoxDecoration(),
+                    child: StreamBuilder<List<UserAccountRecord>>(
+                      stream: queryUserAccountRecord(
+                        queryBuilder: (userAccountRecord) => userAccountRecord
+                            .where('account_ref',
+                                isEqualTo:
+                                    kidsListUsersRecord.lastActiveAccountRef)
+                            .where('state', isEqualTo: 'active'),
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: CircularProgressIndicator(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                              ),
                             ),
-                          ),
-                        );
-                      }
-                      List<UserAccountRecord> gridViewUserAccountRecordList =
-                          snapshot.data;
-                      return GridView.builder(
-                        padding: EdgeInsets.zero,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 1,
-                        ),
-                        scrollDirection: Axis.vertical,
-                        itemCount: gridViewUserAccountRecordList.length,
-                        itemBuilder: (context, gridViewIndex) {
-                          final gridViewUserAccountRecord =
-                              gridViewUserAccountRecordList[gridViewIndex];
-                          return Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              InkWell(
-                                onTap: () async {
-                                  if ((gridViewUserAccountRecord
-                                          .relationship) ==
-                                      'guardian') {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            GuardianDashboardWidget(
-                                          userAccountRref:
-                                              gridViewUserAccountRecord
-                                                  .reference,
-                                        ),
+                          );
+                        }
+                        List<UserAccountRecord> wrapUserAccountRecordList =
+                            snapshot.data;
+                        return Wrap(
+                          spacing: 30,
+                          runSpacing: 30,
+                          alignment: WrapAlignment.center,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
+                          children: List.generate(
+                              wrapUserAccountRecordList.length, (wrapIndex) {
+                            final wrapUserAccountRecord =
+                                wrapUserAccountRecordList[wrapIndex];
+                            return InkWell(
+                              onTap: () async {
+                                if ((wrapUserAccountRecord.relationship) ==
+                                    'guardian') {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          GuardianDashboardWidget(
+                                        userAccountRref:
+                                            wrapUserAccountRecord.reference,
                                       ),
-                                    );
-                                  }
-                                },
-                                child: Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
+                                    ),
+                                  );
+                                }
+                              },
+                              child: Container(
+                                width: 120,
+                                height: 150,
+                                decoration: BoxDecoration(),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      if ((wrapUserAccountRecord
+                                              .relationship) ==
+                                          'guardian') {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                GuardianDashboardWidget(
+                                              userAccountRref:
+                                                  wrapUserAccountRecord
+                                                      .reference,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    },
                                     child: Container(
-                                      width: 100,
-                                      height: 100,
+                                      width: double.infinity,
+                                      height: double.infinity,
                                       child: Stack(
                                         children: [
                                           Image.asset(
@@ -161,9 +180,19 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
-                                                gridViewUserAccountRecord
+                                                wrapUserAccountRecord
                                                     .profileImagePath,
                                               ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 1),
+                                            child: Text(
+                                              wrapUserAccountRecord.displayName,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
                                             ),
                                           ),
                                         ],
@@ -172,15 +201,11 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                                   ),
                                 ),
                               ),
-                              Text(
-                                gridViewUserAccountRecord.displayName,
-                                style: FlutterFlowTheme.of(context).bodyText1,
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
+                            );
+                          }),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),

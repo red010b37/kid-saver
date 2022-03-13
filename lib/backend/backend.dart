@@ -13,6 +13,7 @@ import 'schema/buckets_record.dart';
 import 'schema/staging_amount_record.dart';
 import 'schema/staging_amount_buckets_record.dart';
 import 'schema/transaction_record.dart';
+import 'schema/config_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -28,6 +29,7 @@ export 'schema/buckets_record.dart';
 export 'schema/staging_amount_record.dart';
 export 'schema/staging_amount_buckets_record.dart';
 export 'schema/transaction_record.dart';
+export 'schema/config_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord(
@@ -169,6 +171,21 @@ Future<List<TransactionRecord>> queryTransactionRecordOnce(
         bool singleRecord = false}) =>
     queryCollectionOnce(
         TransactionRecord.collection, TransactionRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query ConfigRecords (as a Stream and as a Future).
+Stream<List<ConfigRecord>> queryConfigRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(ConfigRecord.collection, ConfigRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<ConfigRecord>> queryConfigRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(ConfigRecord.collection, ConfigRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(

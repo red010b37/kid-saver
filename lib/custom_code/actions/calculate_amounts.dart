@@ -5,7 +5,6 @@ import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
 // Begin custom action code
-// Begin custom action code
 Future calculateAmounts(DocumentReference stagingAmountRef) async {
   // Add your function code here!
 
@@ -21,6 +20,7 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
   var stagingAmountInCents = (stagingAmountRecord.amount * 100).toInt() ?? 0;
 
   var userAccountTotalCents = userAccountRecord.totalCents ?? 0;
+  var userAccountSpendableCents = userAccountRecord.spendableCents ?? 0;
 
   var test = 0;
 
@@ -49,10 +49,19 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
         case 'add':
           bucketRecordCents += stagingAmountInCents;
           userAccountTotalCents += stagingAmountInCents;
+
+          if (bucketRecord.type == 'spendable') {
+            userAccountSpendableCents += stagingAmountInCents;
+          }
+
           break;
         case 'remove':
           bucketRecordCents -= stagingAmountInCents;
           userAccountTotalCents -= stagingAmountInCents;
+
+          if (bucketRecord.type == 'spendable') {
+            userAccountSpendableCents -= stagingAmountInCents;
+          }
           break;
         default:
         // do nothing;
@@ -68,6 +77,8 @@ Future calculateAmounts(DocumentReference stagingAmountRef) async {
   });
 
   var userAccUpdateData = createUserAccountRecordData(
-      totalCents: userAccountTotalCents, updatedAt: getCurrentTimestamp);
+      totalCents: userAccountTotalCents,
+      spendableCents: userAccountSpendableCents,
+      updatedAt: getCurrentTimestamp);
   await stagingAmountRecord.userAccountRef.update(userAccUpdateData);
 }

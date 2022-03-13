@@ -9,6 +9,7 @@ import 'buckets_record.dart';
 import 'staging_amount_record.dart';
 import 'staging_amount_buckets_record.dart';
 import 'transaction_record.dart';
+import 'config_record.dart';
 
 import 'index.dart';
 
@@ -28,6 +29,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   StagingAmountRecord,
   StagingAmountBucketsRecord,
   TransactionRecord,
+  ConfigRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
