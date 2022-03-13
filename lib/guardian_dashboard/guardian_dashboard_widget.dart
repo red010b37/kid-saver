@@ -9,6 +9,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../guardian_settings/guardian_settings_widget.dart';
+import '../kids_list/kids_list_widget.dart';
 import '../custom_code/actions/index.dart' as actions;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -189,6 +190,29 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                               ),
                             ),
                           ],
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(-1, 1),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                            onPressed: () async {
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => KidsListWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            },
+                          ),
                         ),
                         Align(
                           alignment: AlignmentDirectional(1, 1),

@@ -444,7 +444,8 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                                 widget.createdUserAccountRef,
                                                 widget.accountRef,
                                               );
-                                              await Navigator.push(
+                                              await Navigator
+                                                  .pushAndRemoveUntil(
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
@@ -453,6 +454,7 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                                         .guardingUserAccontRef,
                                                   ),
                                                 ),
+                                                (r) => false,
                                               );
                                             },
                                             text: 'Add',
