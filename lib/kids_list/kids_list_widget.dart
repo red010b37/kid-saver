@@ -4,6 +4,7 @@ import '../child_dashboard/child_dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../guardian_dashboard/guardian_dashboard_widget.dart';
+import '../o_b_get_started/o_b_get_started_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,13 +52,25 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                   children: [
                     Align(
                       alignment: AlignmentDirectional(0, 0),
-                      child: Text(
-                        'Who are you?',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Colors.white,
-                              fontSize: 22,
+                      child: InkWell(
+                        onTap: () async {
+                          await signOut();
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OBGetStartedWidget(),
                             ),
+                            (r) => false,
+                          );
+                        },
+                        child: Text(
+                          'Who are you?',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Colors.white,
+                                fontSize: 22,
+                              ),
+                        ),
                       ),
                     ),
                   ],
