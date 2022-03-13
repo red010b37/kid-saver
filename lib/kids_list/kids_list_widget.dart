@@ -170,26 +170,36 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                                     height: double.infinity,
                                     child: Stack(
                                       children: [
-                                        Image.asset(
-                                          'assets/images/select_screen_circles.png',
+                                        Container(
                                           width: 120,
                                           height: 120,
-                                          fit: BoxFit.cover,
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0, -0.25),
-                                          child: Container(
-                                            width: 80,
-                                            height: 80,
-                                            clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Image.network(
-                                              wrapUserAccountRecord
-                                                  .profileImagePath,
-                                            ),
+                                          child: Stack(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            children: [
+                                              Image.asset(
+                                                'assets/images/select_screen_circles.png',
+                                                width: 120,
+                                                height: 120,
+                                                fit: BoxFit.cover,
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0, 0.1),
+                                                child: Container(
+                                                  width: 90,
+                                                  height: 90,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    wrapUserAccountRecord
+                                                        .profileImagePath,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                         Align(
