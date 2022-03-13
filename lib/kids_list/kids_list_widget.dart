@@ -1,5 +1,6 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../child_dashboard/child_dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../guardian_dashboard/guardian_dashboard_widget.dart';
@@ -132,6 +133,17 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                                       ),
                                     ),
                                   );
+                                } else {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChildDashboardWidget(
+                                        userAccountRef:
+                                            wrapUserAccountRecord.reference,
+                                      ),
+                                    ),
+                                  );
                                 }
                               },
                               child: Container(
@@ -140,63 +152,42 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                                 decoration: BoxDecoration(),
                                 child: Align(
                                   alignment: AlignmentDirectional(0, 0),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      if ((wrapUserAccountRecord
-                                              .relationship) ==
-                                          'guardian') {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                GuardianDashboardWidget(
-                                              userAccountRref:
-                                                  wrapUserAccountRecord
-                                                      .reference,
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    child: Stack(
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/select_screen_circles.png',
+                                          width: 120,
+                                          height: 120,
+                                          fit: BoxFit.cover,
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0, 0.1),
+                                          child: Container(
+                                            width: 80,
+                                            height: 80,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              wrapUserAccountRecord
+                                                  .profileImagePath,
                                             ),
                                           ),
-                                        );
-                                      }
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            'assets/images/select_screen_circles.png',
-                                            width: 120,
-                                            height: 120,
-                                            fit: BoxFit.cover,
+                                        ),
+                                        Align(
+                                          alignment: AlignmentDirectional(0, 1),
+                                          child: Text(
+                                            wrapUserAccountRecord.displayName,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1,
                                           ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0, 0.1),
-                                            child: Container(
-                                              width: 80,
-                                              height: 80,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Image.network(
-                                                wrapUserAccountRecord
-                                                    .profileImagePath,
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0, 1),
-                                            child: Text(
-                                              wrapUserAccountRecord.displayName,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),

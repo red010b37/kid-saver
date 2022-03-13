@@ -17,7 +17,7 @@ class KidsHomeMasonLayout extends StatefulWidget {
   final double width;
   final double height;
   final double minRadius;
-  final List<DocumentReference> buckets;
+  final List<BucketsRecord> buckets;
 
   @override
   _KidsHomeMasonLayoutState createState() => _KidsHomeMasonLayoutState();
