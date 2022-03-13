@@ -60,19 +60,12 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
   }
 
   void buildBuckets(double width, double height) {
-    for (var c in [
-      Colors.cyanAccent,
-      Colors.deepOrange,
-      Colors.orange,
-      Colors.purpleAccent,
-      Colors.lightGreenAccent,
-      Colors.pink,
-    ]) {
+    for (var b in widget.buckets) {
       buckets.add(BucketDisplay(
           bc: bc,
           x: (Random().nextDouble() * 10),
           y: (Random().nextDouble() * 10),
-          color: c));
+          color: Colors.pink));
     }
   }
 

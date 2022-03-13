@@ -44,23 +44,26 @@ class _KidsListWidgetState extends State<KidsListWidget> {
               automaticallyImplyLeading: false,
               flexibleSpace: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Text(
-                        'Who are you?',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Colors.white,
-                              fontSize: 22,
-                            ),
+                child: InkWell(
+                  onTap: () async {},
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Text(
+                          'Who are you?',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Colors.white,
+                                fontSize: 22,
+                              ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               actions: [],

@@ -51,6 +51,9 @@ abstract class BucketsRecord
   String get type;
 
   @nullable
+  String get color;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -61,7 +64,8 @@ abstract class BucketsRecord
     ..description = ''
     ..lastSeenTotalCents = 0
     ..totalCents = 0
-    ..type = '';
+    ..type = ''
+    ..color = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('buckets');
@@ -96,6 +100,7 @@ Map<String, dynamic> createBucketsRecordData({
   int lastSeenTotalCents,
   int totalCents,
   String type,
+  String color,
 }) =>
     serializers.toFirestore(
         BucketsRecord.serializer,
@@ -110,4 +115,5 @@ Map<String, dynamic> createBucketsRecordData({
           ..accountRef = accountRef
           ..lastSeenTotalCents = lastSeenTotalCents
           ..totalCents = totalCents
-          ..type = type));
+          ..type = type
+          ..color = color));
