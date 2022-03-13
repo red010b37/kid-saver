@@ -4,7 +4,6 @@ import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 // Begin custom widget code
-
 import 'dart:async';
 import 'dart:math';
 
@@ -61,11 +60,14 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
 
   void buildBuckets(double width, double height) {
     for (var b in widget.buckets) {
+      int value = int.parse(b.color);
+      Color color = Color(value).withOpacity(1);
+
       buckets.add(BucketDisplay(
           bc: bc,
           x: (Random().nextDouble() * 10),
           y: (Random().nextDouble() * 10),
-          color: Colors.pink));
+          color: color));
     }
   }
 

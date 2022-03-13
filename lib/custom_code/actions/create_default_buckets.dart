@@ -13,7 +13,7 @@ Future createDefaultBuckets(
   // Add your function code here!
 
   var spendableBucket = createBucketsRecordData(
-    color: Colors.amberAccent.toString(),
+    color: Colors.amberAccent.value.toString(),
     createdAt: getCurrentTimestamp,
     updatedAt: getCurrentTimestamp,
     state: 'active',
@@ -28,7 +28,7 @@ Future createDefaultBuckets(
   );
 
   var savingsBucket = createBucketsRecordData(
-    color: Color.fromRGBO(14, 22, 77, 1.0).toString(),
+    color: Color.fromRGBO(14, 22, 77, 1.0).value.toString(),
     name: 'Savings',
     lastSeenTotalCents: 0,
     description: '',
