@@ -165,7 +165,7 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0, 0.1),
+                                              AlignmentDirectional(0, -0.25),
                                           child: Container(
                                             width: 80,
                                             height: 80,

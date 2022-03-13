@@ -442,8 +442,7 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                               await actions
                                                   .createDefaultBuckets(
                                                 widget.createdUserAccountRef,
-                                                createChildUserAccountRecord
-                                                    .accountRef,
+                                                widget.accountRef,
                                               );
                                               await Navigator.push(
                                                 context,
