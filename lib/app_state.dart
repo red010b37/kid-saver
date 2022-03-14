@@ -25,6 +25,8 @@ class FFAppState {
     _appVersion = _value;
     prefs.setString('ff_appVersion', _value);
   }
+
+  bool uiIsAddBucketMenuOpen = false;
 }
 
 LatLng _latLngFromString(String val) {

@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/kids_add_bucket_types_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -74,91 +75,82 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
             elevation: 0,
           ),
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              print('FloatingActionButton pressed ...');
-            },
-            backgroundColor: FlutterFlowTheme.of(context).secondaryColor,
-            elevation: 8,
-            child: Icon(
-              Icons.add,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24,
-            ),
-          ),
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              child: Align(
-                alignment: AlignmentDirectional(0, 0),
-                child: StreamBuilder<List<BucketsRecord>>(
-                  stream: queryBucketsRecord(
-                    queryBuilder: (bucketsRecord) => bucketsRecord
-                        .where('user_account_ref',
-                            isEqualTo: widget.userAccountRef)
-                        .where('account_ref',
-                            isEqualTo:
-                                childDashboardUserAccountRecord.accountRef),
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                          ),
-                        ),
-                      );
-                    }
-                    List<BucketsRecord> containerBucketsRecordList =
-                        snapshot.data;
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 1,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryText,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: AlignmentDirectional(0, 0),
+                    child: StreamBuilder<List<BucketsRecord>>(
+                      stream: queryBucketsRecord(
+                        queryBuilder: (bucketsRecord) => bucketsRecord
+                            .where('user_account_ref',
+                                isEqualTo: widget.userAccountRef)
+                            .where('account_ref',
+                                isEqualTo:
+                                    childDashboardUserAccountRecord.accountRef),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 3,
-                            child: Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: 120,
-                              decoration: BoxDecoration(
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: CircularProgressIndicator(
                                 color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
+                                    FlutterFlowTheme.of(context).primaryColor,
                               ),
-                              child: Stack(
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                            ),
+                          );
+                        }
+                        List<BucketsRecord> containerBucketsRecordList =
+                            snapshot.data;
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height * 1,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Material(
+                                color: Colors.transparent,
+                                elevation: 3,
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                  ),
+                                  child: Stack(
                                     children: [
-                                      Row(
+                                      Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.start,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 0, 0),
-                                            child: AutoSizeText(
-                                              valueOrDefault<String>(
-                                                functions.formatCents(
-                                                    childDashboardUserAccountRecord
-                                                        .totalCents),
-                                                '0',
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 5, 0, 0),
+                                                child: AutoSizeText(
+                                                  valueOrDefault<String>(
+                                                    functions.formatCents(
+                                                        childDashboardUserAccountRecord
+                                                            .totalCents),
+                                                    '0',
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
@@ -167,32 +159,35 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                                             FontWeight.w300,
                                                         lineHeight: 1.2,
                                                       ),
-                                            ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Total',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1,
                                           ),
                                         ],
                                       ),
-                                      Text(
-                                        'Total',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
                                     ],
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
+                              custom_widgets.KidsHomeMasonLayout(
+                                width: MediaQuery.of(context).size.width,
+                                height: 100,
+                                buckets: containerBucketsRecordList.toList(),
+                                userAccount: childDashboardUserAccountRecord,
+                              ),
+                            ],
                           ),
-                          custom_widgets.KidsHomeMasonLayout(
-                            width: MediaQuery.of(context).size.width,
-                            height: 100,
-                            buckets: containerBucketsRecordList.toList(),
-                            userAccount: childDashboardUserAccountRecord,
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                        );
+                      },
+                    ),
+                  ),
+                  KidsAddBucketTypesWidget(),
+                ],
               ),
             ),
           ),

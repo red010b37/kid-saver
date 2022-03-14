@@ -4,6 +4,8 @@ import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 // Begin custom widget code
+
+import '../../flutter_flow/custom_functions.dart';
 import 'dart:async';
 import 'dart:math';
 import '../../flutter_flow/custom_functions.dart';
@@ -18,12 +20,14 @@ class KidsHomeMasonLayout extends StatefulWidget {
     this.height,
     this.minRadius,
     this.buckets,
+    this.userAccount,
   }) : super(key: key);
 
   final double width;
   final double height;
   final double minRadius;
   final List<BucketsRecord> buckets;
+  final UserAccountRecord userAccount;
 
   @override
   _KidsHomeMasonLayoutState createState() => _KidsHomeMasonLayoutState();
@@ -37,17 +41,20 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
   List<BucketDisplay> buckets = [];
 
   Timer _stateTimer;
+  CurvedAnimation totalAnimation;
 
-  // final AnimationController _controller = AnimationController(
-  //   duration: const Duration(seconds: 1),
-  //   vsync: this,
-  // )..forward();
+  int displayTotalCents = 0;
 
   @override
   void initState() {
     super.initState();
 
     bc = BallCage();
+
+    final AnimationController _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    )..forward();
 
     _stateTimer = Timer.periodic(
         const Duration(milliseconds: 30),
@@ -62,8 +69,8 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
     var minR = 50;
     var maxR = 100;
 
-    int maxValue = widget.buckets[0].totalCents;
-    int minValue = widget.buckets[0].totalCents;
+    int maxValue = 0;
+    int minValue = 9999999999999;
 
     for (var b in widget.buckets) {
       if (maxValue < b.totalCents) {
@@ -78,18 +85,23 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
       int value = int.parse(b.color);
       Color color = Color(value).withOpacity(1);
 
-      var j = (b.lastSeenTotalCents / maxValue);
-      var cdStart = maxR * j;
+      var cdStart = minR.toDouble();
+      var cd = minR.toDouble();
 
-      if (cdStart < minR) {
-        cdStart = minR.toDouble();
-      }
+      if (b.totalCents != 0) {
+        var j = (b.lastSeenTotalCents.toDouble() / maxValue.toDouble());
+        cdStart = maxR * j;
 
-      var i = (b.totalCents / maxValue);
-      var cd = maxR * i;
+        if (cdStart < minR) {
+          cdStart = minR.toDouble();
+        }
 
-      if (cd < minR) {
-        cd = minR.toDouble();
+        var i = (b.totalCents / maxValue);
+        cd = maxR * i;
+
+        if (cd < minR) {
+          cd = minR.toDouble();
+        }
       }
 
       buckets.add(BucketDisplay(
@@ -118,7 +130,7 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
     // TODO: implement build
 
     var sizeW = MediaQuery.of(context).size.width;
-    var sizeH = MediaQuery.of(context).size.height;
+    var sizeH = MediaQuery.of(context).size.height - 240;
 
     if (!bucketsBuilt) {
       buildBuckets(sizeW, sizeH);
@@ -215,8 +227,10 @@ class BucketDisplay {
   }
 
   void setRadius(double r) {
-    ballData = bc.updateBody(ballData, r);
-    currentRadius = r;
+    try {
+      ballData = bc.updateBody(ballData, r);
+      currentRadius = r;
+    } catch (e) {}
   }
 
   Widget buildCircle(BuildContext context) {
