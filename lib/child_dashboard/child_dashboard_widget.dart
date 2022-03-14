@@ -113,12 +113,15 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                     ),
                                   ],
                                 ),
+                                Text(
+                                  'Total',
+                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                ),
                               ],
                             ),
                           ),
                           custom_widgets.KidsHomeMasonLayout(
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 1,
                             buckets: containerBucketsRecordList.toList(),
                           ),
                         ],
