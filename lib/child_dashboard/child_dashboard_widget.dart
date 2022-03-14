@@ -143,7 +143,6 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                           ),
                           custom_widgets.KidsHomeMasonLayout(
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.7,
                             buckets: containerBucketsRecordList.toList(),
                             userAccount: childDashboardUserAccountRecord,
                           ),
