@@ -6,12 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class KidsAddBucketTypesWidget extends StatefulWidget {
-  const KidsAddBucketTypesWidget({
-    Key key,
-    this.isOpen,
-  }) : super(key: key);
-
-  final bool isOpen;
+  const KidsAddBucketTypesWidget({Key key}) : super(key: key);
 
   @override
   _KidsAddBucketTypesWidgetState createState() =>
