@@ -57,7 +57,7 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
     );
 
     emailTFController = TextEditingController();
-    passwordTextFieldController = TextEditingController(text: 'Enter Password');
+    passwordTextFieldController = TextEditingController();
     passwordTextFieldVisibility = false;
   }
 
@@ -194,7 +194,7 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                   controller: passwordTextFieldController,
                                   obscureText: !passwordTextFieldVisibility,
                                   decoration: InputDecoration(
-                                    hintText: ' Mum, Dad, something else ',
+                                    hintText: 'Enter Password',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
