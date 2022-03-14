@@ -15,69 +15,72 @@ class KidsAddBucketTypesWidget extends StatefulWidget {
 class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        if (!(FFAppState().uiIsAddBucketMenuOpen) ?? true)
-          Align(
-            alignment: AlignmentDirectional(0.95, 0.95),
-            child: FFButtonWidget(
-              onPressed: () async {
-                setState(() => FFAppState().uiIsAddBucketMenuOpen = true);
-              },
-              text: '',
-              icon: Icon(
-                Icons.add,
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                size: 40,
-              ),
-              options: FFButtonOptions(
-                width: 70,
-                height: 70,
-                color: Color(0xFFFF2E63),
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Colors.white,
-                    ),
-                elevation: 2,
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1,
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 10),
+      child: Stack(
+        children: [
+          if (!(FFAppState().uiIsAddBucketMenuOpen) ?? true)
+            Align(
+              alignment: AlignmentDirectional(1, 1),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  setState(() => FFAppState().uiIsAddBucketMenuOpen = true);
+                },
+                text: '',
+                icon: Icon(
+                  Icons.add,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  size: 40,
                 ),
-                borderRadius: 70,
+                options: FFButtonOptions(
+                  width: 70,
+                  height: 70,
+                  color: Color(0xFFFF2E63),
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.white,
+                      ),
+                  elevation: 2,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 70,
+                ),
               ),
             ),
-          ),
-        if (FFAppState().uiIsAddBucketMenuOpen ?? true)
-          Align(
-            alignment: AlignmentDirectional(0.95, 0.95),
-            child: FFButtonWidget(
-              onPressed: () async {
-                setState(() => FFAppState().uiIsAddBucketMenuOpen = false);
-              },
-              text: '',
-              icon: Icon(
-                Icons.close,
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                size: 40,
-              ),
-              options: FFButtonOptions(
-                width: 70,
-                height: 70,
-                color: Color(0xFFFF8529),
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                      fontFamily: 'Lexend Deca',
-                      color: Colors.white,
-                    ),
-                elevation: 2,
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1,
+          if (FFAppState().uiIsAddBucketMenuOpen ?? true)
+            Align(
+              alignment: AlignmentDirectional(1, 1),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  setState(() => FFAppState().uiIsAddBucketMenuOpen = false);
+                },
+                text: '',
+                icon: Icon(
+                  Icons.close,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  size: 40,
                 ),
-                borderRadius: 70,
+                options: FFButtonOptions(
+                  width: 70,
+                  height: 70,
+                  color: Color(0xFFFF8529),
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.white,
+                      ),
+                  elevation: 2,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 70,
+                ),
               ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }
