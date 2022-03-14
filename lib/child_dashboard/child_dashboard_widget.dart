@@ -96,6 +96,11 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Text(
+                                    childDashboardUserAccountRecord.displayName,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -107,6 +112,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                                   .totalCents),
                                           '0',
                                         ),
+                                        textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
