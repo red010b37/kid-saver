@@ -87,7 +87,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                             elevation: 3,
                             child: Container(
                               width: MediaQuery.of(context).size.width,
-                              height: 200,
+                              height: 180,
                               decoration: BoxDecoration(
                                 color:
                                     FlutterFlowTheme.of(context).tertiaryColor,
