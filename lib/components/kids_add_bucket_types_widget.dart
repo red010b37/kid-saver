@@ -46,25 +46,24 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        if (!(widget.isOpen) ?? true)
-          Align(
-            alignment: AlignmentDirectional(0.9, 0.9),
-            child: FlutterFlowIconButton(
-              borderColor: FlutterFlowTheme.of(context).primaryText,
-              borderRadius: 60,
-              borderWidth: 1,
-              buttonSize: 80,
-              fillColor: FlutterFlowTheme.of(context).secondaryColor,
-              icon: Icon(
-                Icons.add,
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                size: 40,
-              ),
-              onPressed: () {
-                print('IconButton pressed ...');
-              },
-            ).animated([animationsMap['iconButtonOnActionTriggerAnimation']]),
-          ),
+        Align(
+          alignment: AlignmentDirectional(0.9, 0.9),
+          child: FlutterFlowIconButton(
+            borderColor: FlutterFlowTheme.of(context).primaryText,
+            borderRadius: 60,
+            borderWidth: 1,
+            buttonSize: 80,
+            fillColor: FlutterFlowTheme.of(context).secondaryColor,
+            icon: Icon(
+              Icons.add,
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+              size: 40,
+            ),
+            onPressed: () {
+              print('IconButton pressed ...');
+            },
+          ).animated([animationsMap['iconButtonOnActionTriggerAnimation']]),
+        ),
       ],
     );
   }
