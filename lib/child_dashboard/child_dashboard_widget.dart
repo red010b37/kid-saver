@@ -43,7 +43,16 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
         final childDashboardUserAccountRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(10),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+              automaticallyImplyLeading: false,
+              actions: [],
+              elevation: 0,
+            ),
+          ),
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
@@ -132,26 +141,11 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                               ),
                             ),
                           ),
-                          Container(
-                            width: double.infinity,
-                            height: MediaQuery.of(context).size.height * 1,
-                            child: Stack(
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFEEEEEE),
-                                  ),
-                                ),
-                                custom_widgets.KidsHomeMasonLayout(
-                                  width: MediaQuery.of(context).size.width,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.7,
-                                  buckets: containerBucketsRecordList.toList(),
-                                ),
-                              ],
-                            ),
+                          custom_widgets.KidsHomeMasonLayout(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 0.7,
+                            buckets: containerBucketsRecordList.toList(),
+                            userAccount: childDashboardUserAccountRecord,
                           ),
                         ],
                       ),
