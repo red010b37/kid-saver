@@ -57,6 +57,10 @@ abstract class UserAccountRecord
   int get totalCents;
 
   @nullable
+  @BuiltValueField(wireName: 'last_seen_total_cents')
+  int get lastSeenTotalCents;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -68,7 +72,8 @@ abstract class UserAccountRecord
     ..state = ''
     ..gender = ''
     ..spendableCents = 0
-    ..totalCents = 0;
+    ..totalCents = 0
+    ..lastSeenTotalCents = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('userAccount');
@@ -105,6 +110,7 @@ Map<String, dynamic> createUserAccountRecordData({
   String gender,
   int spendableCents,
   int totalCents,
+  int lastSeenTotalCents,
 }) =>
     serializers.toFirestore(
         UserAccountRecord.serializer,
@@ -121,4 +127,5 @@ Map<String, dynamic> createUserAccountRecordData({
           ..dob = dob
           ..gender = gender
           ..spendableCents = spendableCents
-          ..totalCents = totalCents));
+          ..totalCents = totalCents
+          ..lastSeenTotalCents = lastSeenTotalCents));
