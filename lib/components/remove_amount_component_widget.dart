@@ -25,13 +25,13 @@ class RemoveAmountComponentWidget extends StatefulWidget {
 
 class _RemoveAmountComponentWidgetState
     extends State<RemoveAmountComponentWidget> {
-  TextEditingController textController1;
+  TextEditingController removeAmtTextFieldController;
   TextEditingController textController2;
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
+    removeAmtTextFieldController = TextEditingController();
     textController2 = TextEditingController();
   }
 
@@ -96,7 +96,7 @@ class _RemoveAmountComponentWidgetState
                             child: Align(
                               alignment: AlignmentDirectional(0, 0),
                               child: TextFormField(
-                                controller: textController1,
+                                controller: removeAmtTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '0.00',
@@ -373,7 +373,8 @@ class _RemoveAmountComponentWidgetState
                               final stagingAmountUpdateData =
                                   createStagingAmountRecordData(
                                 state: 'complete',
-                                amount: double.parse(textController1.text),
+                                amount: double.parse(
+                                    removeAmtTextFieldController.text),
                               );
                               await stackStagingAmountRecord.reference
                                   .update(stagingAmountUpdateData);
