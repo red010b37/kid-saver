@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../o_b_email/o_b_email_widget.dart';
+import '../o_b_name/o_b_name_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -136,7 +136,7 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                                 type: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
                                 reverseDuration: Duration(milliseconds: 0),
-                                child: OBEmailWidget(
+                                child: OBNameWidget(
                                   onboardingRef: onboardingRecord.reference,
                                 ),
                               ),

@@ -1,20 +1,18 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
-import '../components/onboarding_avatar_selector_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import '../o_b_email_password/o_b_email_password_widget.dart';
+import '../kids_list/kids_list_widget.dart';
 import '../o_b_get_started/o_b_get_started_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OBProfileImageWidget extends StatefulWidget {
-  const OBProfileImageWidget({
+class OBEmailPasswordWidget extends StatefulWidget {
+  const OBEmailPasswordWidget({
     Key key,
     this.onboardingRef,
   }) : super(key: key);
@@ -22,12 +20,15 @@ class OBProfileImageWidget extends StatefulWidget {
   final DocumentReference onboardingRef;
 
   @override
-  _OBProfileImageWidgetState createState() => _OBProfileImageWidgetState();
+  _OBEmailPasswordWidgetState createState() => _OBEmailPasswordWidgetState();
 }
 
-class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
+class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
     with TickerProviderStateMixin {
-  String uploadedFileUrl = '';
+  AccountRecord accountRecord;
+  TextEditingController emailTFController;
+  TextEditingController passwordTextFieldController;
+  bool passwordTextFieldVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
@@ -54,6 +55,10 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
           .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
       this,
     );
+
+    emailTFController = TextEditingController();
+    passwordTextFieldController = TextEditingController(text: 'Enter Password');
+    passwordTextFieldVisibility = false;
   }
 
   @override
@@ -91,7 +96,7 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                   final containerOnboardingRecord = snapshot.data;
                   return Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 480,
+                    height: 380,
                     constraints: BoxConstraints(
                       maxWidth: 500,
                     ),
@@ -128,7 +133,7 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Text(
-                                  'How you look',
+                                  'Login  Details',
                                   style: FlutterFlowTheme.of(context)
                                       .title1
                                       .override(
@@ -139,7 +144,7 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                 ),
                               ),
                               Text(
-                                'Upload a photo or use on of ours avatars',
+                                'Enter email and password so you can log back in.',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -148,119 +153,85 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                           .secondaryText,
                                     ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        final selectedMedia =
-                                            await selectMediaWithSourceBottomSheet(
-                                          context: context,
-                                          allowPhoto: true,
-                                        );
-                                        if (selectedMedia != null &&
-                                            validateFileFormat(
-                                                selectedMedia.storagePath,
-                                                context)) {
-                                          showUploadMessage(
-                                            context,
-                                            'Uploading file...',
-                                            showLoading: true,
-                                          );
-                                          final downloadUrl = await uploadData(
-                                              selectedMedia.storagePath,
-                                              selectedMedia.bytes);
-                                          ScaffoldMessenger.of(context)
-                                              .hideCurrentSnackBar();
-                                          if (downloadUrl != null) {
-                                            setState(() =>
-                                                uploadedFileUrl = downloadUrl);
-                                            showUploadMessage(
-                                              context,
-                                              'Success!',
-                                            );
-                                          } else {
-                                            showUploadMessage(
-                                              context,
-                                              'Failed to upload media',
-                                            );
-                                            return;
-                                          }
-                                        }
-                                      },
-                                      child: Image.network(
-                                        valueOrDefault<String>(
-                                          containerOnboardingRecord
-                                              .profileImagePath,
-                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/kid-saver-il699v/assets/o985htoj7n09/profileselect.png',
-                                        ),
-                                        width: 100,
-                                        height: 100,
-                                        fit: BoxFit.cover,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                child: TextFormField(
+                                  controller: emailTFController,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText: 'Email  address',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                        width: 1,
                                       ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                ],
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
-                                  child: Text(
-                                    'or',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF9E9E9E),
-                                        ),
-                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                      ),
                                 ),
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.of(context).viewInsets,
-                                          child: OnboardingAvatarSelectorWidget(
-                                            onboardingRef: widget.onboardingRef,
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                  text: 'Select Avatar',
-                                  options: FFButtonOptions(
-                                    width: double.infinity,
-                                    height: 55,
-                                    color: Colors.white,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
-                                          lineHeight: 1,
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFFF2E63),
-                                      width: 1,
+                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                child: TextFormField(
+                                  controller: passwordTextFieldController,
+                                  obscureText: !passwordTextFieldVisibility,
+                                  decoration: InputDecoration(
+                                    hintText: ' Mum, Dad, something else ',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: 10,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    suffixIcon: InkWell(
+                                      onTap: () => setState(
+                                        () => passwordTextFieldVisibility =
+                                            !passwordTextFieldVisibility,
+                                      ),
+                                      child: Icon(
+                                        passwordTextFieldVisibility
+                                            ? Icons.visibility_outlined
+                                            : Icons.visibility_off_outlined,
+                                        color: Color(0xFF757575),
+                                        size: 22,
+                                      ),
+                                    ),
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                      ),
                                 ),
                               ),
                               Padding(
@@ -268,17 +239,68 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                     EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    await Navigator.push(
+                                    final user = await createAccountWithEmail(
+                                      context,
+                                      emailTFController.text,
+                                      passwordTextFieldController.text,
+                                    );
+                                    if (user == null) {
+                                      return;
+                                    }
+
+                                    final accountCreateData =
+                                        createAccountRecordData(
+                                      ownerRef: currentUserReference,
+                                      state: 'active',
+                                      createdAt: getCurrentTimestamp,
+                                      updatedAt: getCurrentTimestamp,
+                                    );
+                                    var accountRecordReference =
+                                        AccountRecord.collection.doc();
+                                    await accountRecordReference
+                                        .set(accountCreateData);
+                                    accountRecord =
+                                        AccountRecord.getDocumentFromData(
+                                            accountCreateData,
+                                            accountRecordReference);
+
+                                    final usersUpdateData =
+                                        createUsersRecordData(
+                                      lastActiveAccountRef:
+                                          accountRecord.reference,
+                                    );
+                                    await currentUserReference
+                                        .update(usersUpdateData);
+
+                                    final userAccountCreateData =
+                                        createUserAccountRecordData(
+                                      name: containerOnboardingRecord.name,
+                                      displayName:
+                                          containerOnboardingRecord.displayName,
+                                      profileImagePath:
+                                          containerOnboardingRecord
+                                              .profileImagePath,
+                                      relationship: 'guardian',
+                                      accountRef: accountRecord.reference,
+                                      state: 'active',
+                                      createdAt: getCurrentTimestamp,
+                                      updatedAt: getCurrentTimestamp,
+                                      userRef: currentUserReference,
+                                    );
+                                    await UserAccountRecord.collection
+                                        .doc()
+                                        .set(userAccountCreateData);
+                                    await Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            OBEmailPasswordWidget(
-                                          onboardingRef: widget.onboardingRef,
-                                        ),
+                                        builder: (context) => KidsListWidget(),
                                       ),
+                                      (r) => false,
                                     );
+
+                                    setState(() {});
                                   },
-                                  text: 'Next',
+                                  text: 'Lets GO!',
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 55,

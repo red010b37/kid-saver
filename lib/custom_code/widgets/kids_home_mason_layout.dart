@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 import 'dart:async';
 import 'dart:math';
-
+import '../../flutter_flow/custom_functions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:forge2d/forge2d.dart' as fge;
 
