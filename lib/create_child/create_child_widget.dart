@@ -434,6 +434,7 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                                 state: 'active',
                                                 spendableCents: 0,
                                                 totalCents: 0,
+                                                lastSeenTotalCents: 0,
                                               );
                                               await createChildUserAccountRecord
                                                   .reference
