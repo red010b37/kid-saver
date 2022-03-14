@@ -82,42 +82,48 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    AutoSizeText(
-                                      valueOrDefault<String>(
-                                        functions.formatCents(
-                                            childDashboardUserAccountRecord
-                                                .totalCents),
-                                        '0',
+                          Material(
+                            color: Colors.transparent,
+                            elevation: 3,
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                color:
+                                    FlutterFlowTheme.of(context).tertiaryColor,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AutoSizeText(
+                                        valueOrDefault<String>(
+                                          functions.formatCents(
+                                              childDashboardUserAccountRecord
+                                                  .totalCents),
+                                          '0',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              fontSize: 58,
+                                              fontWeight: FontWeight.w300,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Lexend Deca',
-                                            fontSize: 58,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  'Total',
-                                  style: FlutterFlowTheme.of(context).bodyText1,
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  Text(
+                                    'Total',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           custom_widgets.KidsHomeMasonLayout(
