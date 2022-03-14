@@ -75,7 +75,7 @@ class _OnboardingAvatarSelectorWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -99,8 +99,8 @@ class _OnboardingAvatarSelectorWidgetState
                           List<AvatarsRecord> wrapAvatarsRecordList =
                               snapshot.data;
                           return Wrap(
-                            spacing: 30,
-                            runSpacing: 30,
+                            spacing: 20,
+                            runSpacing: 20,
                             alignment: WrapAlignment.center,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
