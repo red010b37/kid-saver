@@ -2,6 +2,8 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
+import '../flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,10 +79,49 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                       decoration: BoxDecoration(
                         color: Color(0xFFEEEEEE),
                       ),
-                      child: custom_widgets.KidsHomeMasonLayout(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 1,
-                        buckets: containerBucketsRecordList.toList(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AutoSizeText(
+                                      valueOrDefault<String>(
+                                        functions.formatCents(
+                                            childDashboardUserAccountRecord
+                                                .totalCents),
+                                        '0',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            fontSize: 58,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          custom_widgets.KidsHomeMasonLayout(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 1,
+                            buckets: containerBucketsRecordList.toList(),
+                          ),
+                        ],
                       ),
                     );
                   },
