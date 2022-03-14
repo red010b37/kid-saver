@@ -43,7 +43,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
         final childDashboardUserAccountRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: Colors.white,
+          backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
@@ -134,11 +134,21 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                           ),
                           Container(
                             width: double.infinity,
+                            height: MediaQuery.of(context).size.height * 1,
                             child: Stack(
                               children: [
                                 custom_widgets.KidsHomeMasonLayout(
                                   width: MediaQuery.of(context).size.width,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.69,
                                   buckets: containerBucketsRecordList.toList(),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFEEEEEE),
+                                  ),
                                 ),
                               ],
                             ),
