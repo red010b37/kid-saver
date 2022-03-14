@@ -62,7 +62,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
               },
             ),
             title: Text(
-              'Page Title',
+              childDashboardUserAccountRecord.displayName,
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Lexend Deca',
                     color: Colors.white,
