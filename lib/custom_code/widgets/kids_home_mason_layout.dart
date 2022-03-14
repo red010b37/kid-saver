@@ -1,4 +1,6 @@
 // Automatic FlutterFlow imports
+import 'package:kid_saver/flutter_flow/custom_functions.dart';
+
 import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
@@ -52,23 +54,69 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
     _stateTimer = Timer.periodic(
         const Duration(milliseconds: 30),
         (Timer timer) => setState(() {
-              if (buckets.length != 0) {
-                buckets[0].setRadius(buckets[0].radius + .1);
-              }
+              // if (buckets.length != 0) {
+              //   // buckets[0].setRadius(buckets[0].radius + .1);
+              // }
             }));
   }
 
   void buildBuckets(double width, double height) {
+
+    var minR = 50;
+    var maxR = 100;
+
+    int maxValue = widget.buckets[0].totalCents;
+    int minValue = widget.buckets[0].totalCents;
+
+    for (var b in widget.buckets) {
+      if (maxValue < b.totalCents) {
+        maxValue = b.totalCents;
+      }
+      if (minValue > b.totalCents) {
+        minValue = b.totalCents;
+      }
+    }
+
+
     for (var b in widget.buckets) {
       int value = int.parse(b.color);
       Color color = Color(value).withOpacity(1);
 
+      var j = (b.lastSeenTotalCents / maxValue);
+      var cdStart = maxR * j;
+
+      if (cdStart < minR) {
+        cdStart = minR.toDouble();
+      }
+
+      var i = (b.totalCents / maxValue);
+      var cd = maxR * i;
+
+      if (cd < minR) {
+        cd = minR.toDouble();
+      }
+
       buckets.add(BucketDisplay(
+        vsync: this,
           bc: bc,
-          x: (Random().nextDouble() * 10),
-          y: (Random().nextDouble() * 10),
+          x: -20 + (Random().nextDouble() * 40),
+          y: -50 - (Random().nextDouble() * 10),
+          startRadius: cdStart,
+          endRadius: cd,
+          fromCents: b.lastSeenTotalCents,
+          totalCents: b.totalCents,
+          description: b.name,
           color: color));
+
+
+      var bucketData = createBucketsRecordData(
+        updatedAt: getCurrentTimestamp,
+        lastSeenTotalCents: b.totalCents,
+      );
+
+      b.reference.update(bucketData);
     }
+
   }
 
   @override
@@ -110,15 +158,59 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
 
 class BucketDisplay {
   Color color;
-  double radius;
+  double startRadius;
+  double endRadius;
+  double currentRadius;
 
   BallCage bc;
 
   BallData ballData;
 
-  BucketDisplay({this.bc, double x = 0, double y = 0, this.color}) {
-    radius = Random().nextDouble() * 100;
-    ballData = bc.createBody(radius, x, y);
+  int fromCents;
+  int totalCents;
+  int currentDisplayCents = 0;
+
+  TickerProvider vsync;
+
+  String description;
+
+  BucketDisplay({
+    this.bc, double x = 0,
+    double y = 0,
+    this.color,
+    this.startRadius,
+    this.endRadius,
+    this.totalCents,
+    this.fromCents,
+    this.vsync,
+    this.description,
+  }) {
+    ballData = bc.createBody(startRadius, x, y);
+
+    currentDisplayCents = fromCents;
+    currentRadius = startRadius;
+
+    final AnimationController _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: vsync
+    )..forward();
+
+    var animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOutCubic);
+    animation.addListener(() {
+
+      var dif = totalCents - fromCents;
+      currentDisplayCents = (fromCents + (dif* animation.value)).toInt();
+
+      var rDif =  endRadius - startRadius;
+      var newR = (startRadius + (rDif* animation.value));
+      setRadius(newR);
+
+    });
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        currentDisplayCents = totalCents;
+      }
+    });
   }
 
   double get xPos {
@@ -131,22 +223,24 @@ class BucketDisplay {
 
   void setRadius(double r) {
     ballData = bc.updateBody(ballData, r);
-    radius = r;
+    currentRadius = r;
   }
+
+
 
   Widget buildCircle(BuildContext context) {
     return Transform.translate(
       offset: Offset(xPos, yPos),
       child: Container(
         alignment: Alignment.center,
-        width: radius * 2,
-        height: radius * 2,
+        width: currentRadius * 2,
+        height: currentRadius * 2,
         child: Stack(
           alignment: Alignment.center,
           children: [
             CustomPaint(
               painter: SimpleCirclePainter(
-                radius: radius,
+                radius: currentRadius,
                 backgroundColor: color,
                 // circleWidth: 2,
               ),
@@ -158,17 +252,18 @@ class BucketDisplay {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   AutoSizeText(
-                    '\$20.00',
+                    formatCents(currentDisplayCents),
                     style: TextStyle(
                       fontSize: 40,
                       color: Colors.white,
                     ),
                     maxLines: 1,
                     minFontSize: 3,
-                    maxFontSize: 40,
+                    maxFontSize: 30,
                   ),
                   AutoSizeText(
-                    'This is a sub line',
+                    description,
+                    wrapWords: false,
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
