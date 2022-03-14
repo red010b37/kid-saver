@@ -116,7 +116,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
-                                              fontFamily: 'Lexend Deca',
+                                              fontFamily: 'Montserrat',
                                               fontSize: 58,
                                               fontWeight: FontWeight.w300,
                                             ),
