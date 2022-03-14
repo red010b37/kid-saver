@@ -145,21 +145,29 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          AutoSizeText(
-                                            valueOrDefault<String>(
-                                              functions.formatCents(
-                                                  childDashboardUserAccountRecord
-                                                      .totalCents),
-                                              '0',
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 5, 0, 0),
+                                            child: AutoSizeText(
+                                              valueOrDefault<String>(
+                                                functions.formatCents(
+                                                    childDashboardUserAccountRecord
+                                                        .totalCents),
+                                                '0',
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 58,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                        lineHeight: 1.2,
+                                                      ),
                                             ),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 58,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
                                           ),
                                         ],
                                       ),
