@@ -137,18 +137,18 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                             height: MediaQuery.of(context).size.height * 1,
                             child: Stack(
                               children: [
-                                custom_widgets.KidsHomeMasonLayout(
-                                  width: MediaQuery.of(context).size.width,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.69,
-                                  buckets: containerBucketsRecordList.toList(),
-                                ),
                                 Container(
                                   width: double.infinity,
                                   height: double.infinity,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFEEEEEE),
                                   ),
+                                ),
+                                custom_widgets.KidsHomeMasonLayout(
+                                  width: MediaQuery.of(context).size.width,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.7,
+                                  buckets: containerBucketsRecordList.toList(),
                                 ),
                               ],
                             ),

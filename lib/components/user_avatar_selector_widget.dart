@@ -32,49 +32,49 @@ class _UserAvatarSelectorWidgetState extends State<UserAvatarSelectorWidget> {
       ),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Align(
-              alignment: AlignmentDirectional(0, 0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 30),
-                        child: Text(
-                          'Select One',
-                          style: FlutterFlowTheme.of(context).title1,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 30),
+                          child: Text(
+                            'Select One',
+                            style: FlutterFlowTheme.of(context).title1,
+                          ),
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(1, 0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.white,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 50,
-                        icon: Icon(
-                          Icons.close,
-                          color: Colors.white,
-                          size: 20,
+                      Align(
+                        alignment: AlignmentDirectional(1, 0),
+                        child: FlutterFlowIconButton(
+                          borderColor: Colors.white,
+                          borderRadius: 30,
+                          borderWidth: 1,
+                          buttonSize: 50,
+                          icon: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                          onPressed: () async {
+                            Navigator.pop(context);
+                          },
                         ),
-                        onPressed: () async {
-                          Navigator.pop(context);
-                        },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
-              child: SingleChildScrollView(
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -165,8 +165,8 @@ class _UserAvatarSelectorWidgetState extends State<UserAvatarSelectorWidget> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
