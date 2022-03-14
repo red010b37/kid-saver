@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
@@ -43,16 +44,48 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
         final childDashboardUserAccountRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(10),
-            child: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
-              automaticallyImplyLeading: false,
-              actions: [],
-              elevation: 0,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30,
+              ),
+              onPressed: () async {
+                Navigator.pop(context);
+              },
             ),
+            title: Text(
+              'Page Title',
+              style: FlutterFlowTheme.of(context).title2.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 0,
           ),
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              print('FloatingActionButton pressed ...');
+            },
+            backgroundColor: FlutterFlowTheme.of(context).secondaryColor,
+            elevation: 8,
+            child: Icon(
+              Icons.add,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 24,
+            ),
+          ),
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
@@ -96,46 +129,46 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                             elevation: 3,
                             child: Container(
                               width: MediaQuery.of(context).size.width,
-                              height: 180,
+                              height: 120,
                               decoration: BoxDecoration(
                                 color:
                                     FlutterFlowTheme.of(context).tertiaryColor,
                               ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              child: Stack(
                                 children: [
-                                  Text(
-                                    childDashboardUserAccountRecord.displayName,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Row(
+                                  Column(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      AutoSizeText(
-                                        valueOrDefault<String>(
-                                          functions.formatCents(
-                                              childDashboardUserAccountRecord
-                                                  .totalCents),
-                                          '0',
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 58,
-                                              fontWeight: FontWeight.w300,
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          AutoSizeText(
+                                            valueOrDefault<String>(
+                                              functions.formatCents(
+                                                  childDashboardUserAccountRecord
+                                                      .totalCents),
+                                              '0',
                                             ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 58,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        'Total',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
                                       ),
                                     ],
-                                  ),
-                                  Text(
-                                    'Total',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
                                 ],
                               ),
