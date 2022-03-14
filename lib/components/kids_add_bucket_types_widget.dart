@@ -16,7 +16,21 @@ class KidsAddBucketTypesWidget extends StatefulWidget {
 class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
     with TickerProviderStateMixin {
   final animationsMap = {
-    'iconButtonOnActionTriggerAnimation': AnimationInfo(
+    'iconButtonOnActionTriggerAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      duration: 600,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'iconButtonOnActionTriggerAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       duration: 600,
       initialState: AnimationState(
@@ -46,24 +60,44 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
-          alignment: AlignmentDirectional(0.9, 0.9),
-          child: FlutterFlowIconButton(
-            borderColor: FlutterFlowTheme.of(context).primaryText,
-            borderRadius: 60,
-            borderWidth: 1,
-            buttonSize: 80,
-            fillColor: FlutterFlowTheme.of(context).secondaryColor,
-            icon: Icon(
-              Icons.add,
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-              size: 40,
-            ),
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
-          ).animated([animationsMap['iconButtonOnActionTriggerAnimation']]),
-        ),
+        if (!(FFAppState().uiIsAddBucketMenuOpen) ?? true)
+          Align(
+            alignment: AlignmentDirectional(0.9, 0.9),
+            child: FlutterFlowIconButton(
+              borderColor: FlutterFlowTheme.of(context).primaryText,
+              borderRadius: 60,
+              borderWidth: 1,
+              buttonSize: 80,
+              fillColor: FlutterFlowTheme.of(context).secondaryColor,
+              icon: Icon(
+                Icons.add,
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                size: 40,
+              ),
+              onPressed: () async {
+                setState(() => FFAppState().uiIsAddBucketMenuOpen = true);
+              },
+            ).animated([animationsMap['iconButtonOnActionTriggerAnimation1']]),
+          ),
+        if (FFAppState().uiIsAddBucketMenuOpen ?? true)
+          Align(
+            alignment: AlignmentDirectional(0.9, 0.9),
+            child: FlutterFlowIconButton(
+              borderColor: FlutterFlowTheme.of(context).primaryText,
+              borderRadius: 60,
+              borderWidth: 1,
+              buttonSize: 80,
+              fillColor: FlutterFlowTheme.of(context).alternate,
+              icon: Icon(
+                Icons.close,
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                size: 40,
+              ),
+              onPressed: () async {
+                setState(() => FFAppState().uiIsAddBucketMenuOpen = true);
+              },
+            ).animated([animationsMap['iconButtonOnActionTriggerAnimation2']]),
+          ),
       ],
     );
   }
