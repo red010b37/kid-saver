@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../components/add_amount_component_widget.dart';
+import '../components/kids_list_empty_widget.dart';
 import '../components/remove_amount_component_widget.dart';
 import '../create_child/create_child_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
@@ -276,6 +277,12 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                           }
                           List<UserAccountRecord> columnUserAccountRecordList =
                               snapshot.data;
+                          if (columnUserAccountRecordList.isEmpty) {
+                            return Container(
+                              height: 400,
+                              child: KidsListEmptyWidget(),
+                            );
+                          }
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
