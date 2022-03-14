@@ -16,7 +16,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 10),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 30, 30),
       child: Stack(
         children: [
           if (!(FFAppState().uiIsAddBucketMenuOpen) ?? true)
