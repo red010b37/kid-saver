@@ -16,7 +16,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 30, 30),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 10),
       child: Stack(
         children: [
           if (!(FFAppState().uiIsAddBucketMenuOpen) ?? true)
@@ -30,7 +30,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget> {
                 icon: Icon(
                   Icons.add,
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  size: 40,
+                  size: 30,
                 ),
                 options: FFButtonOptions(
                   width: 70,
@@ -60,7 +60,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget> {
                 icon: Icon(
                   Icons.close,
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  size: 40,
+                  size: 30,
                 ),
                 options: FFButtonOptions(
                   width: 70,
