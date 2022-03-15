@@ -38,7 +38,6 @@ String generateRandomColoStr() {
     Colors.black,
   ];
 
-  return "";
-
-  // Add your function code here!
+  var r = math.Random().nextInt(colors.length - 1);
+  return colors[r].value.toString();
 }
