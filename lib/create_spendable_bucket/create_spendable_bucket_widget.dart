@@ -1,5 +1,6 @@
 import '../backend/backend.dart';
 import '../child_dashboard/child_dashboard_widget.dart';
+import '../components/colors_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -111,33 +112,53 @@ class _CreateSpendableBucketWidgetState
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 30, 0),
-                                    child: Text(
-                                      'Bucket Color',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            fontSize: 18,
-                                          ),
+                              child: InkWell(
+                                onTap: () async {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(context).viewInsets,
+                                        child: ColorsWidget(
+                                          bucket: widget.bucketRef,
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 30, 0),
+                                      child: Text(
+                                        'Bucket Color',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              fontSize: 18,
+                                            ),
+                                      ),
                                     ),
-                                  ),
-                                  custom_widgets.ColorSwatch(
-                                    width: 50,
-                                    height: 50,
-                                    colorStr: createSpendableBucketBucketsRecord
-                                        .color,
-                                  ),
-                                ],
+                                    custom_widgets.ColorSwatch(
+                                      width: 50,
+                                      height: 50,
+                                      colorStr:
+                                          createSpendableBucketBucketsRecord
+                                              .color,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             Padding(
