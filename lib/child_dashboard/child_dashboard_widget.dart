@@ -8,6 +8,7 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChildDashboardWidget extends StatefulWidget {
@@ -24,6 +25,15 @@ class ChildDashboardWidget extends StatefulWidget {
 
 class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() => FFAppState().uiIsAddBucketMenuOpen = false);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +196,10 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                       },
                     ),
                   ),
-                  KidsAddBucketTypesWidget(),
+                  KidsAddBucketTypesWidget(
+                    userAccountRf: widget.userAccountRef,
+                    accountRef: childDashboardUserAccountRecord.accountRef,
+                  ),
                 ],
               ),
             ),
