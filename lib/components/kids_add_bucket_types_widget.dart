@@ -138,7 +138,6 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                             updatedAt: getCurrentTimestamp,
                             userAccountRef: widget.userAccountRf,
                             accountRef: widget.accountRef,
-                            color: '4279113293',
                           );
                           var bucketsRecordReference =
                               BucketsRecord.collection.doc();
