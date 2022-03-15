@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../child_dashboard/child_dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -57,7 +58,15 @@ class _CreateSpendableBucketWidgetState
                 size: 30,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChildDashboardWidget(
+                      userAccountRef:
+                          createSpendableBucketBucketsRecord.userAccountRef,
+                    ),
+                  ),
+                );
               },
             ),
             title: Text(

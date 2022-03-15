@@ -144,13 +144,14 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                           await bucketsRecordReference.set(bucketsCreateData);
                           bucketRecord = BucketsRecord.getDocumentFromData(
                               bucketsCreateData, bucketsRecordReference);
-                          await Navigator.push(
+                          await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                               builder: (context) => CreateSpendableBucketWidget(
                                 bucketRef: bucketRecord,
                               ),
                             ),
+                            (r) => false,
                           );
 
                           setState(() {});
