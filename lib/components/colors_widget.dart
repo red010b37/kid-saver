@@ -1,6 +1,7 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,31 +26,43 @@ class _ColorsWidgetState extends State<ColorsWidget> {
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
-      child: Wrap(
-        spacing: 0,
-        runSpacing: 0,
-        alignment: WrapAlignment.start,
-        crossAxisAlignment: WrapCrossAlignment.start,
-        direction: Axis.horizontal,
-        runAlignment: WrapAlignment.start,
-        verticalDirection: VerticalDirection.down,
-        clipBehavior: Clip.none,
-        children: [
-          Material(
-            color: Colors.transparent,
-            elevation: 2,
-            shape: const CircleBorder(),
-            child: Container(
-              width: 70,
-              height: 70,
-              decoration: BoxDecoration(
-                color: Color(0xFFFF8529),
-                shape: BoxShape.circle,
+      child: FutureBuilder<List<ColorOptionsRecord>>(
+        future: queryColorOptionsRecordOnce(),
+        builder: (context, snapshot) {
+          // Customize what your widget looks like when it's loading.
+          if (!snapshot.hasData) {
+            return Center(
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                ),
               ),
-              alignment: AlignmentDirectional(0, 0),
-            ),
-          ),
-        ],
+            );
+          }
+          List<ColorOptionsRecord> wrapColorOptionsRecordList = snapshot.data;
+          return Wrap(
+            spacing: 0,
+            runSpacing: 0,
+            alignment: WrapAlignment.start,
+            crossAxisAlignment: WrapCrossAlignment.start,
+            direction: Axis.horizontal,
+            runAlignment: WrapAlignment.start,
+            verticalDirection: VerticalDirection.down,
+            clipBehavior: Clip.none,
+            children:
+                List.generate(wrapColorOptionsRecordList.length, (wrapIndex) {
+              final wrapColorOptionsRecord =
+                  wrapColorOptionsRecordList[wrapIndex];
+              return custom_widgets.ColorSwatch(
+                width: 70,
+                height: 70,
+                colorStr: wrapColorOptionsRecord.color,
+              );
+            }),
+          );
+        },
       ),
     );
   }

@@ -12,10 +12,14 @@ abstract class ColorOptionsRecord
       _$colorOptionsRecordSerializer;
 
   @nullable
+  String get color;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
-  static void _initializeBuilder(ColorOptionsRecordBuilder builder) => builder;
+  static void _initializeBuilder(ColorOptionsRecordBuilder builder) =>
+      builder..color = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('colorOptions');
@@ -39,5 +43,8 @@ abstract class ColorOptionsRecord
           {...mapFromFirestore(data), kDocumentReferenceField: reference});
 }
 
-Map<String, dynamic> createColorOptionsRecordData() => serializers.toFirestore(
-    ColorOptionsRecord.serializer, ColorOptionsRecord((c) => c));
+Map<String, dynamic> createColorOptionsRecordData({
+  String color,
+}) =>
+    serializers.toFirestore(ColorOptionsRecord.serializer,
+        ColorOptionsRecord((c) => c..color = color));

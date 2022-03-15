@@ -10,12 +10,12 @@ class ColorSwatch extends StatefulWidget {
     Key key,
     this.width,
     this.height,
-    this.colorList,
+    this.colorStr,
   }) : super(key: key);
 
   final double width;
   final double height;
-  final List<String> colorList;
+  final String colorStr;
 
   @override
   _ColorSwatchState createState() => _ColorSwatchState();
