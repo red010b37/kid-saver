@@ -14,3 +14,31 @@ String formatCents(int cents) {
   var format = NumberFormat.simpleCurrency(decimalDigits: 2);
   return format.format(cents / 100);
 }
+
+String generateRandomColoStr() {
+  const List<Color> colors = [
+    Colors.red,
+    Colors.pink,
+    Colors.purple,
+    Colors.deepPurple,
+    Colors.indigo,
+    Colors.blue,
+    Colors.lightBlue,
+    Colors.cyan,
+    Colors.teal,
+    Colors.green,
+    Colors.lightGreen,
+    Colors.lime,
+    Colors.yellow,
+    Colors.amber,
+    Colors.orange,
+    Colors.deepOrange,
+    Colors.brown,
+    Colors.blueGrey,
+    Colors.black,
+  ];
+
+  return "";
+
+  // Add your function code here!
+}
