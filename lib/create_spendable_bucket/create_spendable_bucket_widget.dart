@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../child_dashboard/child_dashboard_widget.dart';
 import '../components/colors_widget.dart';
@@ -6,6 +7,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -240,8 +242,33 @@ class _CreateSpendableBucketWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  final bucketsUpdateData =
+                                      createBucketsRecordData(
+                                    updatedAt: getCurrentTimestamp,
+                                    name: nameTextFieldController.text,
+                                    description: descTextFieldController.text,
+                                    totalCents: 0,
+                                    lastSeenTotalCents: 0,
+                                    canUserDelete: true,
+                                    state: 'active',
+                                    type: 'spendable',
+                                  );
+                                  await createSpendableBucketBucketsRecord
+                                      .reference
+                                      .update(bucketsUpdateData);
+                                  await Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChildDashboardWidget(
+                                        userAccountRef:
+                                            createSpendableBucketBucketsRecord
+                                                .userAccountRef,
+                                      ),
+                                    ),
+                                    (r) => false,
+                                  );
                                 },
                                 text: 'Create',
                                 options: FFButtonOptions(
