@@ -14,6 +14,7 @@ import 'schema/staging_amount_record.dart';
 import 'schema/staging_amount_buckets_record.dart';
 import 'schema/transaction_record.dart';
 import 'schema/config_record.dart';
+import 'schema/color_options_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,6 +31,7 @@ export 'schema/staging_amount_record.dart';
 export 'schema/staging_amount_buckets_record.dart';
 export 'schema/transaction_record.dart';
 export 'schema/config_record.dart';
+export 'schema/color_options_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord(
@@ -186,6 +188,23 @@ Future<List<ConfigRecord>> queryConfigRecordOnce(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollectionOnce(ConfigRecord.collection, ConfigRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query ColorOptionsRecords (as a Stream and as a Future).
+Stream<List<ColorOptionsRecord>> queryColorOptionsRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(
+        ColorOptionsRecord.collection, ColorOptionsRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<ColorOptionsRecord>> queryColorOptionsRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        ColorOptionsRecord.collection, ColorOptionsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(

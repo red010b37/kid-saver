@@ -25,6 +25,32 @@ class _ColorsWidgetState extends State<ColorsWidget> {
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
+      child: Wrap(
+        spacing: 0,
+        runSpacing: 0,
+        alignment: WrapAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.start,
+        direction: Axis.horizontal,
+        runAlignment: WrapAlignment.start,
+        verticalDirection: VerticalDirection.down,
+        clipBehavior: Clip.none,
+        children: [
+          Material(
+            color: Colors.transparent,
+            elevation: 2,
+            shape: const CircleBorder(),
+            child: Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                color: Color(0xFFFF8529),
+                shape: BoxShape.circle,
+              ),
+              alignment: AlignmentDirectional(0, 0),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
