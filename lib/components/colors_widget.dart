@@ -33,7 +33,7 @@ class _ColorsWidgetState extends State<ColorsWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -57,7 +57,7 @@ class _ColorsWidgetState extends State<ColorsWidget> {
                       snapshot.data;
                   return Wrap(
                     spacing: 20,
-                    runSpacing: 0,
+                    runSpacing: 20,
                     alignment: WrapAlignment.start,
                     crossAxisAlignment: WrapCrossAlignment.start,
                     direction: Axis.horizontal,
