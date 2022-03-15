@@ -77,6 +77,7 @@ class _ColorsWidgetState extends State<ColorsWidget> {
                           );
                           await widget.bucket.reference
                               .update(bucketsUpdateData);
+                          Navigator.pop(context);
                         },
                         child: custom_widgets.ColorSwatch(
                           width: 70,
