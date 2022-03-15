@@ -92,14 +92,15 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                 children: [
                   Align(
                     alignment: AlignmentDirectional(0, 0),
-                    child: StreamBuilder<List<BucketsRecord>>(
-                      stream: queryBucketsRecord(
+                    child: FutureBuilder<List<BucketsRecord>>(
+                      future: queryBucketsRecordOnce(
                         queryBuilder: (bucketsRecord) => bucketsRecord
                             .where('user_account_ref',
                                 isEqualTo: widget.userAccountRef)
                             .where('account_ref',
                                 isEqualTo:
-                                    childDashboardUserAccountRecord.accountRef),
+                                    childDashboardUserAccountRecord.accountRef)
+                            .where('state', isEqualTo: 'active'),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
