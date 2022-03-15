@@ -144,8 +144,6 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                           await bucketsRecordReference.set(bucketsCreateData);
                           bucketRecord = BucketsRecord.getDocumentFromData(
                               bucketsCreateData, bucketsRecordReference);
-                          setState(
-                              () => FFAppState().uiIsAddBucketMenuOpen = false);
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
