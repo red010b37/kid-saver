@@ -1,6 +1,6 @@
 import '../backend/backend.dart';
 import '../child_dashboard/child_dashboard_widget.dart';
-import '../components/color_picker_widget.dart';
+import '../components/colors_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -107,9 +107,8 @@ class _CreateSpendableBucketWidgetState
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.of(context).viewInsets,
-                                    child: ColorPickerWidget(
-                                      bucketRecord:
-                                          createSpendableBucketBucketsRecord,
+                                    child: ColorsWidget(
+                                      bucket: widget.bucketRef,
                                     ),
                                   );
                                 },
