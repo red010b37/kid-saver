@@ -3,6 +3,7 @@ import '../components/kids_add_bucket_types_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../kids_list/kids_list_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -69,7 +70,13 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                 size: 30,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                await Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => KidsListWidget(),
+                  ),
+                  (r) => false,
+                );
               },
             ),
             title: Text(
