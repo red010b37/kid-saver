@@ -12,8 +12,9 @@ Future<DocumentReference> createAmountStaging(
 ) async {
   // get all the buckets for the user
   var buckets = await queryBucketsRecordOnce(
-      queryBuilder: (bucketsRecord) =>
-          bucketsRecord.where('user_account_ref', isEqualTo: userAccountRef));
+      queryBuilder: (bucketsRecord) => bucketsRecord
+          .where('user_account_ref', isEqualTo: userAccountRef)
+          .where('state', isEqualTo: 'active'));
 
   // createt the stading record we need
   final stgRcrdData = createStagingAmountRecordData(

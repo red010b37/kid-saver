@@ -5,11 +5,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
 
+import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:kid_saver/o_b_get_started/o_b_get_started_widget.dart';
 import 'package:kid_saver/kids_list/kids_list_widget.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

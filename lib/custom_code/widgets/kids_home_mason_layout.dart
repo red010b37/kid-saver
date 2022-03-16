@@ -4,13 +4,33 @@ import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 // Begin custom widget code
-
-import '../../flutter_flow/custom_functions.dart';
 import 'dart:async';
 import 'dart:math';
 import '../../flutter_flow/custom_functions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:forge2d/forge2d.dart' as fge;
+
+const List<Color> colors = [
+  Colors.red,
+  Colors.pink,
+  Colors.purple,
+  Colors.deepPurple,
+  Colors.indigo,
+  Colors.blue,
+  Colors.lightBlue,
+  Colors.cyan,
+  Colors.teal,
+  Colors.green,
+  Colors.lightGreen,
+  Colors.lime,
+  Colors.yellow,
+  Colors.amber,
+  Colors.orange,
+  Colors.deepOrange,
+  Colors.brown,
+  Colors.blueGrey,
+  Colors.black,
+];
 
 // Begin custom widget code
 class KidsHomeMasonLayout extends StatefulWidget {
@@ -51,10 +71,16 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
 
     bc = BallCage();
 
-    final AnimationController _controller = AnimationController(
-      duration: const Duration(seconds: 1),
-      vsync: this,
-    )..forward();
+    // colors.forEach((element) {
+    //
+    //   print(element.value);
+    //   print('-----------');
+    // });
+
+    // final AnimationController _controller = AnimationController(
+    //   duration: const Duration(seconds: 1),
+    //   vsync: this,
+    // )..forward();
 
     _stateTimer = Timer.periodic(
         const Duration(milliseconds: 30),

@@ -24,6 +24,21 @@ class ColorSwatch extends StatefulWidget {
 class _ColorSwatchState extends State<ColorSwatch> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    var value = int.parse(widget.colorStr);
+    var color = Color(value).withOpacity(1);
+
+    return Material(
+      color: Colors.transparent,
+      elevation: 2,
+      shape: const CircleBorder(),
+      child: Container(
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle,
+        ),
+      ),
+    );
   }
 }
