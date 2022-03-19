@@ -1,5 +1,6 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../create_goal_bucket/create_goal_bucket_widget.dart';
 import '../create_spendable_bucket/create_spendable_bucket_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -27,6 +28,7 @@ class KidsAddBucketTypesWidget extends StatefulWidget {
 
 class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
     with TickerProviderStateMixin {
+  BucketsRecord bucketRecord;
   BucketsRecord bucketRecord;
   final animationsMap = {
     'columnOnActionTriggerAnimation': AnimationInfo(
@@ -219,58 +221,86 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                      child: Material(
-                        color: Colors.transparent,
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Container(
-                          width: 200,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).alternate,
+                      child: InkWell(
+                        onTap: () async {
+                          final bucketsCreateData = createBucketsRecordData(
+                            state: 'pending',
+                            createdAt: getCurrentTimestamp,
+                            updatedAt: getCurrentTimestamp,
+                            userAccountRef: widget.userAccountRf,
+                            accountRef: widget.accountRef,
+                            color: functions.generateRandomColoStr(),
+                          );
+                          var bucketsRecordReference =
+                              BucketsRecord.collection.doc();
+                          await bucketsRecordReference.set(bucketsCreateData);
+                          bucketRecord = BucketsRecord.getDocumentFromData(
+                              bucketsCreateData, bucketsRecordReference);
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CreateGoalBucketWidget(
+                                bucketRef: bucketRecord,
+                              ),
+                            ),
+                          );
+
+                          setState(() {});
+                        },
+                        child: Material(
+                          color: Colors.transparent,
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 8, 0),
-                                  child: Text(
-                                    'Goal Bucket',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                        ),
+                          child: Container(
+                            width: 200,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 8, 0),
+                                    child: Text(
+                                      'Goal Bucket',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                          ),
+                                    ),
                                   ),
-                                ),
-                                FlutterFlowIconButton(
-                                  borderColor: Colors.transparent,
-                                  borderRadius: 30,
-                                  borderWidth: 1,
-                                  buttonSize: 50,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
-                                  icon: Icon(
-                                    Icons.cake_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25,
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 50,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryColor,
+                                    icon: Icon(
+                                      Icons.cake_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 25,
+                                    ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
                                   ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
