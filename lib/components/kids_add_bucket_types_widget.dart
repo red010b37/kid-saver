@@ -28,8 +28,8 @@ class KidsAddBucketTypesWidget extends StatefulWidget {
 
 class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
     with TickerProviderStateMixin {
-  BucketsRecord bucketRecord;
-  BucketsRecord bucketRecord;
+  BucketsRecord goalBbucketRecord;
+  BucketsRecord spendaableBucketRecord;
   final animationsMap = {
     'columnOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
@@ -142,17 +142,19 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                             userAccountRef: widget.userAccountRf,
                             accountRef: widget.accountRef,
                             color: functions.generateRandomColoStr(),
+                            type: 'spendable',
                           );
                           var bucketsRecordReference =
                               BucketsRecord.collection.doc();
                           await bucketsRecordReference.set(bucketsCreateData);
-                          bucketRecord = BucketsRecord.getDocumentFromData(
-                              bucketsCreateData, bucketsRecordReference);
+                          spendaableBucketRecord =
+                              BucketsRecord.getDocumentFromData(
+                                  bucketsCreateData, bucketsRecordReference);
                           await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                               builder: (context) => CreateSpendableBucketWidget(
-                                bucketRef: bucketRecord,
+                                bucketRef: spendaableBucketRecord,
                               ),
                             ),
                             (r) => false,
@@ -230,17 +232,18 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                             userAccountRef: widget.userAccountRf,
                             accountRef: widget.accountRef,
                             color: functions.generateRandomColoStr(),
+                            type: 'goal',
                           );
                           var bucketsRecordReference =
                               BucketsRecord.collection.doc();
                           await bucketsRecordReference.set(bucketsCreateData);
-                          bucketRecord = BucketsRecord.getDocumentFromData(
+                          goalBbucketRecord = BucketsRecord.getDocumentFromData(
                               bucketsCreateData, bucketsRecordReference);
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => CreateGoalBucketWidget(
-                                bucketRef: bucketRecord,
+                                bucketRef: goalBbucketRecord,
                               ),
                             ),
                           );
