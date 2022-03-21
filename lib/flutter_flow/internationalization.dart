@@ -366,6 +366,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
+  // BucketView
+  {
+    '3al91sk9': {
+      'en': 'Page Title',
+      'es': '',
+    },
+    'ebhpqncs': {
+      'en': 'Home',
+      'es': '',
+    },
+  },
   // OnboardingAvatarSelector
   {
     'tsmahe3o': {
