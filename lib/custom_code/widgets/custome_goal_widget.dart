@@ -1,4 +1,7 @@
 // Automatic FlutterFlow imports
+import 'package:kid_saver/bucket_view/bucket_view_widget.dart';
+import 'package:kid_saver/create_spendable_bucket/create_spendable_bucket_widget.dart';
+
 import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
@@ -66,70 +69,82 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
           ),
           Align(
             alignment: AlignmentDirectional(0, 0),
-            child: Container(
-              width: widget.width - 30,
-              height: widget.height - 30,
-              decoration: BoxDecoration(
-                color: bgColor,
-                shape: BoxShape.circle,
-              ),
-              alignment: AlignmentDirectional(0, 0),
-              child: Stack(
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AutoSizeText(
-                            widget.name,
-                            minFontSize: 2,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AutoSizeText(
-                            formatCents(widget.totalInCents),
-                            textAlign: TextAlign.center,
-                            minFontSize: 2,
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 40,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AutoSizeText(
-                            'of ${formatCents(widget.goalTotalInCents)}',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 20,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+            child: InkWell(
+              onTap: () async {
+                await Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BucketViewWidget(
+                    ),
                   ),
-                ],
+                      (r) => false,
+                );
+              },
+              child: Container(
+                width: widget.width - 30,
+                height: widget.height - 30,
+                decoration: BoxDecoration(
+                  color: bgColor,
+                  shape: BoxShape.circle,
+                ),
+                alignment: AlignmentDirectional(0, 0),
+                child: Stack(
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AutoSizeText(
+                              widget.name,
+                              minFontSize: 2,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AutoSizeText(
+                              formatCents(widget.totalInCents),
+                              textAlign: TextAlign.center,
+                              minFontSize: 2,
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 40,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AutoSizeText(
+                              'of ${formatCents(widget.goalTotalInCents)}',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
