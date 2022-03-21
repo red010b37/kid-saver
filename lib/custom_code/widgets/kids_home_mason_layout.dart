@@ -6,6 +6,15 @@ import 'index.dart'; // Imports other custom widgets
 import '../actions/index.dart'; // Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
+// Automatic FlutterFlow imports
+import 'package:kid_saver/custom_code/widgets/custome_goal_widget.dart';
+
+import '../../backend/backend.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+
+// Begin custom widget code
 import 'dart:async';
 import 'dart:math';
 import '../../flutter_flow/custom_functions.dart';
@@ -141,7 +150,7 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
           endRadius: cd,
           fromCents: b.lastSeenTotalCents,
           totalCents: b.totalCents,
-          description: b.name,
+          bucket: b,
           color: color));
 
       var bucketData = createBucketsRecordData(
@@ -172,7 +181,7 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
       width: sizeW,
       height: sizeH,
       child: Stack(alignment: AlignmentDirectional.center, children: [
-        for (var b in buckets) b.buildCircle(context)
+        for (var b in buckets) b.buildItem(context)
         // buildCircle(context, Colors.cyanAccent, 30/2),
         // MyStatefulWidget(xPos: xPos, yPos: yPos, lastxPos: lastXPos, lastyPos: lastYPos),
       ]),
@@ -199,14 +208,13 @@ class BucketDisplay {
   BallCage bc;
 
   BallData ballData;
+  BucketsRecord bucket;
 
   int fromCents;
   int totalCents;
   int currentDisplayCents = 0;
 
   TickerProvider vsync;
-
-  String description;
 
   BucketDisplay({
     this.bc,
@@ -218,7 +226,7 @@ class BucketDisplay {
     this.totalCents,
     this.fromCents,
     this.vsync,
-    this.description,
+    this.bucket,
   }) {
     ballData = bc.createBody(startRadius, x, y);
 
@@ -261,56 +269,83 @@ class BucketDisplay {
     } catch (e) {}
   }
 
+  Widget buildItem(BuildContext context) {
+    Widget w;
+
+    switch (bucket.type) {
+      case 'spendable':
+        w = buildCircle(context);
+        break;
+      case 'savings':
+        w = buildCircle(context);
+        break;
+      case 'goal':
+        w = buildGoal(context);
+        break;
+    }
+
+    return Transform.translate(offset: Offset(xPos, yPos), child: w);
+  }
+
   Widget buildCircle(BuildContext context) {
-    return Transform.translate(
-      offset: Offset(xPos, yPos),
-      child: Container(
+    return Container(
+      alignment: Alignment.center,
+      width: currentRadius * 2,
+      height: currentRadius * 2,
+      child: Stack(
         alignment: Alignment.center,
-        width: currentRadius * 2,
-        height: currentRadius * 2,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            CustomPaint(
-              painter: SimpleCirclePainter(
-                radius: currentRadius,
-                backgroundColor: color,
-                // circleWidth: 2,
-              ),
+        children: [
+          CustomPaint(
+            painter: SimpleCirclePainter(
+              radius: currentRadius,
+              backgroundColor: color,
+              // circleWidth: 2,
             ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  AutoSizeText(
-                    formatCents(currentDisplayCents),
-                    style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.white,
-                    ),
-                    maxLines: 1,
-                    minFontSize: 3,
-                    maxFontSize: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                AutoSizeText(
+                  formatCents(currentDisplayCents),
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.white,
                   ),
-                  AutoSizeText(
-                    description,
-                    wrapWords: false,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                    ),
-                    maxLines: 1,
-                    minFontSize: 3,
-                    maxFontSize: 15,
+                  maxLines: 1,
+                  minFontSize: 3,
+                  maxFontSize: 30,
+                ),
+                AutoSizeText(
+                  bucket.name,
+                  wrapWords: false,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                  maxLines: 1,
+                  minFontSize: 3,
+                  maxFontSize: 15,
+                ),
+              ],
+            ),
+          )
+        ],
       ),
+    );
+  }
+
+  Widget buildGoal(BuildContext context) {
+    setRadius(80);
+    return CustomeGoalWidget(
+      height: currentRadius * 2,
+      width: currentRadius * 2,
+      name: bucket.name,
+      totalInCents: bucket.totalCents,
+      goalTotalInCents: bucket.goalAmountCents,
+      colorStr: bucket.color,
     );
   }
 }
