@@ -2,6 +2,8 @@
 import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
+import 'index.dart'; // Imports other custom widgets
+import '../actions/index.dart'; // Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 
@@ -9,7 +11,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:kid_saver/flutter_flow/custom_functions.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-// Begin custom widget code
 class CustomeGoalWidget extends StatefulWidget {
   const CustomeGoalWidget({
     Key key,
@@ -35,7 +36,17 @@ class CustomeGoalWidget extends StatefulWidget {
 class _GoalWidgetState extends State<CustomeGoalWidget> {
   @override
   Widget build(BuildContext context) {
-    var t = widget.goalTotalInCents / widget.totalInCents;
+    var tc = widget.totalInCents;
+    var gtc = widget.goalTotalInCents;
+
+    var t = 0.0;
+    if (gtc != 0 && tc != 0) {
+      t = tc.toDouble() / gtc.toDouble();
+    }
+
+    int value = int.parse(widget.colorStr);
+    Color bgColor = Color(value).withOpacity(1);
+    Color inicatorBgC = Color(value).withOpacity(.3);
 
     return Align(
       alignment: AlignmentDirectional(0, 0),
@@ -46,20 +57,20 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
             alignment: AlignmentDirectional(0, 0),
             child: CircularPercentIndicator(
                 percent: t,
-                radius: 115,
+                radius: widget.width / 2,
                 lineWidth: 9,
                 animation: true,
-                progressColor: FlutterFlowTheme.of(context).secondaryColor,
-                backgroundColor: Color(0x2DFF2E63),
+                progressColor: bgColor,
+                backgroundColor: inicatorBgC,
                 startAngle: 270),
           ),
           Align(
             alignment: AlignmentDirectional(0, 0),
             child: Container(
-              width: 200,
-              height: 200,
+              width: widget.width - 30,
+              height: widget.height - 30,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryColor,
+                color: bgColor,
                 shape: BoxShape.circle,
               ),
               alignment: AlignmentDirectional(0, 0),
@@ -75,8 +86,13 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
                         children: [
                           AutoSizeText(
                             widget.name,
+                            minFontSize: 2,
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).subtitle1,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -87,12 +103,12 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
                           AutoSizeText(
                             formatCents(widget.totalInCents),
                             textAlign: TextAlign.center,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w300,
-                                    ),
+                            minFontSize: 2,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 40,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -101,14 +117,13 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AutoSizeText(
-                            'of ' + formatCents(widget.goalTotalInCents),
+                            'of ${formatCents(widget.goalTotalInCents)}',
                             textAlign: TextAlign.center,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w300,
-                                    ),
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
