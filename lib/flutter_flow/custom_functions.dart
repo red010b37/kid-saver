@@ -44,6 +44,6 @@ String generateRandomColoStr() {
 
 int formInputToCents(String formInput) {
   // Add your function code here!
-
-  return 0;
+  var i = double.parse(formInput) * 100;
+  return i.toInt();
 }
