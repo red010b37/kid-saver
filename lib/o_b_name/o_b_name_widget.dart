@@ -111,7 +111,9 @@ class _OBNameWidgetState extends State<OBNameWidget>
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                             child: Text(
-                              'What is your name?',
+                              FFLocalizations.of(context).getText(
+                                'bwyi4rdv' /* What is your name? */,
+                              ),
                               style:
                                   FlutterFlowTheme.of(context).title1.override(
                                         fontFamily: 'Lexend Deca',
@@ -127,7 +129,9 @@ class _OBNameWidgetState extends State<OBNameWidget>
                               controller: textController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: ' name',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '2kkjs4e9' /*  name */,
+                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
@@ -178,7 +182,9 @@ class _OBNameWidgetState extends State<OBNameWidget>
                                   ),
                                 );
                               },
-                              text: 'Next',
+                              text: FFLocalizations.of(context).getText(
+                                'mug9zpxl' /* Next */,
+                              ),
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 55,

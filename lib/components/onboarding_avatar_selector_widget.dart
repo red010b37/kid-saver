@@ -48,7 +48,9 @@ class _OnboardingAvatarSelectorWidgetState
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 30),
                           child: Text(
-                            'Select One',
+                            FFLocalizations.of(context).getText(
+                              'tsmahe3o' /* Select One */,
+                            ),
                             style: FlutterFlowTheme.of(context).title1,
                           ),
                         ),

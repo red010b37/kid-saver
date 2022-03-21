@@ -62,7 +62,9 @@ class _GoalWidgetState extends State<GoalWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AutoSizeText(
-                            'Bike',
+                            FFLocalizations.of(context).getText(
+                              'rrevur05' /* Bike */,
+                            ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context).subtitle1,
                           ),
@@ -89,7 +91,9 @@ class _GoalWidgetState extends State<GoalWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AutoSizeText(
-                            'of \$4000',
+                            FFLocalizations.of(context).getText(
+                              '2022gpgj' /* of $4000 */,
+                            ),
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(

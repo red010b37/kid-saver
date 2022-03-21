@@ -84,7 +84,9 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                           Align(
                             alignment: AlignmentDirectional(-1, 0),
                             child: Text(
-                              'Add Amount',
+                              FFLocalizations.of(context).getText(
+                                'cqf83cuz' /* Add Amount */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context).title1,
                             ),
@@ -99,7 +101,9 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                 controller: textController1,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: '0.00',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'qwmkdcil' /* 0.00 */,
+                                  ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -143,7 +147,9 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                           Align(
                             alignment: AlignmentDirectional(1, 0),
                             child: Text(
-                              'The amount will be added to each selected  below',
+                              FFLocalizations.of(context).getText(
+                                'okvupkbr' /* The amount will be added to ea... */,
+                              ),
                               textAlign: TextAlign.end,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -163,7 +169,9 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Description (optional)',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '4a50njd3' /* Description (optional) */,
+                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
@@ -378,7 +386,9 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                               );
                               Navigator.pop(context);
                             },
-                            text: 'Add',
+                            text: FFLocalizations.of(context).getText(
+                              'hghohgbz' /* Add */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 55,

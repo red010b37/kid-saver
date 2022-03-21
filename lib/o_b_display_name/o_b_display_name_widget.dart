@@ -111,7 +111,9 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                             child: Text(
-                              'What do your kids call you?',
+                              FFLocalizations.of(context).getText(
+                                '0ojs2qtd' /* What do your kids call you? */,
+                              ),
                               style:
                                   FlutterFlowTheme.of(context).title1.override(
                                         fontFamily: 'Lexend Deca',
@@ -127,7 +129,9 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                               controller: textController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: ' Mum, Dad, something else ',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '3ig7zgia' /*  Mum, Dad, something else  */,
+                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
@@ -178,7 +182,9 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                                   ),
                                 );
                               },
-                              text: 'Next',
+                              text: FFLocalizations.of(context).getText(
+                                'voywrnfd' /* Next */,
+                              ),
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 55,

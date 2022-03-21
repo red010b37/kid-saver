@@ -84,7 +84,9 @@ class _CreateSpendableBucketWidgetState
               },
             ),
             title: Text(
-              'Create Spendable Bucket',
+              FFLocalizations.of(context).getText(
+                'gti731at' /* Create Spendable Bucket */,
+              ),
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Lexend Deca',
                     color: Colors.white,
@@ -140,7 +142,9 @@ class _CreateSpendableBucketWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 30, 0),
                                       child: Text(
-                                        'Bucket Color',
+                                        FFLocalizations.of(context).getText(
+                                          'kyyh14re' /* Bucket Color */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -170,7 +174,9 @@ class _CreateSpendableBucketWidgetState
                                 controller: nameTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Name',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '4ayfhuxu' /* Name */,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -197,7 +203,9 @@ class _CreateSpendableBucketWidgetState
                                     ),
                                 validator: (val) {
                                   if (val.isEmpty) {
-                                    return 'Field is required';
+                                    return FFLocalizations.of(context).getText(
+                                      'c6a2nnx2' /* Field is required */,
+                                    );
                                   }
 
                                   return null;
@@ -211,7 +219,9 @@ class _CreateSpendableBucketWidgetState
                                 controller: descTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Description',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'z6y4h6ip' /* Description */,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -270,7 +280,9 @@ class _CreateSpendableBucketWidgetState
                                     (r) => false,
                                   );
                                 },
-                                text: 'Create',
+                                text: FFLocalizations.of(context).getText(
+                                  'n58dqvs6' /* Create */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 60,

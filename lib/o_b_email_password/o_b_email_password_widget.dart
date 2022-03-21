@@ -133,7 +133,9 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Text(
-                                  'Login  Details',
+                                  FFLocalizations.of(context).getText(
+                                    'yhd74dvm' /* Login  Details */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .title1
                                       .override(
@@ -144,7 +146,9 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                 ),
                               ),
                               Text(
-                                'Enter email and password so you can log back in.',
+                                FFLocalizations.of(context).getText(
+                                  '22a8c00b' /* Enter email and password so yo... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -160,7 +164,10 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                   controller: emailTFController,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Email  address',
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'ww0vcul7' /* Email  address */,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -194,7 +201,10 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                   controller: passwordTextFieldController,
                                   obscureText: !passwordTextFieldVisibility,
                                   decoration: InputDecoration(
-                                    hintText: 'Enter Password',
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'griroaj5' /* Enter Password */,
+                                    ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -300,7 +310,9 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
 
                                     setState(() {});
                                   },
-                                  text: 'Lets GO!',
+                                  text: FFLocalizations.of(context).getText(
+                                    '5pt1b1yf' /* Lets GO! */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 55,

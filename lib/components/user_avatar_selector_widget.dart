@@ -47,7 +47,9 @@ class _UserAvatarSelectorWidgetState extends State<UserAvatarSelectorWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 30),
                           child: Text(
-                            'Select One',
+                            FFLocalizations.of(context).getText(
+                              's7csthov' /* Select One */,
+                            ),
                             style: FlutterFlowTheme.of(context).title1,
                           ),
                         ),

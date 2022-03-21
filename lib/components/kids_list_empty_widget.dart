@@ -26,7 +26,9 @@ class _KidsListEmptyWidgetState extends State<KidsListEmptyWidget> {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
             child: Text(
-              'Use  the button below to add  your fisrt child',
+              FFLocalizations.of(context).getText(
+                'yxiv934b' /* Use  the button below to add  ... */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).title1.override(
                     fontFamily: 'Lexend Deca',

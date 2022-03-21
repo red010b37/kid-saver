@@ -148,7 +148,9 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                             Align(
                               alignment: AlignmentDirectional(0, 0.55),
                               child: Text(
-                                'Hi',
+                                FFLocalizations.of(context).getText(
+                                  'at3d1bzq' /* Hi */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title2
                                     .override(
@@ -179,7 +181,9 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                             Align(
                               alignment: AlignmentDirectional(0, 0.55),
                               child: Text(
-                                '...',
+                                FFLocalizations.of(context).getText(
+                                  '6342htm6' /* ... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title2
                                     .override(
@@ -352,7 +356,11 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                                                                         0,
                                                                         0),
                                                             child: Text(
-                                                              'Spendable',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'h8ww4h4p' /* Spendable */,
+                                                              ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .start,
@@ -377,7 +385,11 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
                                                                         0,
                                                                         0),
                                                             child: Text(
-                                                              'Total',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'uek72y0t' /* Total */,
+                                                              ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .start,
@@ -521,7 +533,10 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
 
                                               setState(() {});
                                             },
-                                            text: '+',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '6bmtdc6z' /* + */,
+                                            ),
                                             options: FFButtonOptions(
                                               width: 50,
                                               height: 40,
@@ -581,7 +596,10 @@ class _GuardianDashboardWidgetState extends State<GuardianDashboardWidget>
 
                                               setState(() {});
                                             },
-                                            text: '-',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'gseta2r4' /* - */,
+                                            ),
                                             options: FFButtonOptions(
                                               width: 50,
                                               height: 40,

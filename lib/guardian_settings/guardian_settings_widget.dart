@@ -79,7 +79,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                             child: Text(
-                              '[User Name Here]',
+                              FFLocalizations.of(context).getText(
+                                'uyaihqvu' /* [User Name Here] */,
+                              ),
                               style:
                                   FlutterFlowTheme.of(context).title1.override(
                                         fontFamily: 'Lexend Deca',
@@ -97,7 +99,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                             child: Text(
-                              'User.name@domainname.com',
+                              FFLocalizations.of(context).getText(
+                                '95sgr508' /* User.name@domainname.com */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -125,7 +129,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(24, 12, 0, 12),
                     child: Text(
-                      'Account Settings',
+                      FFLocalizations.of(context).getText(
+                        '7cnnah7z' /* Account Settings */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF090F13),
@@ -160,7 +166,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                             child: Text(
-                              'Order History',
+                              FFLocalizations.of(context).getText(
+                                'em04mibj' /* Order History */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -205,7 +213,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                               child: Text(
-                                'Settings',
+                                FFLocalizations.of(context).getText(
+                                  'u9w7mwng' /* Settings */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -251,7 +261,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                               child: Text(
-                                'Notifications',
+                                FFLocalizations.of(context).getText(
+                                  'cyjxdfow' /* Notifications */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -297,7 +309,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                               child: Text(
-                                'Change Password',
+                                FFLocalizations.of(context).getText(
+                                  'ufw73v70' /* Change Password */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -341,7 +355,9 @@ class _GuardianSettingsWidgetState extends State<GuardianSettingsWidget> {
                             (r) => false,
                           );
                         },
-                        text: 'Log Out',
+                        text: FFLocalizations.of(context).getText(
+                          'uabrq9uj' /* Log Out */,
+                        ),
                         options: FFButtonOptions(
                           width: 90,
                           height: 40,

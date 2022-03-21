@@ -64,7 +64,9 @@ class _KidsListWidgetState extends State<KidsListWidget> {
                           );
                         },
                         child: Text(
-                          'Who are you?',
+                          FFLocalizations.of(context).getText(
+                            'a6wbqej8' /* Who are you? */,
+                          ),
                           style: FlutterFlowTheme.of(context).title2.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Colors.white,

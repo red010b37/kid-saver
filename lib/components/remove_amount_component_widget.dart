@@ -84,7 +84,9 @@ class _RemoveAmountComponentWidgetState
                           Align(
                             alignment: AlignmentDirectional(-1, 0),
                             child: Text(
-                              'Remove Amount',
+                              FFLocalizations.of(context).getText(
+                                'yeqr46n5' /* Remove Amount */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context).title1,
                             ),
@@ -99,7 +101,9 @@ class _RemoveAmountComponentWidgetState
                                 controller: removeAmtTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: '0.00',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '5ac4rgpe' /* 0.00 */,
+                                  ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -143,7 +147,9 @@ class _RemoveAmountComponentWidgetState
                           Align(
                             alignment: AlignmentDirectional(1, 0),
                             child: Text(
-                              'The amount will be added to each selected  below',
+                              FFLocalizations.of(context).getText(
+                                'z6fb0kvl' /* The amount will be added to ea... */,
+                              ),
                               textAlign: TextAlign.end,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -163,7 +169,9 @@ class _RemoveAmountComponentWidgetState
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Description (optional)',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'rxnddnmj' /* Description (optional) */,
+                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
@@ -383,7 +391,9 @@ class _RemoveAmountComponentWidgetState
                               );
                               Navigator.pop(context);
                             },
-                            text: 'Remove',
+                            text: FFLocalizations.of(context).getText(
+                              '0o4rrxwl' /* Remove */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 55,

@@ -100,7 +100,9 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                                 child: Text(
-                                  'Add Child',
+                                  FFLocalizations.of(context).getText(
+                                    '29d65kyd' /* Add Child */,
+                                  ),
                                   style: FlutterFlowTheme.of(context).title3,
                                 ),
                               ),
@@ -186,7 +188,9 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                               Align(
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Text(
-                                  'Upload image or select one of ours',
+                                  FFLocalizations.of(context).getText(
+                                    'o0k2r7xx' /* Upload image or select one of ... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -219,7 +223,9 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                         },
                                       );
                                     },
-                                    text: 'Select Avatar',
+                                    text: FFLocalizations.of(context).getText(
+                                      '7g4kot2w' /* Select Avatar */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 50,
@@ -256,7 +262,10 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                         controller: textController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: 'Child Name',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'x6f8252l' /* Child Name */,
+                                          ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0xFF01CC88),
@@ -302,6 +311,14 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                               },
                                               currentTime: getCurrentTimestamp,
                                               minTime: DateTime(0, 0, 0),
+                                              locale:
+                                                  LocaleType.values.firstWhere(
+                                                (l) =>
+                                                    l.name ==
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                                orElse: null,
+                                              ),
                                             );
                                           },
                                           child: Container(
@@ -345,7 +362,14 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 20, 0, 0),
                                       child: FlutterFlowRadioButton(
-                                        options: ['Boy', 'Girl'],
+                                        options: [
+                                          FFLocalizations.of(context).getText(
+                                            'z0hlkdog' /* Boy */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            '2w2a9rti' /* Girl */,
+                                          )
+                                        ],
                                         onChanged: (value) {
                                           setState(
                                               () => radioButtonValue = value);
@@ -397,7 +421,10 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                                 ),
                                               );
                                             },
-                                            text: 'Cancel',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'haia0n7n' /* Cancel */,
+                                            ),
                                             options: FFButtonOptions(
                                               width: 130,
                                               height: 60,
@@ -458,7 +485,10 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                                 (r) => false,
                                               );
                                             },
-                                            text: 'Add',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'o4sm4tkz' /* Add */,
+                                            ),
                                             options: FFButtonOptions(
                                               width: 130,
                                               height: 60,

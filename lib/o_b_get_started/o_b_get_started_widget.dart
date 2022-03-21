@@ -98,7 +98,9 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                         child: Text(
-                          'Welcome ',
+                          FFLocalizations.of(context).getText(
+                            'hrpahv4d' /* Welcome  */,
+                          ),
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Lexend Deca',
                                 color:
@@ -107,7 +109,9 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                         ),
                       ),
                       Text(
-                        'Lets get kids better with money',
+                        FFLocalizations.of(context).getText(
+                          'bp6xogfd' /* Lets get kids better with mone... */,
+                        ),
                         style: FlutterFlowTheme.of(context).subtitle2.override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -144,7 +148,9 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
 
                             setState(() {});
                           },
-                          text: 'Get  started',
+                          text: FFLocalizations.of(context).getText(
+                            'ce1on9s4' /* Get  started */,
+                          ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 55,
@@ -168,7 +174,9 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Text(
-                            'or',
+                            FFLocalizations.of(context).getText(
+                              '2mj08hgs' /* or */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Lexend Deca',
@@ -183,7 +191,9 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: 'Login',
+                          text: FFLocalizations.of(context).getText(
+                            '3dwt2j52' /* Login */,
+                          ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 55,

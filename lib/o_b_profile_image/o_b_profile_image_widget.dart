@@ -128,7 +128,9 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Text(
-                                  'How you look',
+                                  FFLocalizations.of(context).getText(
+                                    '5r4syr5l' /* How you look */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .title1
                                       .override(
@@ -139,7 +141,9 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                 ),
                               ),
                               Text(
-                                'Upload a photo or use on of ours avatars',
+                                FFLocalizations.of(context).getText(
+                                  '7wxoa96g' /* Upload a photo or use on of ou... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -212,7 +216,9 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 0),
                                   child: Text(
-                                    'or',
+                                    FFLocalizations.of(context).getText(
+                                      'rdf4bqal' /* or */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
@@ -242,7 +248,9 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                       },
                                     );
                                   },
-                                  text: 'Select Avatar',
+                                  text: FFLocalizations.of(context).getText(
+                                    'et6n6ovt' /* Select Avatar */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 55,
@@ -278,7 +286,9 @@ class _OBProfileImageWidgetState extends State<OBProfileImageWidget>
                                       ),
                                     );
                                   },
-                                  text: 'Next',
+                                  text: FFLocalizations.of(context).getText(
+                                    'q2wjm2gk' /* Next */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 55,

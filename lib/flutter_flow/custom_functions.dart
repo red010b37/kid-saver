@@ -41,3 +41,9 @@ String generateRandomColoStr() {
   var r = math.Random().nextInt(colors.length - 1);
   return colors[r].value.toString();
 }
+
+int formInputToCents(String formInput) {
+  // Add your function code here!
+
+  return 0;
+}

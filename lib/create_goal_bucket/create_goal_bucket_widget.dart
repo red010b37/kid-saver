@@ -84,7 +84,9 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
               },
             ),
             title: Text(
-              'Create Goal Bucket',
+              FFLocalizations.of(context).getText(
+                'a7iu8l74' /* Create Goal Bucket */,
+              ),
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Lexend Deca',
                     color: Colors.white,
@@ -140,7 +142,9 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 30, 0),
                                       child: Text(
-                                        'Bucket Color',
+                                        FFLocalizations.of(context).getText(
+                                          'ma5e5j0b' /* Bucket Color */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -169,7 +173,9 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                 controller: nameTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Name',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'pt3wdt5a' /* Name */,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -203,7 +209,9 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                 controller: descTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Description',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'cuv1mpl8' /* Description */,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -237,7 +245,9 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                 controller: goalAmountTextFeildController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Goal Amount',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '9zwdneh9' /* Goal Amount */,
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -297,7 +307,9 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                     (r) => false,
                                   );
                                 },
-                                text: 'Create',
+                                text: FFLocalizations.of(context).getText(
+                                  'hhhwdp3v' /* Create */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 60,

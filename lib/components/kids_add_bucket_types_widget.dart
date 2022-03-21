@@ -187,7 +187,9 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 8, 0),
                                     child: Text(
-                                      'Spending Bucket',
+                                      FFLocalizations.of(context).getText(
+                                        'gt4wcpuv' /* Spending Bucket */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -275,7 +277,9 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 8, 0),
                                     child: Text(
-                                      'Goal Bucket',
+                                      FFLocalizations.of(context).getText(
+                                        'dy4nn053' /* Goal Bucket */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -332,7 +336,9 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                                 child: Text(
-                                  'Savings Bucket',
+                                  FFLocalizations.of(context).getText(
+                                    'lj3xek7b' /* Savings Bucket */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(

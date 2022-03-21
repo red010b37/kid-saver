@@ -182,7 +182,9 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                             ],
                                           ),
                                           Text(
-                                            'Total',
+                                            FFLocalizations.of(context).getText(
+                                              'wck5933t' /* Total */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
                                           ),
