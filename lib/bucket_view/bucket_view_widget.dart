@@ -106,7 +106,18 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      'Added from Dad',
+                                      'Added from Dad ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                          ),
+                                    ),
+                                    Text(
+                                      functions.fomatTimeToTimeago(
+                                          columnTransactionRecord.createdAt),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
