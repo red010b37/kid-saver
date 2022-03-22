@@ -31,6 +31,7 @@ class CustomeGoalWidget extends StatefulWidget {
     this.name,
     this.totalInCents,
     this.goalTotalInCents,
+    this.bucketRecord,
   }) : super(key: key);
 
   final double width;
@@ -39,9 +40,17 @@ class CustomeGoalWidget extends StatefulWidget {
   final String name;
   final int totalInCents;
   final int goalTotalInCents;
+  final BucketsRecord bucketRecord;
 
   @override
-  _GoalWidgetState createState() => _GoalWidgetState();
+  _CustomeGoalWidgetState createState() => _CustomeGoalWidgetState();
+}
+
+class _CustomeGoalWidgetState extends State<CustomeGoalWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
 
 class _GoalWidgetState extends State<CustomeGoalWidget> {
