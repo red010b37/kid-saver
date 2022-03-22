@@ -7,20 +7,15 @@ import '../actions/index.dart'; // Imports custom actions
 import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
-// Automatic FlutterFlow imports
+
+// PAUL -------
 import 'package:kid_saver/custom_code/widgets/custome_goal_widget.dart';
-
-import '../../backend/backend.dart';
-import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_util.dart';
-import 'package:flutter/material.dart';
-
-// Begin custom widget code
 import 'dart:async';
 import 'dart:math';
 import '../../flutter_flow/custom_functions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:forge2d/forge2d.dart' as fge;
+import 'package:kid_saver/bucket_view/bucket_view_widget.dart';
 
 const List<Color> colors = [
   Colors.red,
@@ -293,47 +288,58 @@ class BucketDisplay {
       alignment: Alignment.center,
       width: currentRadius * 2,
       height: currentRadius * 2,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          CustomPaint(
-            painter: SimpleCirclePainter(
-              radius: currentRadius,
-              backgroundColor: color,
-              // circleWidth: 2,
+      child: InkWell(
+        onTap: () async {
+          await await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  BucketViewWidget(bucketRef: bucket.reference),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AutoSizeText(
-                  formatCents(currentDisplayCents),
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
-                  ),
-                  maxLines: 1,
-                  minFontSize: 3,
-                  maxFontSize: 30,
-                ),
-                AutoSizeText(
-                  bucket.name,
-                  wrapWords: false,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                  ),
-                  maxLines: 1,
-                  minFontSize: 3,
-                  maxFontSize: 15,
-                ),
-              ],
+          );
+        },
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            CustomPaint(
+              painter: SimpleCirclePainter(
+                radius: currentRadius,
+                backgroundColor: color,
+                // circleWidth: 2,
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  AutoSizeText(
+                    formatCents(currentDisplayCents),
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                    maxLines: 1,
+                    minFontSize: 3,
+                    maxFontSize: 30,
+                  ),
+                  AutoSizeText(
+                    bucket.name,
+                    wrapWords: false,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                    maxLines: 1,
+                    minFontSize: 3,
+                    maxFontSize: 15,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -347,6 +353,7 @@ class BucketDisplay {
       totalInCents: bucket.totalCents,
       goalTotalInCents: bucket.goalAmountCents,
       colorStr: bucket.color,
+      bucketRecord: bucket,
     );
   }
 }

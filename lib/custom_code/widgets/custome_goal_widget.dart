@@ -7,17 +7,9 @@ import '../actions/index.dart'; // Imports custom actions
 import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
-// Automatic FlutterFlow imports
+
+// PAUL -------
 import 'package:kid_saver/bucket_view/bucket_view_widget.dart';
-
-import '../../backend/backend.dart';
-import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
-import '../actions/index.dart'; // Imports custom actions
-import 'package:flutter/material.dart';
-// Begin custom widget code
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:kid_saver/flutter_flow/custom_functions.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -43,14 +35,7 @@ class CustomeGoalWidget extends StatefulWidget {
   final BucketsRecord bucketRecord;
 
   @override
-  _CustomeGoalWidgetState createState() => _CustomeGoalWidgetState();
-}
-
-class _CustomeGoalWidgetState extends State<CustomeGoalWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  _GoalWidgetState createState() => _GoalWidgetState();
 }
 
 class _GoalWidgetState extends State<CustomeGoalWidget> {
@@ -92,7 +77,8 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
                 await await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => BucketViewWidget(),
+                    builder: (context) => BucketViewWidget(
+                        bucketRef: widget.bucketRecord.reference),
                   ),
                 );
               },

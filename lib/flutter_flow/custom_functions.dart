@@ -47,3 +47,9 @@ int formInputToCents(String formInput) {
   var i = double.parse(formInput) * 100;
   return i.toInt();
 }
+
+String fomatTimeToTimeago(DateTime timeToFormat) {
+  // Add your function code here!
+
+  return "";
+}
