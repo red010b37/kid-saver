@@ -42,8 +42,8 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                   children: [],
                 ),
               ),
-              StreamBuilder<List<TransactionRecord>>(
-                stream: queryTransactionRecord(
+              FutureBuilder<List<TransactionRecord>>(
+                future: queryTransactionRecordOnce(
                   queryBuilder: (transactionRecord) => transactionRecord
                       .where('bucket_ref', isEqualTo: widget.bucketRef)
                       .orderBy('created_at', descending: true),
