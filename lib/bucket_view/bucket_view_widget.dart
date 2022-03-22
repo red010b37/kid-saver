@@ -45,7 +45,8 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
               StreamBuilder<List<TransactionRecord>>(
                 stream: queryTransactionRecord(
                   queryBuilder: (transactionRecord) => transactionRecord
-                      .where('bucket_ref', isEqualTo: widget.bucketRef),
+                      .where('bucket_ref', isEqualTo: widget.bucketRef)
+                      .orderBy('created_at', descending: true),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
