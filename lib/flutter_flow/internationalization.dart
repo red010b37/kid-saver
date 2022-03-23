@@ -368,11 +368,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BucketView
   {
-    'kdar4lwj': {
+    'og0zn45d': {
       'en': 'Added from Dad ',
       'es': '',
     },
-    'ayako19v': {
+    'vtyq0tmd': {
       'en': 'Home',
       'es': '',
     },

@@ -46,7 +46,11 @@ class _GoalWidgetState extends State<CustomeGoalWidget> {
 
     var t = 0.0;
     if (gtc != 0 && tc != 0) {
-      t = tc.toDouble() / gtc.toDouble();
+      t = ((tc.toDouble() / gtc.toDouble()) * 100) / 100;
+    }
+
+    if (t > 1.0) {
+      t = 1.0;
     }
 
     int value = int.parse(widget.colorStr);
