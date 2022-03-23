@@ -27,8 +27,8 @@ class _BucketViewHeaderTotalWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.height.toDouble(),
-      height: 150,
+      width: MediaQuery.of(context).size.width,
+      height: widget.height.toDouble(),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).alternate,
       ),
