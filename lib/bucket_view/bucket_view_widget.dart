@@ -131,14 +131,16 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                             color: Color(0x4301CC88),
                                           ),
                                         ),
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          color: Color(0x45FF2E63),
+                                      if ((columnTransactionRecord.type) ==
+                                          'remove')
+                                        Container(
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: Color(0x45FF2E63),
+                                          ),
                                         ),
-                                      ),
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width,
