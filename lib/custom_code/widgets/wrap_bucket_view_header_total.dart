@@ -7,6 +7,7 @@ import '../actions/index.dart'; // Imports custom actions
 import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
+import 'package:kid_saver/components/bucket_view_header_total_widget.dart';
 
 class WrapBucketViewHeaderTotal extends StatefulWidget {
   const WrapBucketViewHeaderTotal({
@@ -30,6 +31,13 @@ class WrapBucketViewHeaderTotal extends StatefulWidget {
 class _WrapBucketViewHeaderTotalState extends State<WrapBucketViewHeaderTotal> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    int value = int.parse(widget.colorStr);
+    Color color = Color(value).withOpacity(1);
+
+    return BucketViewHeaderTotalWidget(
+      height: widget.height.toInt(),
+      totatCents: widget.totalCents,
+      bgColor: color,
+    );
   }
 }
