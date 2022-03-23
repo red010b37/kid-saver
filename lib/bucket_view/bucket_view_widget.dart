@@ -121,12 +121,29 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                       10, 10, 10, 10),
                                   child: Stack(
                                     children: [
+                                      if ((columnTransactionRecord.type) ==
+                                          'add')
+                                        Container(
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: Color(0x4301CC88),
+                                          ),
+                                        ),
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width,
                                         height: 100,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFEEEEEE),
+                                          color: Color(0x45FF2E63),
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 100,
+                                        decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(5),
                                         ),
