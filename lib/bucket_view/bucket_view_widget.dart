@@ -79,7 +79,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
               children: [
                 custom_widgets.WrapBucketViewHeaderTotal(
                   width: MediaQuery.of(context).size.width,
-                  height: 120,
+                  height: 150,
                   totalCents: bucketViewBucketsRecord.totalCents,
                   colorStr: bucketViewBucketsRecord.color,
                 ),
