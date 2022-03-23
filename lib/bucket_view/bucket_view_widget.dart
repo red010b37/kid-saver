@@ -1,8 +1,8 @@
 import '../backend/backend.dart';
-import '../components/bucket_view_header_total_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +77,12 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                BucketViewHeaderTotalWidget(),
+                custom_widgets.WrapBucketViewHeaderTotal(
+                  width: MediaQuery.of(context).size.width,
+                  height: 120,
+                  totalCents: bucketViewBucketsRecord.totalCents,
+                  colorStr: bucketViewBucketsRecord.color,
+                ),
                 Expanded(
                   child: Stack(
                     children: [
