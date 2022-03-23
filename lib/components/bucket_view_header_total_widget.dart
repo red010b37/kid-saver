@@ -10,10 +10,12 @@ class BucketViewHeaderTotalWidget extends StatefulWidget {
     Key key,
     this.height,
     this.totatCents,
+    this.bgColor,
   }) : super(key: key);
 
   final int height;
   final int totatCents;
+  final Color bgColor;
 
   @override
   _BucketViewHeaderTotalWidgetState createState() =>
