@@ -30,7 +30,7 @@ class _BucketViewHeaderTotalWidgetState
       width: MediaQuery.of(context).size.width,
       height: widget.height.toDouble(),
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).alternate,
+        color: widget.bgColor,
       ),
       child: Stack(
         children: [
