@@ -210,7 +210,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                 .tertiaryColor,
                                           ),
                                         ),
-                                      if ((columnTransactionRecord.type) !=
+                                      if ((columnTransactionRecord.type) ==
                                           'remove')
                                         Container(
                                           width:
