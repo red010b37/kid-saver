@@ -128,7 +128,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                               MediaQuery.of(context).size.width,
                                           height: 100,
                                           decoration: BoxDecoration(
-                                            color: Color(0x2701CC88),
+                                            color: Color(0x1601CC88),
                                           ),
                                         ),
                                       if ((columnTransactionRecord.type) ==
@@ -138,7 +138,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                               MediaQuery.of(context).size.width,
                                           height: 100,
                                           decoration: BoxDecoration(
-                                            color: Color(0x2AFF2E63),
+                                            color: Color(0x18FF2E63),
                                           ),
                                         ),
                                       Container(
