@@ -181,6 +181,25 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                   ),
                                                   if ((columnTransactionRecord
                                                           .type) ==
+                                                      'remove')
+                                                    Container(
+                                                      width: 50,
+                                                      height: 50,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryColor,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Icon(
+                                                        Icons.arrow_downward,
+                                                        color: Colors.white,
+                                                        size: 24,
+                                                      ),
+                                                    ),
+                                                  if ((columnTransactionRecord
+                                                          .type) ==
                                                       'add')
                                                     Container(
                                                       width: 50,
