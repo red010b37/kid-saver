@@ -223,7 +223,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                         Container(
                                           width:
                                               MediaQuery.of(context).size.width,
-                                          height: 5,
+                                          height: 3,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .tertiaryColor,
@@ -234,7 +234,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                         Container(
                                           width:
                                               MediaQuery.of(context).size.width,
-                                          height: 5,
+                                          height: 3,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryColor,
