@@ -84,6 +84,8 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                   totalCents: bucketViewBucketsRecord.totalCents,
                   colorStr: bucketViewBucketsRecord.color,
                   bucketType: bucketViewBucketsRecord.type,
+                  goalTotalCents:
+                      bucketViewBucketsRecord.goalAmountCents.toString(),
                 ),
                 Expanded(
                   child: Stack(

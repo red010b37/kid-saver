@@ -17,6 +17,7 @@ class WrapBucketViewHeaderTotal extends StatefulWidget {
     this.totalCents,
     this.colorStr,
     this.bucketType,
+    this.goalTotalCents,
   }) : super(key: key);
 
   final double width;
@@ -24,6 +25,7 @@ class WrapBucketViewHeaderTotal extends StatefulWidget {
   final int totalCents;
   final String colorStr;
   final String bucketType;
+  final String goalTotalCents;
 
   @override
   _WrapBucketViewHeaderTotalState createState() =>

@@ -4,6 +4,7 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class BucketViewHeaderTotalWidget extends StatefulWidget {
   const BucketViewHeaderTotalWidget({
@@ -12,12 +13,16 @@ class BucketViewHeaderTotalWidget extends StatefulWidget {
     this.totatCents,
     this.bgColor,
     this.bucketType,
+    this.goalTotalCents,
+    this.goalBarDisplayTxt,
   }) : super(key: key);
 
   final int height;
   final int totatCents;
   final Color bgColor;
   final String bucketType;
+  final int goalTotalCents;
+  final String goalBarDisplayTxt;
 
   @override
   _BucketViewHeaderTotalWidgetState createState() =>
@@ -98,11 +103,40 @@ class _BucketViewHeaderTotalWidgetState
                     ),
                   ],
                 ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'bw3rdreo' /* Total */,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        'bw3rdreo' /* Of  */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1,
+                    ),
+                    Text(
+                      valueOrDefault<String>(
+                        functions.formatCents(widget.goalTotalCents),
+                        '\$0.00',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1,
+                    ),
+                  ],
+                ),
+                LinearPercentIndicator(
+                  percent: 0.5,
+                  width: MediaQuery.of(context).size.width,
+                  lineHeight: 24,
+                  animation: true,
+                  progressColor: FlutterFlowTheme.of(context).primaryColor,
+                  backgroundColor: Color(0x2E0E164D),
+                  center: Text(
+                    widget.goalBarDisplayTxt,
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyText1,
                 ),
               ],
             ),
