@@ -102,240 +102,262 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 10),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Form(
-                        key: formKey,
-                        autovalidateMode: AutovalidateMode.always,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                              child: InkWell(
-                                onTap: () async {
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    context: context,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.of(context).viewInsets,
-                                        child: ColorsWidget(
-                                          bucket: createGoalBucketBucketsRecord,
-                                        ),
+              child: Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: double.infinity,
+                  constraints: BoxConstraints(
+                    maxWidth: 500,
+                  ),
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 10),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Form(
+                            key: formKey,
+                            autovalidateMode: AutovalidateMode.always,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 0, 0, 0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.of(context)
+                                                .viewInsets,
+                                            child: ColorsWidget(
+                                              bucket:
+                                                  createGoalBucketBucketsRecord,
+                                            ),
+                                          );
+                                        },
                                       );
                                     },
-                                  );
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 30, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ma5e5j0b' /* Bucket Color */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              fontSize: 18,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 0, 30, 0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'ma5e5j0b' /* Bucket Color */,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  fontSize: 18,
+                                                ),
+                                          ),
+                                        ),
+                                        custom_widgets.ColorSwatch(
+                                          width: 50,
+                                          height: 50,
+                                          colorStr:
+                                              createGoalBucketBucketsRecord
+                                                  .color,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 20, 0, 0),
+                                  child: TextFormField(
+                                    controller: nameTextFieldController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'pt3wdt5a' /* Name */,
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
-                                    custom_widgets.ColorSwatch(
-                                      width: 50,
-                                      height: 50,
-                                      colorStr:
-                                          createGoalBucketBucketsRecord.color,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                              child: TextFormField(
-                                controller: nameTextFieldController,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'pt3wdt5a' /* Name */,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                              child: TextFormField(
-                                controller: descTextFieldController,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'cuv1mpl8' /* Description */,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                              child: TextFormField(
-                                controller: goalAmountTextFeildController,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  hintText: FFLocalizations.of(context).getText(
-                                    '9zwdneh9' /* Goal Amount */,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                    ),
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  final bucketsUpdateData =
-                                      createBucketsRecordData(
-                                    updatedAt: getCurrentTimestamp,
-                                    name: nameTextFieldController.text,
-                                    description:
-                                        goalAmountTextFeildController.text,
-                                    totalCents: 0,
-                                    lastSeenTotalCents: 0,
-                                    canUserDelete: true,
-                                    state: 'active',
-                                    type: 'goal',
-                                    goalAmountCents: functions.formInputToCents(
-                                        goalAmountTextFeildController.text),
-                                  );
-                                  await createGoalBucketBucketsRecord.reference
-                                      .update(bucketsUpdateData);
-                                  await Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          ChildDashboardWidget(
-                                        userAccountRef:
-                                            createGoalBucketBucketsRecord
-                                                .userAccountRef,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 20, 0, 0),
+                                  child: TextFormField(
+                                    controller: descTextFieldController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'cuv1mpl8' /* Description */,
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
-                                    (r) => false,
-                                  );
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'hhhwdp3v' /* Create */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 60,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Colors.white,
-                                      ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
                                   ),
-                                  borderRadius: 10,
                                 ),
-                              ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 20, 0, 0),
+                                  child: TextFormField(
+                                    controller: goalAmountTextFeildController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        '9zwdneh9' /* Goal Amount */,
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                    keyboardType: TextInputType.number,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 30, 0, 0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      final bucketsUpdateData =
+                                          createBucketsRecordData(
+                                        updatedAt: getCurrentTimestamp,
+                                        name: nameTextFieldController.text,
+                                        description:
+                                            goalAmountTextFeildController.text,
+                                        totalCents: 0,
+                                        lastSeenTotalCents: 0,
+                                        canUserDelete: true,
+                                        state: 'active',
+                                        type: 'goal',
+                                        goalAmountCents:
+                                            functions.formInputToCents(
+                                                goalAmountTextFeildController
+                                                    .text),
+                                      );
+                                      await createGoalBucketBucketsRecord
+                                          .reference
+                                          .update(bucketsUpdateData);
+                                      await Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ChildDashboardWidget(
+                                            userAccountRef:
+                                                createGoalBucketBucketsRecord
+                                                    .userAccountRef,
+                                          ),
+                                        ),
+                                        (r) => false,
+                                      );
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'hhhwdp3v' /* Create */,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: double.infinity,
+                                      height: 60,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryColor,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                          ),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
+                                      ),
+                                      borderRadius: 10,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
