@@ -15,6 +15,7 @@ class BucketViewHeaderTotalWidget extends StatefulWidget {
     this.bucketType,
     this.goalTotalCents,
     this.goalBarDisplayTxt,
+    this.barProgressPercent,
   }) : super(key: key);
 
   final int height;
@@ -23,6 +24,7 @@ class BucketViewHeaderTotalWidget extends StatefulWidget {
   final String bucketType;
   final int goalTotalCents;
   final String goalBarDisplayTxt;
+  final double barProgressPercent;
 
   @override
   _BucketViewHeaderTotalWidgetState createState() =>
