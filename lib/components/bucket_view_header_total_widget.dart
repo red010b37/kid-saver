@@ -125,7 +125,7 @@ class _BucketViewHeaderTotalWidgetState
                   ],
                 ),
                 LinearPercentIndicator(
-                  percent: 0.5,
+                  percent: widget.barProgressPercent,
                   width: MediaQuery.of(context).size.width,
                   lineHeight: 24,
                   animation: true,
