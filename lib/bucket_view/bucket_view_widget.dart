@@ -83,6 +83,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                   height: 150,
                   totalCents: bucketViewBucketsRecord.totalCents,
                   colorStr: bucketViewBucketsRecord.color,
+                  bucketType: bucketViewBucketsRecord.type,
                 ),
                 Expanded(
                   child: Stack(

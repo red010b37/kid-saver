@@ -11,11 +11,13 @@ class BucketViewHeaderTotalWidget extends StatefulWidget {
     this.height,
     this.totatCents,
     this.bgColor,
+    this.bucketType,
   }) : super(key: key);
 
   final int height;
   final int totatCents;
   final Color bgColor;
+  final String bucketType;
 
   @override
   _BucketViewHeaderTotalWidgetState createState() =>
@@ -34,40 +36,76 @@ class _BucketViewHeaderTotalWidgetState
       ),
       child: Stack(
         children: [
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                    child: AutoSizeText(
-                      valueOrDefault<String>(
-                        functions.formatCents(widget.totatCents),
-                        '0',
+          if ((widget.bucketType) != 'goal')
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                      child: AutoSizeText(
+                        valueOrDefault<String>(
+                          functions.formatCents(widget.totatCents),
+                          '0',
+                        ),
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              fontSize: 58,
+                              fontWeight: FontWeight.w300,
+                              lineHeight: 1.2,
+                            ),
                       ),
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            fontSize: 58,
-                            fontWeight: FontWeight.w300,
-                            lineHeight: 1.2,
-                          ),
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                FFLocalizations.of(context).getText(
-                  '2ze5ewya' /* Total */,
+                  ],
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1,
-              ),
-            ],
-          ),
+                Text(
+                  FFLocalizations.of(context).getText(
+                    '2ze5ewya' /* Total */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1,
+                ),
+              ],
+            ),
+          if ((widget.bucketType) == 'goal')
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                      child: AutoSizeText(
+                        valueOrDefault<String>(
+                          functions.formatCents(widget.totatCents),
+                          '0',
+                        ),
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              fontSize: 58,
+                              fontWeight: FontWeight.w300,
+                              lineHeight: 1.2,
+                            ),
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  FFLocalizations.of(context).getText(
+                    'bw3rdreo' /* Total */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1,
+                ),
+              ],
+            ),
         ],
       ),
     );
