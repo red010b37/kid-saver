@@ -125,7 +125,7 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                           ),
                           Form(
                             key: formKey,
-                            autovalidateMode: AutovalidateMode.always,
+                            autovalidateMode: AutovalidateMode.disabled,
                             child: Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
