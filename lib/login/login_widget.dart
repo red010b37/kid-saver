@@ -24,16 +24,17 @@ class _LoginWidgetState extends State<LoginWidget>
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
-    'containerOnActionTriggerAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
       duration: 600,
+      fadeIn: true,
       initialState: AnimationState(
-        offset: Offset(0, 0),
+        offset: Offset(0, 500),
         scale: 1,
         opacity: 0,
       ),
       finalState: AnimationState(
-        offset: Offset(0, 400),
+        offset: Offset(0, 0),
         scale: 1,
         opacity: 1,
       ),
@@ -43,9 +44,9 @@ class _LoginWidgetState extends State<LoginWidget>
   @override
   void initState() {
     super.initState();
-    setupTriggerAnimations(
+    startPageLoadAnimations(
       animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
       this,
     );
 
@@ -381,7 +382,7 @@ class _LoginWidgetState extends State<LoginWidget>
                     ),
                   ],
                 ),
-              ).animated([animationsMap['containerOnActionTriggerAnimation']]),
+              ).animated([animationsMap['containerOnPageLoadAnimation']]),
             ),
           ],
         ),

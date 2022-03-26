@@ -192,8 +192,11 @@ class _OBGetStartedWidgetState extends State<OBGetStartedWidget>
                           onPressed: () async {
                             await Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginWidget(),
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                                reverseDuration: Duration(milliseconds: 0),
+                                child: LoginWidget(),
                               ),
                             );
                           },
