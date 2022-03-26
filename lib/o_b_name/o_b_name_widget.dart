@@ -134,21 +134,32 @@ class _OBNameWidgetState extends State<OBNameWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Name',
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xFA01CC88),
+                                      ),
                                   hintText: FFLocalizations.of(context).getText(
                                     '2kkjs4e9' /* Your name... */,
                                   ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      color: Color(0xFC01CC88),
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      color: Color(0xFC01CC88),
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(10),
