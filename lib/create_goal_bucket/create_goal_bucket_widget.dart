@@ -189,18 +189,29 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Name',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xDE0E164D),
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                          color: Color(0xDF0E164D),
                                           width: 1,
                                         ),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                          color: Color(0xDF0E164D),
                                           width: 1,
                                         ),
                                         borderRadius: BorderRadius.circular(10),
@@ -211,7 +222,7 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                         .override(
                                           fontFamily: 'Lexend Deca',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                              .primaryColor,
                                         ),
                                     validator: (val) {
                                       if (val.isEmpty) {
@@ -229,13 +240,17 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                     controller: goalAmountTextFeildController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Goal Amount -  0.00',
+                                      labelText: 'Goal Amount',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Lexend Deca',
                                             color: Color(0xEE0E164D),
                                           ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        '9zwdneh9' /*  0.00 */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -271,6 +286,7 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                         ),
+                                    textAlign: TextAlign.end,
                                     keyboardType: TextInputType.number,
                                     validator: (val) {
                                       if (val.isEmpty) {
