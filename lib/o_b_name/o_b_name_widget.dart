@@ -129,7 +129,16 @@ class _OBNameWidgetState extends State<OBNameWidget>
                               controller: textController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Name',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '2kkjs4e9' /* Name */,
+                                ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
