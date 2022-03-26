@@ -25,7 +25,7 @@ class OBNameWidget extends StatefulWidget {
 
 class _OBNameWidgetState extends State<OBNameWidget>
     with TickerProviderStateMixin {
-  TextEditingController textController;
+  TextEditingController textFieldNameController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
@@ -54,7 +54,7 @@ class _OBNameWidgetState extends State<OBNameWidget>
       this,
     );
 
-    textController = TextEditingController();
+    textFieldNameController = TextEditingController();
   }
 
   @override
@@ -125,108 +125,135 @@ class _OBNameWidgetState extends State<OBNameWidget>
                           ),
                           Form(
                             key: formKey,
-                            autovalidateMode: AutovalidateMode.always,
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                              child: TextFormField(
-                                controller: textController,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Name',
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFA01CC88),
-                                      ),
-                                  hintText: FFLocalizations.of(context).getText(
-                                    '2kkjs4e9' /* Your name... */,
-                                  ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFC01CC88),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFC01CC88),
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                    ),
-                                validator: (val) {
-                                  if (val.isEmpty) {
-                                    return 'Name  is required';
-                                  }
+                            autovalidateMode: AutovalidateMode.disabled,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 20, 0, 0),
+                                      child: TextFormField(
+                                        controller: textFieldNameController,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Name',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1
+                                                  .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFA01CC88),
+                                                  ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '2kkjs4e9' /* Your name... */,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiaryColor,
+                                              ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0xFC01CC88),
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0xFC01CC88),
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiaryColor,
+                                            ),
+                                        validator: (val) {
+                                          if (val.isEmpty) {
+                                            return 'Name  is required';
+                                          }
 
-                                  return null;
-                                },
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                final onboardingUpdateData =
-                                    createOnboardingRecordData(
-                                  name: textController.text,
-                                  updatedAt: getCurrentTimestamp,
-                                );
-                                await widget.onboardingRef
-                                    .update(onboardingUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: OBDisplayNameWidget(
-                                      onboardingRef: widget.onboardingRef,
+                                          return null;
+                                        },
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'mug9zpxl' /* Next */,
-                              ),
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                height: 55,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
-                                      lineHeight: 1,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 25, 0, 0),
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          if (!formKey.currentState
+                                              .validate()) {
+                                            return;
+                                          }
+
+                                          final onboardingUpdateData =
+                                              createOnboardingRecordData(
+                                            name: textFieldNameController.text,
+                                            updatedAt: getCurrentTimestamp,
+                                          );
+                                          await widget.onboardingRef
+                                              .update(onboardingUpdateData);
+                                          await Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                              reverseDuration:
+                                                  Duration(milliseconds: 0),
+                                              child: OBDisplayNameWidget(
+                                                onboardingRef:
+                                                    widget.onboardingRef,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'mug9zpxl' /* Next */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: double.infinity,
+                                          height: 55,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryColor,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2
+                                                  .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Colors.white,
+                                                    lineHeight: 1,
+                                                  ),
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1,
+                                          ),
+                                          borderRadius: 10,
+                                        ),
+                                      ),
                                     ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
+                                  ],
                                 ),
-                                borderRadius: 10,
-                              ),
+                              ],
                             ),
                           ),
                         ],

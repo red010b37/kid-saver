@@ -188,6 +188,10 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                                 EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                if (!formKey.currentState.validate()) {
+                                  return;
+                                }
+
                                 final onboardingUpdateData =
                                     createOnboardingRecordData(
                                   displayName: textController.text,
