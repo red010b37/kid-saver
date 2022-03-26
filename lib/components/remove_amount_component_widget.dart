@@ -106,8 +106,7 @@ class _RemoveAmountComponentWidgetState
                                   ),
                                   hintStyle: GoogleFonts.getFont(
                                     'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                    color: Color(0xA4FFFFFF),
                                     fontWeight: FontWeight.normal,
                                     fontSize: 49,
                                   ),
@@ -176,6 +175,12 @@ class _RemoveAmountComponentWidgetState
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Description (optional)',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyText2
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xBEFFFFFF),
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
