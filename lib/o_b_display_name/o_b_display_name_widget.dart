@@ -26,6 +26,7 @@ class OBDisplayNameWidget extends StatefulWidget {
 class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
     with TickerProviderStateMixin {
   TextEditingController textController;
+  final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
@@ -75,7 +76,7 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
               alignment: AlignmentDirectional(0, 1),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 280,
+                height: 300,
                 constraints: BoxConstraints(
                   maxWidth: 500,
                 ),
@@ -122,38 +123,64 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                                       ),
                             ),
                           ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                            child: TextFormField(
-                              controller: textController,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: ' Mum, Dad, something else ',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .tertiaryColor,
-                                    width: 1,
+                          Form(
+                            key: formKey,
+                            autovalidateMode: AutovalidateMode.always,
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              child: TextFormField(
+                                controller: textController,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText: 'Display Name',
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xFC01CC88),
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '3ig7zgia' /*  Mum, Dad, something else? */,
                                   ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .tertiaryColor,
-                                    width: 1,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xF901CC88),
+                                      ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                  borderRadius: BorderRadius.circular(10),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                    ),
+                                validator: (val) {
+                                  if (val.isEmpty) {
+                                    return 'Field is required';
+                                  }
+
+                                  return null;
+                                },
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.of(context)
-                                        .tertiaryColor,
-                                  ),
                             ),
                           ),
                           Padding(

@@ -263,6 +263,24 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Child Name',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1
+                                                  .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFAFFFFFF),
+                                                  ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'x6f8252l' /* Child Name */,
+                                          ),
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1
+                                                  .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFCFFFFFF),
+                                                  ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0xFF01CC88),

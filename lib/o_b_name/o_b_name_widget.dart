@@ -76,7 +76,7 @@ class _OBNameWidgetState extends State<OBNameWidget>
               alignment: AlignmentDirectional(0, 1),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 280,
+                height: 300,
                 constraints: BoxConstraints(
                   maxWidth: 500,
                 ),
