@@ -174,7 +174,9 @@ class _RemoveAmountComponentWidgetState
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Description (optional)',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'rxnddnmj' /* Description (optional) */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyText2
                                     .override(
@@ -187,10 +189,7 @@ class _RemoveAmountComponentWidgetState
                                         .primaryText,
                                     width: 1,
                                   ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -198,10 +197,7 @@ class _RemoveAmountComponentWidgetState
                                         .primaryText,
                                     width: 1,
                                   ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
