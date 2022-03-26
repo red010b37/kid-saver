@@ -104,6 +104,13 @@ class _RemoveAmountComponentWidgetState
                                   hintText: FFLocalizations.of(context).getText(
                                     '5ac4rgpe' /* 0.00 */,
                                   ),
+                                  hintStyle: GoogleFonts.getFont(
+                                    'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 49,
+                                  ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -134,8 +141,7 @@ class _RemoveAmountComponentWidgetState
                                 ),
                                 style: GoogleFonts.getFont(
                                   'Poppins',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 49,
                                 ),
