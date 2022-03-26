@@ -99,30 +99,33 @@ class _BucketViewHeaderTotalWidgetState
                               fontFamily: 'Poppins',
                               fontSize: 58,
                               fontWeight: FontWeight.w300,
-                              lineHeight: 1.2,
+                              lineHeight: 1,
                             ),
                       ),
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'bw3rdreo' /* Of  */,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        FFLocalizations.of(context).getText(
+                          'bw3rdreo' /* Of  */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
-                    ),
-                    Text(
-                      valueOrDefault<String>(
-                        functions.formatCents(widget.goalTotalCents),
-                        '\$0.00',
+                      Text(
+                        valueOrDefault<String>(
+                          functions.formatCents(widget.goalTotalCents),
+                          '\$0.00',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 LinearPercentIndicator(
                   percent: widget.barProgressPercent,
