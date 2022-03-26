@@ -148,7 +148,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                       controller: emailTextController,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Email',
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          '3x8inx71' /* Email */,
+                                        ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -175,6 +178,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .tertiaryColor,
                                           ),
+                                      keyboardType: TextInputType.emailAddress,
                                       validator: (val) {
                                         if (val.isEmpty) {
                                           return 'Email is required';
@@ -191,7 +195,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                       controller: passwordTextController,
                                       obscureText: !passwordVisibility,
                                       decoration: InputDecoration(
-                                        labelText: 'Password',
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          't0topogh' /* Password */,
+                                        ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -231,7 +238,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .tertiaryColor,
                                           ),
-                                      keyboardType: TextInputType.emailAddress,
                                       validator: (val) {
                                         if (val.isEmpty) {
                                           return 'Password is required';

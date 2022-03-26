@@ -75,7 +75,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What is your name?',
       'es': '',
     },
-    '9t5xx2ze': {
+    'sa7lbxtz': {
       'en': 'Name',
       'es': '',
     },
@@ -98,7 +98,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What do your kids call you?',
       'es': '',
     },
-    'rizttht5': {
+    'q0w954ba': {
       'en': ' Mum, Dad, something else ',
       'es': '',
     },
@@ -198,7 +198,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Avatar',
       'es': '',
     },
-    'xg5c1maw': {
+    'ws9azdmw': {
       'en': 'Child Name',
       'es': '',
     },
@@ -287,7 +287,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter email and password so you can log back in.',
       'es': '',
     },
-    'z1jhzin5': {
+    'ubzfncvg': {
       'en': 'Email  address',
       'es': '',
     },
@@ -295,7 +295,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'fo28bek0': {
+    'xky1slda': {
       'en': 'Enter Password',
       'es': '',
     },
@@ -318,7 +318,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    '6f3me4mj': {
+    'skqyt2zn': {
       'en': 'Name',
       'es': '',
     },
@@ -326,7 +326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '2phoetsn': {
+    'r2oaqmb0': {
       'en': 'Description',
       'es': '',
     },
@@ -361,7 +361,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    'fqj6xhj6': {
+    'drw2yyg2': {
       'en': 'Name',
       'es': '',
     },
@@ -369,7 +369,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'p9eyokqh': {
+    '2bli2v5f': {
       'en': 'Description',
       'es': '',
     },
@@ -377,7 +377,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '0qp1h34w': {
+    '7q8bee42': {
       'en': 'Goal Amount -  0.00',
       'es': '',
     },
@@ -408,11 +408,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BucketView
   {
-    'zwt8fasi': {
+    'tvszsh77': {
       'en': 'Added from Dad ',
       'es': '',
     },
-    'nwaoykhn': {
+    'w7beyp43': {
       'en': 'Home',
       'es': '',
     },
@@ -427,31 +427,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Lets get kids better with money',
       'es': '',
     },
-    'ac3qiw6x': {
+    '3x8inx71': {
       'en': 'Email',
       'es': '',
     },
-    '3x8inx71': {
-      'en': '',
-      'es': '',
-    },
-    'f3m2tyi4': {
-      'en': 'Password',
-      'es': '',
-    },
     't0topogh': {
-      'en': '',
+      'en': 'Password',
       'es': '',
     },
     'gfuc16yk': {
       'en': 'Login',
       'es': '',
     },
-    'penyijmc': {
+    'xnw15ia7': {
       'en': 'Email is required',
       'es': '',
     },
-    'bqo72wsw': {
+    'izszypij': {
       'en': 'Password is required',
       'es': '',
     },
@@ -488,19 +480,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add Amount',
       'es': '',
     },
-    'lfyqawcu': {
-      'en': '0.00',
-      'es': '',
-    },
     'qwmkdcil': {
-      'en': '',
+      'en': '0.00',
       'es': '',
     },
     'okvupkbr': {
       'en': 'The amount will be added to each selected  below',
       'es': '',
     },
-    'w9x6y8fq': {
+    '4hxmkady': {
       'en': 'Description (optional)',
       'es': '',
     },
@@ -519,7 +507,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Remove Amount',
       'es': '',
     },
-    'z3e2zhby': {
+    'kpgpmqd5': {
       'en': '0.00',
       'es': '',
     },
@@ -531,7 +519,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'The amount will be added to each selected  below',
       'es': '',
     },
-    'qbej5m9z': {
+    'ckd14ir8': {
       'en': 'Description (optional)',
       'es': '',
     },
