@@ -101,7 +101,9 @@ class _RemoveAmountComponentWidgetState
                                 controller: removeAmtTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: '0.00',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '5ac4rgpe' /* 0.00 */,
+                                  ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -130,13 +132,13 @@ class _RemoveAmountComponentWidgetState
                                     size: 48,
                                   ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      fontSize: 49,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                                style: GoogleFonts.getFont(
+                                  'Poppins',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 49,
+                                ),
                                 textAlign: TextAlign.end,
                                 keyboardType: TextInputType.number,
                               ),
@@ -192,7 +194,7 @@ class _RemoveAmountComponentWidgetState
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyText2
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.of(context)

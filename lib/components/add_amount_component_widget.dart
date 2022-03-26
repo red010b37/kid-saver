@@ -178,10 +178,7 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                         .primaryText,
                                     width: 1,
                                   ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -189,10 +186,7 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                         .primaryText,
                                     width: 1,
                                   ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
