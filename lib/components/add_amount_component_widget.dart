@@ -169,7 +169,9 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Description (optional)',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '4a50njd3' /* Description (optional) */,
+                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
