@@ -368,11 +368,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BucketView
   {
-    'htd4qf5y': {
+    'ixilz23l': {
       'en': 'Added from Dad ',
       'es': '',
     },
-    'xbjimg0d': {
+    'ufo9pcj1': {
       'en': 'Home',
       'es': '',
     },
@@ -387,7 +387,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Lets get kids better with money',
       'es': '',
     },
-    'oydpb6qk': {
+    '96czrfys': {
       'en': 'Email',
       'es': '',
     },
@@ -395,7 +395,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '3m7hydg0': {
+    '3hdgoeeg': {
       'en': 'Password',
       'es': '',
     },
@@ -407,12 +407,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Login',
       'es': '',
     },
+    'uv9ap6lt': {
+      'en': 'Email is required',
+      'es': '',
+    },
+    'qw2on4zr': {
+      'en': 'Password is required',
+      'es': '',
+    },
     '8wbspg0c': {
       'en': 'or',
       'es': '',
     },
     'xyjcrf1i': {
-      'en': 'Cancel',
+      'en': 'Forgot  password',
       'es': '',
     },
     '15e8wccw': {
