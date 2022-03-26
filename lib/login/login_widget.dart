@@ -231,6 +231,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .tertiaryColor,
                                           ),
+                                      keyboardType: TextInputType.emailAddress,
                                       validator: (val) {
                                         if (val.isEmpty) {
                                           return 'Password is required';

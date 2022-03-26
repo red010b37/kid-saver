@@ -101,9 +101,7 @@ class _RemoveAmountComponentWidgetState
                                 controller: removeAmtTextFieldController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: FFLocalizations.of(context).getText(
-                                    '5ac4rgpe' /* 0.00 */,
-                                  ),
+                                  labelText: '0.00',
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -169,9 +167,7 @@ class _RemoveAmountComponentWidgetState
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  'rxnddnmj' /* Description (optional) */,
-                                ),
+                                labelText: 'Description (optional)',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
@@ -200,7 +196,7 @@ class _RemoveAmountComponentWidgetState
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                        .primaryText,
                                   ),
                               keyboardType: TextInputType.multiline,
                             ),

@@ -164,10 +164,7 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                   controller: emailTFController,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'ww0vcul7' /* Email  address */,
-                                    ),
+                                    labelText: 'Email  address',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -201,10 +198,7 @@ class _OBEmailPasswordWidgetState extends State<OBEmailPasswordWidget>
                                   controller: passwordTextFieldController,
                                   obscureText: !passwordTextFieldVisibility,
                                   decoration: InputDecoration(
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'griroaj5' /* Enter Password */,
-                                    ),
+                                    labelText: 'Enter Password',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)

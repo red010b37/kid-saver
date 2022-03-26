@@ -186,10 +186,7 @@ class _CreateSpendableBucketWidgetState
                                     controller: nameTextFieldController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        '4ayfhuxu' /* Name */,
-                                      ),
+                                      labelText: 'Name',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -233,10 +230,7 @@ class _CreateSpendableBucketWidgetState
                                     controller: descTextFieldController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'z6y4h6ip' /* Description */,
-                                      ),
+                                      labelText: 'Description',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)

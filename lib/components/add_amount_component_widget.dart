@@ -101,9 +101,7 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                 controller: textController1,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'qwmkdcil' /* 0.00 */,
-                                  ),
+                                  labelText: '0.00',
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -169,9 +167,7 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  '4a50njd3' /* Description (optional) */,
-                                ),
+                                labelText: 'Description (optional)',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
@@ -200,7 +196,7 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                        .secondaryBackground,
                                   ),
                               keyboardType: TextInputType.multiline,
                             ),

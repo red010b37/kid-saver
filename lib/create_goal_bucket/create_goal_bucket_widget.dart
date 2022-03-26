@@ -188,10 +188,7 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                     controller: nameTextFieldController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'pt3wdt5a' /* Name */,
-                                      ),
+                                      labelText: 'Name',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -225,10 +222,7 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                     controller: descTextFieldController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'cuv1mpl8' /* Description */,
-                                      ),
+                                      labelText: 'Description',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -262,10 +256,7 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                     controller: goalAmountTextFeildController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        '9zwdneh9' /* Goal Amount */,
-                                      ),
+                                      labelText: 'Goal Amount -  0.00',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -281,6 +272,11 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                           width: 1,
                                         ),
                                         borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      prefixIcon: Icon(
+                                        Icons.attach_money,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)

@@ -262,10 +262,7 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                         controller: textController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: FFLocalizations.of(context)
-                                              .getText(
-                                            'x6f8252l' /* Child Name */,
-                                          ),
+                                          labelText: 'Child Name',
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0xFF01CC88),
