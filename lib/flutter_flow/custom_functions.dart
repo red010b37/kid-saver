@@ -11,6 +11,11 @@ import '../../auth/auth_util.dart';
 
 String formatCents(int cents) {
   // Add your function code here!
+
+  if (cents == null) {
+    cents = 0;
+  }
+  // Add your function code here!
   var format = NumberFormat.simpleCurrency(decimalDigits: 2);
   return format.format(cents / 100);
 }

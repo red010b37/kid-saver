@@ -29,13 +29,37 @@ class WrapBucketViewHeaderTotal extends StatefulWidget {
 class _WrapBucketViewHeaderTotalState extends State<WrapBucketViewHeaderTotal> {
   @override
   Widget build(BuildContext context) {
-    int value = int.parse(widget.colorStr);
+    int value = int.parse(widget.bucketRecord.color);
     Color color = Color(value).withOpacity(1);
+
+    var bgt = '0.00';
+    var goalTotalCent = 0;
+    var percent = 0.0;
+
+    if (widget.bucketRecord.type == 'goal') {
+      goalTotalCent = widget.bucketRecord.goalAmountCents;
+
+      var tc = widget.bucketRecord.totalCents;
+      var gtc = widget.bucketRecord.goalAmountCents;
+
+      if (gtc != 0 && tc != 0) {
+        percent = ((tc.toDouble() / gtc.toDouble()) * 100) / 100;
+      }
+      if (percent > 1.0) {
+        percent = 1.0;
+      }
+
+      bgt = formatCents(tc);
+    }
 
     return BucketViewHeaderTotalWidget(
       height: widget.height.toInt(),
-      totatCents: widget.totalCents,
+      totatCents: widget.bucketRecord.totalCents,
       bgColor: color,
+      bucketType: widget.bucketRecord.type,
+      goalTotalCents: goalTotalCent,
+      goalBarDisplayTxt: bgt,
+      barProgressPercent: percent,
     );
   }
 }
