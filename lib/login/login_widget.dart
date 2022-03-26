@@ -137,7 +137,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             ),
                             Form(
                               key: formKey,
-                              autovalidateMode: AutovalidateMode.always,
+                              autovalidateMode: AutovalidateMode.disabled,
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -148,10 +148,25 @@ class _LoginWidgetState extends State<LoginWidget>
                                       controller: emailTextController,
                                       obscureText: false,
                                       decoration: InputDecoration(
+                                        labelText: 'Email',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xF901CC88),
+                                            ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
                                           '3x8inx71' /* Email */,
                                         ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiaryColor,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -195,14 +210,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                       controller: passwordTextController,
                                       obscureText: !passwordVisibility,
                                       decoration: InputDecoration(
+                                        labelText: 'Password',
                                         hintText:
                                             FFLocalizations.of(context).getText(
                                           't0topogh' /* Password */,
                                         ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                            color: Color(0xFA01CC88),
                                             width: 1,
                                           ),
                                           borderRadius:
@@ -210,8 +225,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                            color: Color(0xFA01CC88),
                                             width: 1,
                                           ),
                                           borderRadius:
@@ -252,6 +266,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                         0, 25, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        if (!formKey.currentState.validate()) {
+                                          return;
+                                        }
+
                                         final user = await signInWithEmail(
                                           context,
                                           emailTextController.text,

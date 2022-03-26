@@ -141,7 +141,7 @@ class _OBDisplayNameWidgetState extends State<OBDisplayNameWidget>
                                         color: Color(0xFC01CC88),
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    '3ig7zgia' /* Mum, Dad, something else? */,
+                                    '3ig7zgia' /* Mum, Dad, something else... */,
                                   ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyText1
