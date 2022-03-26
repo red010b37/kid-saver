@@ -26,8 +26,8 @@ class CreateGoalBucketWidget extends StatefulWidget {
 
 class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
   TextEditingController descTextFieldController;
-  TextEditingController nameTextFieldController;
   TextEditingController goalAmountTextFeildController;
+  TextEditingController nameTextFieldController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,8 +35,8 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
   void initState() {
     super.initState();
     descTextFieldController = TextEditingController();
-    nameTextFieldController = TextEditingController();
     goalAmountTextFeildController = TextEditingController();
+    nameTextFieldController = TextEditingController();
   }
 
   @override
@@ -121,7 +121,7 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                         children: [
                           Form(
                             key: formKey,
-                            autovalidateMode: AutovalidateMode.always,
+                            autovalidateMode: AutovalidateMode.disabled,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -213,6 +213,72 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                         ),
+                                    validator: (val) {
+                                      if (val.isEmpty) {
+                                        return 'Field is required';
+                                      }
+
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 20, 0, 0),
+                                  child: TextFormField(
+                                    controller: goalAmountTextFeildController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Goal Amount -  0.00',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xEE0E164D),
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xEA0E164D),
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      prefixIcon: Icon(
+                                        Icons.attach_money,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                    keyboardType: TextInputType.number,
+                                    validator: (val) {
+                                      if (val.isEmpty) {
+                                        return 'Field is required';
+                                      }
+
+                                      return null;
+                                    },
                                   ),
                                 ),
                                 Padding(
@@ -251,49 +317,13 @@ class _CreateGoalBucketWidgetState extends State<CreateGoalBucketWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 0, 0),
-                                  child: TextFormField(
-                                    controller: goalAmountTextFeildController,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      labelText: 'Goal Amount -  0.00',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      prefixIcon: Icon(
-                                        Icons.attach_money,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                        ),
-                                    keyboardType: TextInputType.number,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 30, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      if (!formKey.currentState.validate()) {
+                                        return;
+                                      }
+
                                       final bucketsUpdateData =
                                           createBucketsRecordData(
                                         updatedAt: getCurrentTimestamp,

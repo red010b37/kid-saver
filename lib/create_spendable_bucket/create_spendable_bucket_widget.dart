@@ -120,7 +120,7 @@ class _CreateSpendableBucketWidgetState
                         children: [
                           Form(
                             key: formKey,
-                            autovalidateMode: AutovalidateMode.always,
+                            autovalidateMode: AutovalidateMode.disabled,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -187,6 +187,18 @@ class _CreateSpendableBucketWidgetState
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Name',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xF50E164D),
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xF00E164D),
+                                          ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -262,6 +274,10 @@ class _CreateSpendableBucketWidgetState
                                       0, 30, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      if (!formKey.currentState.validate()) {
+                                        return;
+                                      }
+
                                       final bucketsUpdateData =
                                           createBucketsRecordData(
                                         updatedAt: getCurrentTimestamp,
