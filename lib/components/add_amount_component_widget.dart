@@ -101,9 +101,25 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                 controller: textController1,
                                 obscureText: false,
                                 decoration: InputDecoration(
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xEDFFFFFF),
+                                        fontSize: 49,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                   hintText: FFLocalizations.of(context).getText(
                                     'qwmkdcil' /* 0.00 */,
                                   ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xB5FFFFFF),
+                                        fontSize: 49,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -169,9 +185,21 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xF2FFFFFF),
+                                    ),
                                 hintText: FFLocalizations.of(context).getText(
                                   '4a50njd3' /* Description (optional) */,
                                 ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xE8FFFFFF),
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)

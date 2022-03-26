@@ -211,10 +211,22 @@ class _LoginWidgetState extends State<LoginWidget>
                                       obscureText: !passwordVisibility,
                                       decoration: InputDecoration(
                                         labelText: 'Password',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xF801CC88),
+                                            ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
                                           't0topogh' /* Password */,
                                         ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xF201CC88),
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFA01CC88),
