@@ -156,7 +156,6 @@ class _AddAmountComponentWidgetState extends State<AddAmountComponentWidget> {
                                       fontWeight: FontWeight.normal,
                                     ),
                                 textAlign: TextAlign.end,
-                                keyboardType: TextInputType.number,
                               ),
                             ),
                           ),
