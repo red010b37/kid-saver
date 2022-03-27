@@ -8,8 +8,8 @@ import 'auth/auth_util.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:kid_saver/o_b_get_started/o_b_get_started_widget.dart';
-import 'package:kid_saver/kids_list/kids_list_widget.dart';
+import 'package:kids_saver/o_b_get_started/o_b_get_started_widget.dart';
+import 'package:kids_saver/kids_list/kids_list_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +30,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Locale _locale;
   ThemeMode _themeMode = ThemeMode.system;
-  Stream<KidSaverFirebaseUser> userStream;
-  KidSaverFirebaseUser initialUser;
+  Stream<KidsSaverFirebaseUser> userStream;
+  KidsSaverFirebaseUser initialUser;
   bool displaySplashImage = true;
   final authUserSub = authenticatedUserStream.listen((_) {});
 
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    userStream = kidSaverFirebaseUserStream()
+    userStream = kidsSaverFirebaseUserStream()
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
     Future.delayed(
         Duration(seconds: 1), () => setState(() => displaySplashImage = false));
@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'KidSaver',
+      title: 'Kids Saver',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
