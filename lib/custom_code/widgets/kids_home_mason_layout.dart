@@ -7,7 +7,6 @@ import '../actions/index.dart'; // Imports custom actions
 import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
-
 // PAUL -------
 import 'package:kids_saver/custom_code/widgets/custome_goal_widget.dart';
 import 'dart:async';
@@ -280,7 +279,10 @@ class BucketDisplay {
         break;
     }
 
-    return Transform.translate(offset: Offset(xPos, yPos), child: w);
+    return Positioned(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Transform.translate(offset: Offset(xPos, yPos), child: w));
   }
 
   Widget buildCircle(BuildContext context) {
@@ -288,59 +290,99 @@ class BucketDisplay {
       alignment: Alignment.center,
       width: currentRadius * 2,
       height: currentRadius * 2,
-      child: InkWell(
-        onTap: () async {
-          await await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  BucketViewWidget(bucketRef: bucket.reference),
-            ),
-          );
-        },
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            CustomPaint(
-              painter: SimpleCirclePainter(
-                radius: currentRadius,
-                backgroundColor: color,
-                // circleWidth: 2,
+      child: Stack(alignment: Alignment.center, children: [
+        InkWell(
+          onTap: () async {
+            await await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    BucketViewWidget(bucketRef: bucket.reference),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  AutoSizeText(
-                    formatCents(currentDisplayCents),
-                    style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.white,
-                    ),
-                    maxLines: 1,
-                    minFontSize: 3,
-                    maxFontSize: 30,
+            );
+          },
+          child: Material(
+            color: Colors.transparent,
+            elevation: 0,
+            shape: const CircleBorder(),
+            child: Container(
+                width: currentRadius * 2,
+                height: currentRadius * 2,
+                decoration: BoxDecoration(
+                  color: color,
+                  shape: BoxShape.circle,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      AutoSizeText(
+                        formatCents(currentDisplayCents),
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.white,
+                        ),
+                        maxLines: 1,
+                        minFontSize: 3,
+                        maxFontSize: 30,
+                      ),
+                      AutoSizeText(
+                        bucket.name,
+                        wrapWords: false,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                        maxLines: 1,
+                        minFontSize: 3,
+                        maxFontSize: 15,
+                      ),
+                    ],
                   ),
-                  AutoSizeText(
-                    bucket.name,
-                    wrapWords: false,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                    ),
-                    maxLines: 1,
-                    minFontSize: 3,
-                    maxFontSize: 15,
-                  ),
-                ],
-              ),
-            )
-          ],
+                )),
+          ),
         ),
-      ),
+      ]),
+      // MaterialButton(
+      //   shape: RoundedRectangleBorder (
+      //   borderRadius: BorderRadius.circular(currentRadius)
+      //   ),
+      //   color: color,
+      //   height: currentRadius,
+      //   minWidth: currentRadius,
+      //   child:     Padding(
+      //     padding: const EdgeInsets.all(15.0),
+      //     child: Column(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       crossAxisAlignment: CrossAxisAlignment.center,
+      //       children: [
+      //         AutoSizeText(
+      //           formatCents(currentDisplayCents),
+      //           style: TextStyle(
+      //             fontSize: 40,
+      //             color: Colors.white,
+      //           ),
+      //           maxLines: 1,
+      //           minFontSize: 3,
+      //           maxFontSize: 30,
+      //         ),
+      //         AutoSizeText(
+      //           bucket.name,
+      //           wrapWords: false,
+      //           style: TextStyle(
+      //             fontSize: 15,
+      //             color: Colors.white,
+      //           ),
+      //           maxLines: 1,
+      //           minFontSize: 3,
+      //           maxFontSize: 15,
+      //         ),
+      //       ],
+      //     ),
+      //   )
+      //   ),
     );
   }
 
@@ -356,38 +398,6 @@ class BucketDisplay {
       bucketRecord: bucket,
     );
   }
-}
-
-class SimpleCirclePainter extends CustomPainter {
-  SimpleCirclePainter({
-    this.radius,
-    // this.circleWidth,
-    this.backgroundColor,
-  }) {
-    _paintBackground.color = backgroundColor;
-    _paintBackground.style = PaintingStyle.fill;
-    // _paintBackground.strokeWidth = circleWidth!;
-    // _paintLine.style = PaintingStyle.stroke;
-    // _paintLine.strokeWidth = circleWidth!;
-  }
-
-  final Paint _paintBackground = Paint();
-  final Paint _paintLine = Paint();
-
-  // final double? circleWidth;
-  final double radius;
-  final Color backgroundColor;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final child = Offset(size.width / 2, size.height / 2);
-    canvas.drawCircle(child, radius, _paintBackground);
-  }
-
-  double radians(double degrees) => degrees * (3.141592 / 180.0);
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 
 class BallData {
