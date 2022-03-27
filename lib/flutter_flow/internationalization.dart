@@ -75,7 +75,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What is your name?',
       'es': '',
     },
-    'vblyzzd4': {
+    '832lrnj7': {
       'en': 'Name',
       'es': '',
     },
@@ -87,7 +87,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Next',
       'es': '',
     },
-    '0leand37': {
+    '9lanxdef': {
       'en': 'Name  is required',
       'es': '',
     },
@@ -102,7 +102,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What do your kids call you?',
       'es': '',
     },
-    '5oofrvr8': {
+    '326wdn3x': {
       'en': 'Display Name',
       'es': '',
     },
@@ -110,7 +110,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Mum, Dad, something else...',
       'es': '',
     },
-    'qv83yy47': {
+    'vhfaxy7h': {
       'en': 'Field is required',
       'es': '',
     },
@@ -206,7 +206,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Avatar',
       'es': '',
     },
-    'vwh49k8f': {
+    'zlhkj29d': {
       'en': 'Child Name',
       'es': '',
     },
@@ -295,7 +295,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter email and password so you can log back in.',
       'es': '',
     },
-    'zefl0yks': {
+    'c9iaeyjz': {
       'en': 'Email  address',
       'es': '',
     },
@@ -303,7 +303,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'lpvzipjv': {
+    'pa23tjqr': {
       'en': 'Enter Password',
       'es': '',
     },
@@ -326,7 +326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    'q9kuwg0q': {
+    '4f4kjddl': {
       'en': 'Name',
       'es': '',
     },
@@ -334,7 +334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'ncz8gihc': {
+    'm34xfl8u': {
       'en': 'Description',
       'es': '',
     },
@@ -369,7 +369,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    '3ygu6mi4': {
+    'eekoms1o': {
       'en': 'Name',
       'es': '',
     },
@@ -377,7 +377,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '3mpzvmy4': {
+    'f6bh2vbg': {
       'en': 'Goal Amount',
       'es': '',
     },
@@ -385,7 +385,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' 0.00',
       'es': '',
     },
-    'snilsmc3': {
+    'gouw4wxj': {
       'en': 'Description',
       'es': '',
     },
@@ -397,15 +397,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create',
       'es': '',
     },
-    'n7pdzhdt': {
+    '5h54qz85': {
       'en': 'Field is required',
       'es': '',
     },
-    '1pi9bi8v': {
+    'a7ex12a1': {
       'en': 'Field is required',
       'es': '',
     },
-    'hxr5egnh': {
+    'l1jokqw1': {
       'en': 'Field is required',
       'es': '',
     },
@@ -420,11 +420,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BucketView
   {
-    'h994y5yg': {
+    'vz4hd75v': {
       'en': 'Added from Dad ',
       'es': '',
     },
-    'sj4aw8h9': {
+    'kxkivrim': {
       'en': 'Home',
       'es': '',
     },
@@ -439,7 +439,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Lets get kids better with money',
       'es': '',
     },
-    'h9b3hfkh': {
+    'vfxtzjso': {
       'en': 'Email',
       'es': '',
     },
@@ -447,7 +447,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email',
       'es': '',
     },
-    'uwek9uo2': {
+    'aha4wsx7': {
       'en': 'Password',
       'es': '',
     },
@@ -459,11 +459,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Login',
       'es': '',
     },
-    's8kcdib8': {
+    'ks5orhkf': {
       'en': 'Email is required',
       'es': '',
     },
-    'qeh04j54': {
+    'zaxhq520': {
       'en': 'Password is required',
       'es': '',
     },
