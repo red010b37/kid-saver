@@ -1,4 +1,4 @@
-# Kids Saver
+# KidsSaver
 
 A new Flutter project.
 
