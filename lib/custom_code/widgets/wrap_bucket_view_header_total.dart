@@ -7,7 +7,7 @@ import '../actions/index.dart'; // Imports custom actions
 import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
-import 'package:kid_saver/components/bucket_view_header_total_widget.dart';
+import 'package:kids_saver/components/bucket_view_header_total_widget.dart';
 
 class WrapBucketViewHeaderTotal extends StatefulWidget {
   const WrapBucketViewHeaderTotal({

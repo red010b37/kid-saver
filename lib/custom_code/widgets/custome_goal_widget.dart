@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 
 // PAUL -------
-import 'package:kid_saver/bucket_view/bucket_view_widget.dart';
+import 'package:kids_saver/bucket_view/bucket_view_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:kid_saver/flutter_flow/custom_functions.dart';
+import 'package:kids_saver/flutter_flow/custom_functions.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class CustomeGoalWidget extends StatefulWidget {
