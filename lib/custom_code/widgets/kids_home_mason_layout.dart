@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 
 // PAUL -------
-import 'package:kid_saver/custom_code/widgets/custome_goal_widget.dart';
+import 'package:kids_saver/custom_code/widgets/custome_goal_widget.dart';
 import 'dart:async';
 import 'dart:math';
 import '../../flutter_flow/custom_functions.dart';
