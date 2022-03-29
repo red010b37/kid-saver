@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../create_edit_spendable_bucket/create_edit_spendable_bucket_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -44,7 +45,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
         return Scaffold(
           key: scaffoldKey,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60),
+            preferredSize: Size.fromHeight(80),
             child: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primaryColor,
               automaticallyImplyLeading: false,
@@ -97,8 +98,22 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                               color: Colors.white,
                               size: 30,
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
+                            onPressed: () async {
+                              if ((bucketViewBucketsRecord.type) ==
+                                  (FFAppState().bucketTypeSpendable)) {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        CreateEditSpendableBucketWidget(
+                                      bucketRef: bucketViewBucketsRecord,
+                                      isAnEdit: true,
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return;
+                              }
                             },
                           ),
                         ),

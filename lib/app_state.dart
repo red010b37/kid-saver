@@ -27,6 +27,12 @@ class FFAppState {
   }
 
   bool uiIsAddBucketMenuOpen = false;
+
+  String bucketTypeSpendable = 'spendable';
+
+  String bucketTypeSavings = 'savings';
+
+  String bucketTypeGoal = 'goal';
 }
 
 LatLng _latLngFromString(String val) {
