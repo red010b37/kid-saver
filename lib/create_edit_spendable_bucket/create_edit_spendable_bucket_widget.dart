@@ -37,7 +37,6 @@ class _CreateEditSpendableBucketWidgetState
   void initState() {
     super.initState();
     descTextFieldController = TextEditingController();
-    nameTextFieldController = TextEditingController();
   }
 
   @override
@@ -238,7 +237,12 @@ class _CreateEditSpendableBucketWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 20, 0, 0),
                                   child: TextFormField(
-                                    controller: nameTextFieldController,
+                                    controller: nameTextFieldController ??=
+                                        TextEditingController(
+                                      text:
+                                          createEditSpendableBucketBucketsRecord
+                                              .name,
+                                    ),
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Name',
@@ -336,7 +340,8 @@ class _CreateEditSpendableBucketWidgetState
                                       final bucketsUpdateData =
                                           createBucketsRecordData(
                                         updatedAt: getCurrentTimestamp,
-                                        name: nameTextFieldController.text,
+                                        name:
+                                            nameTextFieldController?.text ?? '',
                                         description:
                                             descTextFieldController.text,
                                         totalCents: 0,
