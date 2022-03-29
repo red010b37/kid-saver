@@ -139,7 +139,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                             width: MediaQuery.of(context)
                                                 .size
                                                 .width,
-                                            height: 100,
+                                            height: 110,
                                             decoration: BoxDecoration(
                                               color: Color(0x1601CC88),
                                             ),
@@ -150,7 +150,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                             width: MediaQuery.of(context)
                                                 .size
                                                 .width,
-                                            height: 100,
+                                            height: 110,
                                             decoration: BoxDecoration(
                                               color: Color(0x18FF2E63),
                                             ),
@@ -158,7 +158,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                         Container(
                                           width:
                                               MediaQuery.of(context).size.width,
-                                          height: 100,
+                                          height: 110,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -239,31 +239,38 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                       ),
                                                   ],
                                                 ),
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Text(
-                                                      'Added from Dad ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Lexend Deca',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                              ),
-                                                    ),
-                                                    Text(
-                                                      functions.fomatTimeToTimeago(
+                                                FutureBuilder<
+                                                    UserAccountRecord>(
+                                                  future: UserAccountRecord
+                                                      .getDocumentOnce(
                                                           columnTransactionRecord
-                                                              .createdAt),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                              .creatorUserAccountRef),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50,
+                                                          height: 50,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryColor,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    final rowUserAccountRecord =
+                                                        snapshot.data;
+                                                    return Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Text(
+                                                          'Actioned by ${rowUserAccountRecord.displayName}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
@@ -272,8 +279,25 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                                         context)
                                                                     .primaryColor,
                                                               ),
-                                                    ),
-                                                  ],
+                                                        ),
+                                                        Text(
+                                                          functions.fomatTimeToTimeago(
+                                                              columnTransactionRecord
+                                                                  .createdAt),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
                                                 ),
                                               ],
                                             ),
