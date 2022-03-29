@@ -122,7 +122,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                 ),
               ),
               actions: [],
-              elevation: 2,
+              elevation: 0,
             ),
           ),
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
