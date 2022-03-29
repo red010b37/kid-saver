@@ -24,6 +24,7 @@ Future<DocumentReference> createAmountStaging(
       state: 'pending',
       type: type,
       userAccountRef: userAccountRef,
+      createdByUserAccountRef: guardianAccountRef,
       createdAt: getCurrentTimestamp,
       updatedAt: getCurrentTimestamp);
 
