@@ -15,9 +15,11 @@ class CreateSpendableBucketWidget extends StatefulWidget {
   const CreateSpendableBucketWidget({
     Key key,
     this.bucketRef,
+    this.isAnEdit,
   }) : super(key: key);
 
   final BucketsRecord bucketRef;
+  final bool isAnEdit;
 
   @override
   _CreateSpendableBucketWidgetState createState() =>
@@ -58,44 +60,97 @@ class _CreateSpendableBucketWidgetState
         final createSpendableBucketBucketsRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).alternate,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 30,
-              ),
-              onPressed: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChildDashboardWidget(
-                      userAccountRef:
-                          createSpendableBucketBucketsRecord.userAccountRef,
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(60),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).alternate,
+              automaticallyImplyLeading: false,
+              flexibleSpace: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Stack(
+                              alignment: AlignmentDirectional(0, 0),
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-1, 0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5, 0, 0, 0),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 50,
+                                      icon: Icon(
+                                        Icons.arrow_back_rounded,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                if (!(widget.isAnEdit) ?? true)
+                                  Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24, 0, 0, 0),
+                                      child: Text(
+                                        'Create Spendable Bucket',
+                                        style: FlutterFlowTheme.of(context)
+                                            .title2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                              fontSize: 22,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                if (!(widget.isAnEdit) ?? true)
+                                  Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24, 0, 0, 0),
+                                      child: Text(
+                                        'Edit ${createSpendableBucketBucketsRecord.name}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .title2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                              fontSize: 22,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-            title: Text(
-              FFLocalizations.of(context).getText(
-                'gti731at' /* Create Spendable Bucket */,
+                  ],
+                ),
               ),
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: 'Lexend Deca',
-                    color: Colors.white,
-                    fontSize: 22,
-                  ),
+              actions: [],
+              elevation: 2,
             ),
-            actions: [],
-            centerTitle: true,
-            elevation: 2,
           ),
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           body: SafeArea(

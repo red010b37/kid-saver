@@ -155,6 +155,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                             MaterialPageRoute(
                               builder: (context) => CreateSpendableBucketWidget(
                                 bucketRef: spendaableBucketRecord,
+                                isAnEdit: false,
                               ),
                             ),
                             (r) => false,
