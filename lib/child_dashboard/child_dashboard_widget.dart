@@ -194,6 +194,27 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                   ),
                                 ),
                               ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.compare_arrows_sharp,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      size: 30,
+                                    ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
+                                  ),
+                                ],
+                              ),
                               custom_widgets.KidsHomeMasonLayout(
                                 width: MediaQuery.of(context).size.width,
                                 height: 100,
