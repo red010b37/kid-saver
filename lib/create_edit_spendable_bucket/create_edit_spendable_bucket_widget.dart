@@ -430,7 +430,7 @@ class _CreateEditSpendableBucketWidgetState
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        '6nyx7pko' /* Edit */,
+                                        '6nyx7pko' /* Change */,
                                       ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
@@ -451,15 +451,31 @@ class _CreateEditSpendableBucketWidgetState
                                       ),
                                     ),
                                   ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 50, 0, 0),
-                                  child: Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    height: 3,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFEEEEEE),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 50, 0, 0),
+                                      child: Text(
+                                        'Remove the Bucket',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                      ),
                                     ),
+                                  ],
+                                ),
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 3,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFEEEEEE),
                                   ),
                                 ),
                                 if (widget.isAnEdit ?? true)
@@ -517,18 +533,21 @@ class _CreateEditSpendableBucketWidgetState
                                       ),
                                     ),
                                   ),
-                                Text(
-                                  'The bucket needs to be \$0.00 \nbefore it can be removed',
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
+                                if ((createEditSpendableBucketBucketsRecord
+                                        .totalCents) >
+                                    0)
+                                  Text(
+                                    'The bucket needs to be \$0.00 \nbefore it can be removed',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
                               ],
                             ),
                           ),
