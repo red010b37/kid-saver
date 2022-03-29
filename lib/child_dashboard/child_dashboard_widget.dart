@@ -56,7 +56,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
         return Scaffold(
           key: scaffoldKey,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(90),
+            preferredSize: Size.fromHeight(60),
             child: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
               automaticallyImplyLeading: false,
