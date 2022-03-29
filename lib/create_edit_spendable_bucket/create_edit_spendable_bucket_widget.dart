@@ -407,11 +407,6 @@ class _CreateEditSpendableBucketWidgetState
                                           description:
                                               descTextFieldController?.text ??
                                                   '',
-                                          totalCents: 0,
-                                          lastSeenTotalCents: 0,
-                                          canUserDelete: true,
-                                          state: 'active',
-                                          type: 'spendable',
                                         );
                                         await createEditSpendableBucketBucketsRecord
                                             .reference
