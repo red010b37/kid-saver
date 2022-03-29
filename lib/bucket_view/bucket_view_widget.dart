@@ -268,7 +268,7 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          'Actioned by ${rowUserAccountRecord.displayName}',
+                                                          'Actioned by ${rowUserAccountRecord.displayName} ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -277,7 +277,10 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                                     'Lexend Deca',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .secondaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
                                                               ),
                                                         ),
                                                         Text(
@@ -292,7 +295,10 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                                                                     'Lexend Deca',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .secondaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
                                                               ),
                                                         ),
                                                       ],
