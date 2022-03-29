@@ -162,7 +162,7 @@ class _KidsHomeMasonLayoutState extends State<KidsHomeMasonLayout>
     // TODO: implement build
 
     var sizeW = MediaQuery.of(context).size.width;
-    var sizeH = MediaQuery.of(context).size.height - 240;
+    var sizeH = MediaQuery.of(context).size.height - 268;
 
     if (!bucketsBuilt) {
       buildBuckets(sizeW, sizeH);
