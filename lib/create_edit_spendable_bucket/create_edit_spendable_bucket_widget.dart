@@ -11,8 +11,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CreateSpendableBucketWidget extends StatefulWidget {
-  const CreateSpendableBucketWidget({
+class CreateEditSpendableBucketWidget extends StatefulWidget {
+  const CreateEditSpendableBucketWidget({
     Key key,
     this.bucketRef,
     this.isAnEdit,
@@ -22,12 +22,12 @@ class CreateSpendableBucketWidget extends StatefulWidget {
   final bool isAnEdit;
 
   @override
-  _CreateSpendableBucketWidgetState createState() =>
-      _CreateSpendableBucketWidgetState();
+  _CreateEditSpendableBucketWidgetState createState() =>
+      _CreateEditSpendableBucketWidgetState();
 }
 
-class _CreateSpendableBucketWidgetState
-    extends State<CreateSpendableBucketWidget> {
+class _CreateEditSpendableBucketWidgetState
+    extends State<CreateEditSpendableBucketWidget> {
   TextEditingController descTextFieldController;
   TextEditingController nameTextFieldController;
   final formKey = GlobalKey<FormState>();
@@ -57,7 +57,7 @@ class _CreateSpendableBucketWidgetState
             ),
           );
         }
-        final createSpendableBucketBucketsRecord = snapshot.data;
+        final createEditSpendableBucketBucketsRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
           appBar: PreferredSize(
@@ -128,7 +128,7 @@ class _CreateSpendableBucketWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24, 0, 0, 0),
                                       child: Text(
-                                        'Edit ${createSpendableBucketBucketsRecord.name}',
+                                        'Edit ${createEditSpendableBucketBucketsRecord.name}',
                                         style: FlutterFlowTheme.of(context)
                                             .title2
                                             .override(
@@ -227,7 +227,7 @@ class _CreateSpendableBucketWidgetState
                                           width: 50,
                                           height: 50,
                                           colorStr:
-                                              createSpendableBucketBucketsRecord
+                                              createEditSpendableBucketBucketsRecord
                                                   .color,
                                         ),
                                       ],
@@ -345,7 +345,7 @@ class _CreateSpendableBucketWidgetState
                                         state: 'active',
                                         type: 'spendable',
                                       );
-                                      await createSpendableBucketBucketsRecord
+                                      await createEditSpendableBucketBucketsRecord
                                           .reference
                                           .update(bucketsUpdateData);
                                       await Navigator.pushAndRemoveUntil(
@@ -354,7 +354,7 @@ class _CreateSpendableBucketWidgetState
                                           builder: (context) =>
                                               ChildDashboardWidget(
                                             userAccountRef:
-                                                createSpendableBucketBucketsRecord
+                                                createEditSpendableBucketBucketsRecord
                                                     .userAccountRef,
                                           ),
                                         ),

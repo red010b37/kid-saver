@@ -1,7 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../create_edit_spendable_bucket/create_edit_spendable_bucket_widget.dart';
 import '../create_goal_bucket/create_goal_bucket_widget.dart';
-import '../create_spendable_bucket/create_spendable_bucket_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -150,15 +150,15 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                           spendaableBucketRecord =
                               BucketsRecord.getDocumentFromData(
                                   bucketsCreateData, bucketsRecordReference);
-                          await Navigator.pushAndRemoveUntil(
+                          await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CreateSpendableBucketWidget(
+                              builder: (context) =>
+                                  CreateEditSpendableBucketWidget(
                                 bucketRef: spendaableBucketRecord,
                                 isAnEdit: false,
                               ),
                             ),
-                            (r) => false,
                           );
 
                           setState(() {});
