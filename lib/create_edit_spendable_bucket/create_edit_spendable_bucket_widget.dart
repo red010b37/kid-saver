@@ -451,6 +451,84 @@ class _CreateEditSpendableBucketWidgetState
                                       ),
                                     ),
                                   ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 50, 0, 0),
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 3,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFEEEEEE),
+                                    ),
+                                  ),
+                                ),
+                                if (widget.isAnEdit ?? true)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 30, 0, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        if ((createEditSpendableBucketBucketsRecord
+                                                .totalCents) ==
+                                            0) {
+                                          final bucketsUpdateData =
+                                              createBucketsRecordData(
+                                            updatedAt: getCurrentTimestamp,
+                                            state: 'archived',
+                                          );
+                                          await createEditSpendableBucketBucketsRecord
+                                              .reference
+                                              .update(bucketsUpdateData);
+                                        } else {
+                                          return;
+                                        }
+
+                                        await Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ChildDashboardWidget(
+                                              userAccountRef:
+                                                  createEditSpendableBucketBucketsRecord
+                                                      .userAccountRef,
+                                            ),
+                                          ),
+                                          (r) => false,
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'mjkboks0' /* Remove */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 60,
+                                        color: Color(0xFFE90000),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                            ),
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: 10,
+                                      ),
+                                    ),
+                                  ),
+                                Text(
+                                  'The bucket needs to be \$0.00 \nbefore it can be removed',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                ),
                               ],
                             ),
                           ),
