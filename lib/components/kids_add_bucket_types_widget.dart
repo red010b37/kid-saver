@@ -196,6 +196,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                             fontFamily: 'Lexend Deca',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
+                                            fontSize: 13,
                                           ),
                                     ),
                                   ),
@@ -210,7 +211,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                       Icons.attach_money_outlined,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 25,
+                                      size: 23,
                                     ),
                                     onPressed: () {
                                       print('IconButton pressed ...');
@@ -286,6 +287,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                             fontFamily: 'Lexend Deca',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
+                                            fontSize: 13,
                                           ),
                                     ),
                                   ),
@@ -300,7 +302,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                       Icons.cake_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 25,
+                                      size: 23,
                                     ),
                                     onPressed: () {
                                       print('IconButton pressed ...');
@@ -345,6 +347,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
+                                        fontSize: 13,
                                       ),
                                 ),
                               ),
@@ -359,7 +362,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                                   Icons.sentiment_very_satisfied_sharp,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  size: 25,
+                                  size: 23,
                                 ),
                                 onPressed: () {
                                   print('IconButton pressed ...');
