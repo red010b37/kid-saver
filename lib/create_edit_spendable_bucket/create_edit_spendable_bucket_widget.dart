@@ -61,7 +61,7 @@ class _CreateEditSpendableBucketWidgetState
         return Scaffold(
           key: scaffoldKey,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60),
+            preferredSize: Size.fromHeight(100),
             child: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).alternate,
               automaticallyImplyLeading: false,
@@ -97,8 +97,8 @@ class _CreateEditSpendableBucketWidgetState
                                         color: Colors.white,
                                         size: 30,
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
+                                      onPressed: () async {
+                                        Navigator.pop(context);
                                       },
                                     ),
                                   ),
@@ -121,7 +121,7 @@ class _CreateEditSpendableBucketWidgetState
                                       ),
                                     ),
                                   ),
-                                if (!(widget.isAnEdit) ?? true)
+                                if (widget.isAnEdit ?? true)
                                   Align(
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
