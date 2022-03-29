@@ -3,7 +3,6 @@ import '../components/kids_add_bucket_types_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../kids_list/kids_list_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -56,40 +55,75 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
         final childDashboardUserAccountRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 30,
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(90),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+              automaticallyImplyLeading: false,
+              flexibleSpace: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 50,
+                            icon: Icon(
+                              Icons.arrow_back_rounded,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                            onPressed: () async {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                          child: Text(
+                            childDashboardUserAccountRecord.displayName,
+                            style: FlutterFlowTheme.of(context).title2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.face_sharp,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 30,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              onPressed: () async {
-                await Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => KidsListWidget(),
-                  ),
-                  (r) => false,
-                );
-              },
+              actions: [],
+              elevation: 2,
             ),
-            title: Text(
-              childDashboardUserAccountRecord.displayName,
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: 'Lexend Deca',
-                    color: Colors.white,
-                    fontSize: 22,
-                  ),
-            ),
-            actions: [],
-            centerTitle: true,
-            elevation: 0,
           ),
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           body: SafeArea(
@@ -206,7 +240,7 @@ class _ChildDashboardWidgetState extends State<ChildDashboardWidget> {
                                     icon: Icon(
                                       Icons.compare_arrows_sharp,
                                       color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                          .primaryColor,
                                       size: 30,
                                     ),
                                     onPressed: () {
