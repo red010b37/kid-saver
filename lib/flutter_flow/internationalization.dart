@@ -75,7 +75,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What is your name?',
       'es': '',
     },
-    'pjiihnhh': {
+    '9trgzwr7': {
       'en': 'Name',
       'es': '',
     },
@@ -87,7 +87,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Next',
       'es': '',
     },
-    'mdojv2fl': {
+    '1few8f6a': {
       'en': 'Name  is required',
       'es': '',
     },
@@ -102,7 +102,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What do your kids call you?',
       'es': '',
     },
-    'd5i36rxo': {
+    'xzk130ey': {
       'en': 'Display Name',
       'es': '',
     },
@@ -110,7 +110,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Mum, Dad, something else...',
       'es': '',
     },
-    'cvlpqo22': {
+    'j6cwh1vn': {
       'en': 'Field is required',
       'es': '',
     },
@@ -206,7 +206,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Avatar',
       'es': '',
     },
-    'w09zh227': {
+    'q484b42v': {
       'en': 'Child Name',
       'es': '',
     },
@@ -295,7 +295,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter email and password so you can log back in.',
       'es': '',
     },
-    'qszlz8q8': {
+    '85bgu7zf': {
       'en': 'Email  address',
       'es': '',
     },
@@ -303,7 +303,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'h0fnb800': {
+    '1aqotyno': {
       'en': 'Enter Password',
       'es': '',
     },
@@ -326,7 +326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    'gpispn7b': {
+    'p8hi9p5j': {
       'en': 'Name',
       'es': '',
     },
@@ -334,7 +334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '3d97htl2': {
+    'ovqr3r8o': {
       'en': 'Description',
       'es': '',
     },
@@ -369,7 +369,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    'dpzwqc1u': {
+    'bmvluz3j': {
       'en': 'Name',
       'es': '',
     },
@@ -377,7 +377,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '96yiusqf': {
+    'qqximg1g': {
       'en': 'Goal Amount',
       'es': '',
     },
@@ -385,7 +385,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' 0.00',
       'es': '',
     },
-    'j6z1w1a9': {
+    'wh0owlol': {
       'en': 'Description',
       'es': '',
     },
@@ -397,15 +397,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create',
       'es': '',
     },
-    'kbtxt1pb': {
+    'nx18kwkh': {
       'en': 'Field is required',
       'es': '',
     },
-    'b4syuqlj': {
+    '6yvzyrij': {
       'en': 'Field is required',
       'es': '',
     },
-    'lg8n2bit': {
+    '6hwhaqfi': {
       'en': 'Field is required',
       'es': '',
     },
@@ -420,7 +420,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BucketView
   {
-    'f3yml1rs': {
+    'djxe0v3x': {
       'en': 'Home',
       'es': '',
     },
@@ -435,7 +435,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Lets get kids better with money',
       'es': '',
     },
-    'y84exx45': {
+    'lmhlg5lv': {
       'en': 'Email',
       'es': '',
     },
@@ -443,7 +443,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email',
       'es': '',
     },
-    '5qwh7jg7': {
+    'qiqkfzbf': {
       'en': 'Password',
       'es': '',
     },
@@ -455,11 +455,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Login',
       'es': '',
     },
-    'pfapukp2': {
+    'faso2m2q': {
       'en': 'Email is required',
       'es': '',
     },
-    '0y85t8qj': {
+    '3dsxuojw': {
       'en': 'Password is required',
       'es': '',
     },

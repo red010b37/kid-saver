@@ -169,7 +169,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Container(
-                            width: 200,
+                            width: 210,
                             height: 50,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -259,7 +259,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Container(
-                            width: 200,
+                            width: 210,
                             height: 50,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -320,7 +320,7 @@ class _KidsAddBucketTypesWidgetState extends State<KidsAddBucketTypesWidget>
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Container(
-                        width: 200,
+                        width: 210,
                         height: 50,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).alternate,
