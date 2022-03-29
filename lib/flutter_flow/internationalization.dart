@@ -75,7 +75,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What is your name?',
       'es': '',
     },
-    'f1y6b6wl': {
+    'xkj0lxc6': {
       'en': 'Name',
       'es': '',
     },
@@ -87,7 +87,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Next',
       'es': '',
     },
-    'wedx767j': {
+    'm200caya': {
       'en': 'Name  is required',
       'es': '',
     },
@@ -102,7 +102,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'What do your kids call you?',
       'es': '',
     },
-    'tgnob1mc': {
+    'b7d6rmqb': {
       'en': 'Display Name',
       'es': '',
     },
@@ -110,7 +110,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Mum, Dad, something else...',
       'es': '',
     },
-    'nlznexby': {
+    'dorcgpzu': {
       'en': 'Field is required',
       'es': '',
     },
@@ -206,7 +206,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Avatar',
       'es': '',
     },
-    'el8bbehl': {
+    '5m9dnxs4': {
       'en': 'Child Name',
       'es': '',
     },
@@ -295,7 +295,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter email and password so you can log back in.',
       'es': '',
     },
-    '9ucjas0u': {
+    '13km37u3': {
       'en': 'Email  address',
       'es': '',
     },
@@ -303,7 +303,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'weq95tb1': {
+    'gkud7i77': {
       'en': 'Enter Password',
       'es': '',
     },
@@ -326,7 +326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    '76wh04xc': {
+    'tv66ms49': {
       'en': 'Name',
       'es': '',
     },
@@ -334,7 +334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    'c1073jzo': {
+    'xxxv1typ': {
       'en': 'Description',
       'es': '',
     },
@@ -346,6 +346,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create',
       'es': '',
     },
+    '6nyx7pko': {
+      'en': 'Edit',
+      'es': '',
+    },
     'c6a2nnx2': {
       'en': 'Field is required',
       'es': '',
@@ -354,7 +358,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Field is required',
       'es': '',
     },
-    'w36o2rje': {
+    'yhxso09g': {
       'en': 'Create Spendable Bucket',
       'es': '',
     },
@@ -369,7 +373,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Bucket Color',
       'es': '',
     },
-    'o89d9n7r': {
+    'z4f35x2v': {
       'en': 'Name',
       'es': '',
     },
@@ -377,7 +381,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'es': '',
     },
-    '2pv6yyj0': {
+    'cejp4h8j': {
       'en': 'Goal Amount',
       'es': '',
     },
@@ -385,7 +389,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' 0.00',
       'es': '',
     },
-    'ttixs3tf': {
+    '75uhrhaz': {
       'en': 'Description',
       'es': '',
     },
@@ -397,15 +401,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create',
       'es': '',
     },
-    '3tk6xrht': {
+    'm1qjnkhg': {
       'en': 'Field is required',
       'es': '',
     },
-    'rboeoppl': {
+    '5znlmfrq': {
       'en': 'Field is required',
       'es': '',
     },
-    'b9978z8k': {
+    'ujsd9ouu': {
       'en': 'Field is required',
       'es': '',
     },
@@ -420,7 +424,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // BucketView
   {
-    'zb2u10u8': {
+    '58ny2q1a': {
       'en': 'Home',
       'es': '',
     },
@@ -435,7 +439,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Lets get kids better with money',
       'es': '',
     },
-    'ml8nhk4y': {
+    'fuzpvv9l': {
       'en': 'Email',
       'es': '',
     },
@@ -443,7 +447,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email',
       'es': '',
     },
-    't2d0zz3s': {
+    't1i2dqor': {
       'en': 'Password',
       'es': '',
     },
@@ -455,11 +459,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Login',
       'es': '',
     },
-    '51jurbhn': {
+    'qcrw1vdr': {
       'en': 'Email is required',
       'es': '',
     },
-    'rnsga59f': {
+    'k17nhpcg': {
       'en': 'Password is required',
       'es': '',
     },

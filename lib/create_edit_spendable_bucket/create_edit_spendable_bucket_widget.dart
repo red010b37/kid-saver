@@ -34,12 +34,6 @@ class _CreateEditSpendableBucketWidgetState
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
-  void initState() {
-    super.initState();
-    descTextFieldController = TextEditingController();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return StreamBuilder<BucketsRecord>(
       stream: BucketsRecord.getDocument(widget.bucketRef.reference),
@@ -298,7 +292,12 @@ class _CreateEditSpendableBucketWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 20, 0, 0),
                                   child: TextFormField(
-                                    controller: descTextFieldController,
+                                    controller: descTextFieldController ??=
+                                        TextEditingController(
+                                      text:
+                                          createEditSpendableBucketBucketsRecord
+                                              .description,
+                                    ),
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Description',
@@ -328,66 +327,130 @@ class _CreateEditSpendableBucketWidgetState
                                         ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 30, 0, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      if (!formKey.currentState.validate()) {
-                                        return;
-                                      }
+                                if (!(widget.isAnEdit) ?? true)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 30, 0, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        if (!formKey.currentState.validate()) {
+                                          return;
+                                        }
 
-                                      final bucketsUpdateData =
-                                          createBucketsRecordData(
-                                        updatedAt: getCurrentTimestamp,
-                                        name:
-                                            nameTextFieldController?.text ?? '',
-                                        description:
-                                            descTextFieldController.text,
-                                        totalCents: 0,
-                                        lastSeenTotalCents: 0,
-                                        canUserDelete: true,
-                                        state: 'active',
-                                        type: 'spendable',
-                                      );
-                                      await createEditSpendableBucketBucketsRecord
-                                          .reference
-                                          .update(bucketsUpdateData);
-                                      await Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              ChildDashboardWidget(
-                                            userAccountRef:
-                                                createEditSpendableBucketBucketsRecord
-                                                    .userAccountRef,
+                                        final bucketsUpdateData =
+                                            createBucketsRecordData(
+                                          updatedAt: getCurrentTimestamp,
+                                          name: nameTextFieldController?.text ??
+                                              '',
+                                          description:
+                                              descTextFieldController?.text ??
+                                                  '',
+                                          totalCents: 0,
+                                          lastSeenTotalCents: 0,
+                                          canUserDelete: true,
+                                          state: 'active',
+                                          type: 'spendable',
+                                        );
+                                        await createEditSpendableBucketBucketsRecord
+                                            .reference
+                                            .update(bucketsUpdateData);
+                                        await Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ChildDashboardWidget(
+                                              userAccountRef:
+                                                  createEditSpendableBucketBucketsRecord
+                                                      .userAccountRef,
+                                            ),
                                           ),
-                                        ),
-                                        (r) => false,
-                                      );
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'n58dqvs6' /* Create */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 60,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.white,
-                                          ),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
+                                          (r) => false,
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'n58dqvs6' /* Create */,
                                       ),
-                                      borderRadius: 10,
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 60,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryColor,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                            ),
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: 10,
+                                      ),
                                     ),
                                   ),
-                                ),
+                                if (widget.isAnEdit ?? true)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 30, 0, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        if (!formKey.currentState.validate()) {
+                                          return;
+                                        }
+
+                                        final bucketsUpdateData =
+                                            createBucketsRecordData(
+                                          updatedAt: getCurrentTimestamp,
+                                          name: nameTextFieldController?.text ??
+                                              '',
+                                          description:
+                                              descTextFieldController?.text ??
+                                                  '',
+                                          totalCents: 0,
+                                          lastSeenTotalCents: 0,
+                                          canUserDelete: true,
+                                          state: 'active',
+                                          type: 'spendable',
+                                        );
+                                        await createEditSpendableBucketBucketsRecord
+                                            .reference
+                                            .update(bucketsUpdateData);
+                                        await Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ChildDashboardWidget(
+                                              userAccountRef:
+                                                  createEditSpendableBucketBucketsRecord
+                                                      .userAccountRef,
+                                            ),
+                                          ),
+                                          (r) => false,
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        '6nyx7pko' /* Edit */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 60,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryColor,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                            ),
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: 10,
+                                      ),
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
