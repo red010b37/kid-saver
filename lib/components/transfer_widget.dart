@@ -84,14 +84,15 @@ class _TransferWidgetState extends State<TransferWidget> {
                       textStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Lexend Deca',
-                                color: Colors.black,
+                                color: FlutterFlowTheme.of(context).primaryText,
                               ),
                       hintText: 'From....',
-                      fillColor: Colors.white,
+                      fillColor: FlutterFlowTheme.of(context).primaryColor,
                       elevation: 2,
-                      borderColor: Colors.transparent,
+                      borderColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
                       borderWidth: 0,
-                      borderRadius: 0,
+                      borderRadius: 5,
                       margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
                       hidesUnderline: true,
                     ),

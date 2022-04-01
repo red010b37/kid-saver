@@ -384,7 +384,7 @@ class _CreateChildWidgetState extends State<CreateChildWidget> {
                                           FFLocalizations.of(context).getText(
                                             '2w2a9rti' /* Girl */,
                                           )
-                                        ],
+                                        ].toList(),
                                         onChanged: (value) {
                                           setState(
                                               () => radioButtonValue = value);
