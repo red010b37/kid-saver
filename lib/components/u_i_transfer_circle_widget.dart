@@ -69,6 +69,7 @@ class _UITransferCircleWidgetState extends State<UITransferCircleWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Lexend Deca',
+                            fontSize: 50,
                             fontWeight: FontWeight.w300,
                           ),
                     ),
