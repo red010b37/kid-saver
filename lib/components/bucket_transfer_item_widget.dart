@@ -45,8 +45,11 @@ class _BucketTransferItemWidgetState extends State<BucketTransferItemWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              widget.title,
-              style: FlutterFlowTheme.of(context).bodyText1,
+              'From',
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: 'Lexend Deca',
+                    fontWeight: FontWeight.w300,
+                  ),
             ),
             AutoSizeText(
               functions.formatCents(widget.totalCents),
@@ -57,7 +60,7 @@ class _BucketTransferItemWidgetState extends State<BucketTransferItemWidget> {
                   ),
             ),
             Text(
-              widget.type,
+              widget.title,
               style: FlutterFlowTheme.of(context).bodyText1,
             ),
           ],
