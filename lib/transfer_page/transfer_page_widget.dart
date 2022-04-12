@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
@@ -27,8 +28,22 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: () async {
+            Navigator.pop(context);
+          },
+        ),
         title: Text(
-          'Page Title',
+          'Transfer',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Lexend Deca',
                 color: Colors.white,
@@ -36,10 +51,9 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
               ),
         ),
         actions: [],
-        centerTitle: false,
+        centerTitle: true,
         elevation: 2,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -51,7 +65,9 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   custom_widgets.WrapBucketTransferItem(
-                    radius: 100,
+                    width: 200,
+                    height: 200,
+                    radius: 200,
                     bgColor: widget.fromBucketDocument.color,
                     title: widget.fromBucketDocument.name,
                     totalCents: widget.fromBucketDocument.totalCents,
