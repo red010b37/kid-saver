@@ -24,12 +24,17 @@ class UITransferCircleWidget extends StatefulWidget {
 class _UITransferCircleWidgetState extends State<UITransferCircleWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widget.radius,
-      height: 100,
-      decoration: BoxDecoration(
-        color: widget.bgColor,
-        shape: BoxShape.circle,
+    return Material(
+      color: Colors.transparent,
+      elevation: 2,
+      shape: const CircleBorder(),
+      child: Container(
+        width: widget.radius,
+        height: 100,
+        decoration: BoxDecoration(
+          color: widget.bgColor,
+          shape: BoxShape.circle,
+        ),
       ),
     );
   }
