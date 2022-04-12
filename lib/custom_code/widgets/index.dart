@@ -3,4 +3,4 @@ export 'color_swatch.dart' show ColorSwatch;
 export 'custome_goal_widget.dart' show CustomeGoalWidget;
 export 'projectdeps.dart' show Projectdeps;
 export 'wrap_bucket_view_header_total.dart' show WrapBucketViewHeaderTotal;
-export 'wrap_bucket_transfer_item.dart' show WrapBucketTransferItem;
+export 'transfer_component.dart' show TransferComponent;
