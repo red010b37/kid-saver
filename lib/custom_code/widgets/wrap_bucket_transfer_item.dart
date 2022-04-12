@@ -24,7 +24,7 @@ class WrapBucketTransferItem extends StatefulWidget {
 
   final double width;
   final double height;
-  final int radius;
+  final double radius;
   final String bgColor;
   final String title;
   final int totalCents;
