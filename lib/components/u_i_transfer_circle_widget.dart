@@ -45,13 +45,16 @@ class _UITransferCircleWidgetState extends State<UITransferCircleWidget> {
           children: [
             Text(
               widget.transferDirection,
+              textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyText1.override(
                     fontFamily: 'Lexend Deca',
+                    fontSize: 12,
                     fontWeight: FontWeight.w300,
                   ),
             ),
             AutoSizeText(
               functions.formatCents(widget.totalCents),
+              textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyText1.override(
                     fontFamily: 'Lexend Deca',
                     fontWeight: FontWeight.w300,
@@ -59,7 +62,12 @@ class _UITransferCircleWidgetState extends State<UITransferCircleWidget> {
             ),
             Text(
               widget.title,
-              style: FlutterFlowTheme.of(context).bodyText1,
+              textAlign: TextAlign.center,
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: 'Lexend Deca',
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
             ),
           ],
         ),
