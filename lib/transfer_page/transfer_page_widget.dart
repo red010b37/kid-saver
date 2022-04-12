@@ -63,6 +63,7 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
               custom_widgets.TransferComponent(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 1,
+                record: widget.fromBucketDocument,
               ),
             ],
           ),
