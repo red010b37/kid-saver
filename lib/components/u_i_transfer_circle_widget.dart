@@ -8,14 +8,14 @@ import 'package:google_fonts/google_fonts.dart';
 class UITransferCircleWidget extends StatefulWidget {
   const UITransferCircleWidget({
     Key key,
-    this.radius,
+    this.diameter,
     this.bgColor,
     this.title,
     this.transferDirection,
     this.totalCents,
   }) : super(key: key);
 
-  final double radius;
+  final double diameter;
   final Color bgColor;
   final String title;
   final String transferDirection;
@@ -28,50 +28,72 @@ class UITransferCircleWidget extends StatefulWidget {
 class _UITransferCircleWidgetState extends State<UITransferCircleWidget> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      elevation: 2,
-      shape: const CircleBorder(),
-      child: Container(
-        width: widget.radius,
-        height: 100,
-        decoration: BoxDecoration(
-          color: widget.bgColor,
-          shape: BoxShape.circle,
+    return Stack(
+      children: [
+        Material(
+          color: Colors.transparent,
+          elevation: 2,
+          shape: const CircleBorder(),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: widget.bgColor,
+              shape: BoxShape.circle,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      widget.transferDirection,
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w300,
+                          ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(
+                      functions.formatCents(widget.totalCents),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            fontWeight: FontWeight.w300,
+                          ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      widget.title,
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              widget.transferDirection,
-              textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Lexend Deca',
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
-            ),
-            AutoSizeText(
-              functions.formatCents(widget.totalCents),
-              textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Lexend Deca',
-                    fontWeight: FontWeight.w300,
-                  ),
-            ),
-            Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Lexend Deca',
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-            ),
-          ],
-        ),
-      ),
+      ],
     );
   }
 }
