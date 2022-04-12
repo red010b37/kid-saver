@@ -19,7 +19,7 @@ class BucketTransferItemWidget extends StatefulWidget {
   final String title;
   final int totalCents;
   final String type;
-  final int radius;
+  final double radius;
 
   @override
   _BucketTransferItemWidgetState createState() =>

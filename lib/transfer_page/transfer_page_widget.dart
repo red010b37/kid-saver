@@ -67,7 +67,7 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
                   custom_widgets.WrapBucketTransferItem(
                     width: 200,
                     height: 200,
-                    radius: 200,
+                    radius: 200.0,
                     bgColor: widget.fromBucketDocument.color,
                     title: widget.fromBucketDocument.name,
                     totalCents: widget.fromBucketDocument.totalCents,
