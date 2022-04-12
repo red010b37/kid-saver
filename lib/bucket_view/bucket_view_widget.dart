@@ -3,6 +3,7 @@ import '../create_edit_spendable_bucket/create_edit_spendable_bucket_widget.dart
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../transfer_page/transfer_page_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -154,8 +155,15 @@ class _BucketViewWidgetState extends State<BucketViewWidget> {
                               color: FlutterFlowTheme.of(context).tertiaryColor,
                               size: 30,
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TransferPageWidget(
+                                    fromBucketDocument: bucketViewBucketsRecord,
+                                  ),
+                                ),
+                              );
                             },
                           ),
                         ],

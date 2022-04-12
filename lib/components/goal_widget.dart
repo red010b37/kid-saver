@@ -34,13 +34,14 @@ class _GoalWidgetState extends State<GoalWidget> {
           Align(
             alignment: AlignmentDirectional(0, 0),
             child: CircularPercentIndicator(
-                percent: 0.8,
-                radius: 115,
-                lineWidth: 9,
-                animation: true,
-                progressColor: FlutterFlowTheme.of(context).secondaryColor,
-                backgroundColor: Color(0x2DFF2E63),
-                startAngle: 270),
+              percent: 0.8,
+              radius: 115,
+              lineWidth: 9,
+              animation: true,
+              progressColor: FlutterFlowTheme.of(context).secondaryColor,
+              backgroundColor: Color(0x2DFF2E63),
+              startAngle: 270,
+            ),
           ),
           Align(
             alignment: AlignmentDirectional(0, 0),

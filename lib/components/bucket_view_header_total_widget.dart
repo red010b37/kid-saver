@@ -142,6 +142,7 @@ class _BucketViewHeaderTotalWidgetState
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                   ),
+                  padding: EdgeInsets.zero,
                 ),
               ],
             ),
