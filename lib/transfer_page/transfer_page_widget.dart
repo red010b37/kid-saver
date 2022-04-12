@@ -51,7 +51,7 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   custom_widgets.WrapBucketTransferItem(
-                    radius: '100',
+                    radius: 100,
                     bgColor: widget.fromBucketDocument.color,
                     title: widget.fromBucketDocument.name,
                     totalCents: widget.fromBucketDocument.totalCents,

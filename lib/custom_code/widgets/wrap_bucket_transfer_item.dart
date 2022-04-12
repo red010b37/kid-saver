@@ -6,8 +6,10 @@ import 'index.dart'; // Imports other custom widgets
 import '../actions/index.dart'; // Imports custom actions
 import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
-
 // Begin custom widget code
+
+import 'package:kids_saver/components/bucket_transfer_item_widget.dart';
+
 class WrapBucketTransferItem extends StatefulWidget {
   const WrapBucketTransferItem({
     Key key,
@@ -22,7 +24,7 @@ class WrapBucketTransferItem extends StatefulWidget {
 
   final double width;
   final double height;
-  final String radius;
+  final int radius;
   final String bgColor;
   final String title;
   final int totalCents;
@@ -35,6 +37,15 @@ class WrapBucketTransferItem extends StatefulWidget {
 class _WrapBucketTransferItemState extends State<WrapBucketTransferItem> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    int value = int.parse(widget.bgColor);
+    Color color = Color(value).withOpacity(1);
+
+    return BucketTransferItemWidget(
+      title: widget.title,
+      type: widget.type,
+      totalCents: widget.totalCents,
+      radius: widget.radius,
+      bgColor: color,
+    );
   }
 }
