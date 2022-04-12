@@ -1,8 +1,8 @@
 import '../backend/backend.dart';
-import '../components/transfer_component_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -60,7 +60,10 @@ class _TransferPageWidgetState extends State<TransferPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              TransferComponentWidget(),
+              custom_widgets.TransferComponent(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 1,
+              ),
             ],
           ),
         ),
